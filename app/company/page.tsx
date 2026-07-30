@@ -50,6 +50,12 @@ export default function CompanyPage() {
         </div>
       </section>
 
+      <section className="heritage-film" aria-label="KH Wood heritage film">
+        <video autoPlay muted loop playsInline preload="metadata" poster="/assets/kh-yard-poster.jpg"><source src="/assets/kh-concept.mp4" type="video/mp4" /></video>
+        <div className="heritage-film-shade" />
+        <div className="heritage-film-copy" data-reveal="up"><span>Material in motion · KH heritage</span><h2>Handled by people.<br /><em>Carried by relationships.</em></h2><p>Wood has always moved through hands, places, and generations. That human continuity still shapes how KH Wood does business today.</p></div>
+      </section>
+
       <section className="sector-field" id="sectors">
         <div className="sector-field-head" data-reveal><p className="eyebrow">Enterprise client sectors</p><h2>Where dependable supply<br /><em>has to perform.</em></h2></div>
         <div className="sector-mosaic">

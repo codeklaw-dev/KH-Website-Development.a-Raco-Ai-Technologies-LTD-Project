@@ -1,18 +1,11 @@
 import { SiteShell } from "../components/SiteShell";
 import Link from "next/link";
+import { productRanges } from "./productData";
 
 export const metadata = {
   title: "Wood, Timber & Project Supply | KH Wood",
   description: "Explore KH Wood's commercial timber, panels, boards, construction wood, and bulk project supply capabilities in Iraq.",
 };
-
-const range = [
-  { n: "01", title: "Wood & timber", copy: "Hardwood and softwood for construction, manufacturing, fit-out, and commercial use.", image: "/assets/hardwood.jpg", tag: "Core range" },
-  { n: "02", title: "Panels & boards", copy: "Engineered panels and board products aligned to thickness, grade, finish, and volume.", image: "/assets/formwork.jpg", tag: "Specified supply" },
-  { n: "03", title: "Project materials", copy: "Construction-related wood products sourced around programme, application, and delivery needs.", image: "/assets/timber-bundles.jpg", tag: "Project ready" },
-  { n: "04", title: "Bulk requirements", copy: "Large-volume procurement with storage, staging, call-off, and dispatch coordination.", image: "/assets/yard-stock.jpg", tag: "High volume" },
-  { n: "05", title: "Agency representation", copy: "Exclusive distribution and franchise pathways for international wood and construction-material brands.", image: "/assets/logistics-truck.jpg", tag: "Market access" },
-];
 
 export default function ProductsPage() {
   return (
@@ -20,7 +13,7 @@ export default function ProductsPage() {
       <section className="products-hero inner-hero">
         <div className="products-hero-title"><p className="eyebrow hero-animate one">Products &amp; supply</p><h1 className="hero-animate two">The right stock.<br /><em>The right scale.</em></h1></div>
         <div className="products-hero-note hero-animate three"><span>For buyers &amp; project teams</span><p>Tell us what the material needs to do, how much you need, and where it needs to go. We&apos;ll build the supply route around the requirement.</p><Link href="/contact?type=supply">Request a quote ↗</Link></div>
-        <div className="products-hero-image hero-animate four"><img className="cover-image" src="/assets/hardwood.jpg" alt="Commercial hardwood bundles" fetchPriority="high" /></div>
+        <div className="products-hero-image hero-animate four"><img className="cover-image" src="/assets/timber-range.jpg" alt="Commercial timber, boards, and panels arranged for specification" fetchPriority="high" /></div>
       </section>
 
       <section className="catalogue-intro">
@@ -30,12 +23,12 @@ export default function ProductsPage() {
       </section>
 
       <section className="product-catalogue">
-        {range.map((item, index) => <Link className={`catalogue-card card-${index + 1}`} href="/contact?type=supply" key={item.title} data-reveal={index % 2 ? "right" : "left"}>
+        {productRanges.map((item, index) => <Link className={`catalogue-card card-${index + 1}`} href={`/products/${item.slug}`} key={item.title} data-reveal={index % 2 ? "right" : "left"}>
           <img className="cover-image" src={item.image} alt={item.title} loading="lazy" decoding="async" />
           <span className="catalogue-shade" />
           <span className="catalogue-number">{item.n}</span>
           <small>{item.tag}</small>
-          <div><h3>{item.title}</h3><p>{item.copy}</p><b>Enquire <i>↗</i></b></div>
+          <div><h3>{item.title}</h3><p>{item.copy}</p><b>Explore range <i>↗</i></b></div>
         </Link>)}
       </section>
 

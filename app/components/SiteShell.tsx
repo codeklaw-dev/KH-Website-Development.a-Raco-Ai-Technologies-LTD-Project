@@ -11,7 +11,7 @@ const navigation = [
   ["Operations", "/operations"],
 ] as const;
 
-export function SiteShell({ children, active }: { children: ReactNode; active?: string }) {
+export function SiteShell({ children, active, headerOnLight }: { children: ReactNode; active?: string; headerOnLight?: boolean }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -69,14 +69,16 @@ export function SiteShell({ children, active }: { children: ReactNode; active?: 
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
+  const lightOrigin = headerOnLight ?? (active === "company" || active === "products");
+
   return (
     <>
       <div className="site-grain" aria-hidden="true" />
       <a className="skip-link" href="#main-content">Skip to content</a>
       <div className="scroll-progress" aria-hidden="true"><span style={{ width: `${progress}%` }} /></div>
-      <header className={`site-header${scrolled ? " is-scrolled" : ""}${menuOpen ? " menu-active" : ""}${active === "company" || active === "products" ? " light-origin" : ""}`}>
+      <header className={`site-header${scrolled ? " is-scrolled" : ""}${menuOpen ? " menu-active" : ""}${lightOrigin ? " light-origin" : ""}`}>
         <Link href="/" className="brand" aria-label="KH Wood home">
-          <img src="/assets/kh-logo.png" alt="Khodeer Abbas & Partners Co." width={1088} height={245} fetchPriority="high" />
+          <img src="/assets/kh-logo-transparent.png" alt="Khodeer Abbas & Partners Co." width={1088} height={245} fetchPriority="high" />
         </Link>
         <nav className={`nav-links${menuOpen ? " is-open" : ""}`} aria-label="Main navigation">
           {navigation.map(([label, href]) => (
@@ -94,7 +96,7 @@ export function SiteShell({ children, active }: { children: ReactNode; active?: 
       <footer className="site-footer">
         <div className="footer-lead">
           <div className="footer-brand">
-            <img src="/assets/kh-logo.png" alt="Khodeer Abbas & Partners Co." width={1088} height={245} loading="lazy" decoding="async" />
+            <img src="/assets/kh-logo-transparent.png" alt="Khodeer Abbas & Partners Co." width={1088} height={245} loading="lazy" decoding="async" />
             <p>Family-led wood supply and market access, built around the realities of Iraq.</p>
           </div>
           <Link className="footer-enquiry" href="/contact"><small>Have a requirement?</small><span>Let&apos;s move it forward <i>↗</i></span></Link>
@@ -116,11 +118,18 @@ export function SiteShell({ children, active }: { children: ReactNode; active?: 
 export function ContactForm({ compact = false }: { compact?: boolean }) {
   const [status, setStatus] = useState("");
   const inquiryRef = useRef<HTMLSelectElement>(null);
+  const messageRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
-    const type = new URLSearchParams(window.location.search).get("type");
+    const search = new URLSearchParams(window.location.search);
+    const type = search.get("type");
+    const product = search.get("product");
     if (inquiryRef.current) {
       inquiryRef.current.value = type === "partner" ? "International partnership" : type === "supply" ? "Product supply" : "";
+    }
+    if (product && messageRef.current) {
+      const label = product.split("-").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+      messageRef.current.value = `Product range: ${label}\n\n`;
     }
   }, []);
 
@@ -157,7 +166,7 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
         <label><span>Country *</span><input name="country" autoComplete="country-name" required placeholder="Country" /></label>
         <label><span>I&apos;m interested in *</span><select ref={inquiryRef} name="inquiry" defaultValue="" required><option value="" disabled>Select one</option><option>Product supply</option><option>Project requirement</option><option>International partnership</option><option>Agency representation</option><option>General enquiry</option></select></label>
       </div>
-      <label><span>Tell us what you need *</span><textarea name="message" rows={compact ? 3 : 5} required placeholder="Product, volume, project location, timeline, or partnership opportunity…" /></label>
+      <label><span>Tell us what you need *</span><textarea ref={messageRef} name="message" rows={compact ? 3 : 5} required placeholder="Product, volume, project location, timeline, or partnership opportunity…" /></label>
       <div className="form-action"><p>We&apos;ll route your enquiry to the right commercial contact.</p><button className="button button-white" type="submit">Send enquiry <span>↗</span></button></div>
       <p className="form-status" aria-live="polite">{status}</p>
     </form>
