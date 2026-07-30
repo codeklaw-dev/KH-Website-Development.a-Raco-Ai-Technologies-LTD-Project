@@ -1,5 +1,6 @@
 import { SiteShell } from "../components/SiteShell";
 import Image from "next/image";
+import Link from "next/link";
 
 export const metadata = {
   title: "Enter the Iraqi Market | KH Wood Partnerships",
@@ -11,7 +12,7 @@ export default function PartnersPage() {
     <SiteShell active="partners">
       <section className="partners-hero inner-hero">
         <div className="partner-coordinate hero-animate one"><span>33.3152° N</span><i>44.3661° E</i></div>
-        <div className="partners-hero-copy"><p className="eyebrow hero-animate one">For international manufacturers</p><h1 className="hero-animate two">Your route into<br /><em>the Iraqi market.</em></h1><p className="hero-animate three">Local representation, market knowledge, supply infrastructure, and commercial relationships—working as one route to growth.</p><a className="button button-red hero-animate four" href="/contact?type=partner">Discuss a partnership <span>↗</span></a></div>
+        <div className="partners-hero-copy"><p className="eyebrow hero-animate one">For international manufacturers</p><h1 className="hero-animate two">Your route into<br /><em>the Iraqi market.</em></h1><p className="hero-animate three">Local representation, market knowledge, supply infrastructure, and commercial relationships—working as one route to growth.</p><Link className="button button-red hero-animate four" href="/contact?type=partner">Discuss a partnership <span>↗</span></Link></div>
         <div className="partner-orbit" aria-hidden="true"><span /><span /><span /><b>IRQ</b></div>
       </section>
 
@@ -90,7 +91,7 @@ export default function PartnersPage() {
 
       <section className="partnership-fit">
         <div data-reveal="left"><p className="eyebrow">A good fit starts here</p><h2>Tell us your product,<br />market ambition,<br /><em>and preferred model.</em></h2></div>
-        <div data-reveal="right"><p>We&apos;ll assess market relevance, operating requirements, and where KH Wood can add genuine value.</p><a className="button button-white" href="/contact?type=partner">Start the conversation <span>↗</span></a></div>
+        <div data-reveal="right"><p>We&apos;ll assess market relevance, operating requirements, and where KH Wood can add genuine value.</p><Link className="button button-white" href="/contact?type=partner">Start the conversation <span>↗</span></Link></div>
       </section>
     </SiteShell>
   );

@@ -1,5 +1,6 @@
 import { SiteShell } from "./components/SiteShell";
 import Image from "next/image";
+import Link from "next/link";
 
 export const metadata = {
   title: "KH Wood | Wood Supply & Market Access in Iraq",
@@ -17,8 +18,8 @@ export default function Home() {
           <h1 className="hero-animate two">Wood moves<br /><em>business forward.</em></h1>
           <p className="hero-intro hero-animate three">A dependable supply partner for Iraqi projects—and a credible route into Iraq for international manufacturers.</p>
           <div className="hero-actions hero-animate four">
-            <a className="button button-red" href="/products">I need materials <span>↗</span></a>
-            <a className="button button-ghost" href="/partners">I want to enter Iraq <span>↗</span></a>
+            <Link className="button button-red" href="/products">I need materials <span>↗</span></Link>
+            <Link className="button button-ghost" href="/partners">I want to enter Iraq <span>↗</span></Link>
           </div>
         </div>
         <div className="hero-marker"><span>KH / 01</span><p>Supply · Distribution<br />Market access</p></div>
@@ -31,16 +32,16 @@ export default function Home() {
           <h2>What brings you<br /><em>to KH Wood?</em></h2>
         </div>
         <div className="decision-cards">
-          <a href="/products" className="decision-card buyer" data-reveal="left">
+          <Link href="/products" className="decision-card buyer" data-reveal="left">
             <span className="card-index">01 / Buyers &amp; projects</span>
             <div><h3>Source the right materials.</h3><p>Explore timber, panels, construction wood, and bulk project supply.</p></div>
             <b>View products <i>↗</i></b>
-          </a>
-          <a href="/partners" className="decision-card partner" data-reveal="right">
+          </Link>
+          <Link href="/partners" className="decision-card partner" data-reveal="right">
             <span className="card-index">02 / Global manufacturers</span>
             <div><h3>Build your route into Iraq.</h3><p>Understand our representation, import, stocking, and market-development model.</p></div>
             <b>Explore partnerships <i>↗</i></b>
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -48,7 +49,7 @@ export default function Home() {
         <div data-reveal><strong>30+</strong><span>Years of family<br />leadership experience</span></div>
         <div data-reveal><strong>27</strong><span>Acres of storage<br />and staging space</span></div>
         <div data-reveal><strong>3</strong><span>Offices across<br />Iraq and Jordan</span></div>
-        <a href="/company" data-reveal><small>Why companies choose KH Wood</small><b>Meet the company <i>↗</i></b></a>
+        <Link href="/company" data-reveal><small>Why companies choose KH Wood</small><b>Meet the company <i>↗</i></b></Link>
       </section>
 
       <section className="home-story">
@@ -57,7 +58,7 @@ export default function Home() {
           <p className="eyebrow">Heritage with momentum</p>
           <h2>Family values.<br /><em>Commercial discipline.</em></h2>
           <p>KH Wood grew from carpentry roots into a modern supply and distribution business. The values stayed the same: accountability, hospitality, adaptability, and relationships built to last.</p>
-          <a className="text-link" href="/company">Read our story <span>↗</span></a>
+          <Link className="text-link" href="/company">Read our story <span>↗</span></Link>
         </div>
       </section>
 
@@ -65,7 +66,7 @@ export default function Home() {
         <div className="capability-title" data-reveal><p className="eyebrow">Visible capacity</p><h2>Built to stock.<br />Ready to supply.</h2></div>
         <div className="capability-visual" data-reveal="scale">
           <Image src="/assets/yard-loading.jpg" alt="Forklift moving packaged wood at a KH Wood facility" fill sizes="(max-width: 560px) 100vw, 88vw" />
-          <a href="/operations"><span>See how we operate</span><i>↗</i></a>
+          <Link href="/operations"><span>See how we operate</span><i>↗</i></Link>
         </div>
         <div className="capability-list" data-reveal>
           <p>Inventory readiness</p><p>Staging and handling</p><p>Import coordination</p><p>Project dispatch</p>
@@ -75,7 +76,7 @@ export default function Home() {
       <section className="home-cta" data-reveal="up">
         <p className="eyebrow">Your next move</p>
         <h2>Tell us what you&apos;re<br /><em>working towards.</em></h2>
-        <a className="button button-black" href="/contact">Start a commercial conversation <span>↗</span></a>
+        <Link className="button button-black" href="/contact">Start a commercial conversation <span>↗</span></Link>
       </section>
     </SiteShell>
   );

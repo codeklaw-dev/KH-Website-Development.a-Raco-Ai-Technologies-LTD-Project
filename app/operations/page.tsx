@@ -1,5 +1,6 @@
 import { SiteShell } from "../components/SiteShell";
 import Image from "next/image";
+import Link from "next/link";
 
 export const metadata = {
   title: "Storage, Handling & Distribution | KH Wood Operations",
@@ -38,7 +39,7 @@ export default function OperationsPage() {
       </section>
 
       <section className="control-system" id="controls">
-        <div className="control-system-copy" data-reveal="left"><p className="eyebrow">Practical supply control</p><h2>Visibility at<br /><em>every handover.</em></h2><p>KH Wood&apos;s process is designed to keep commercial teams informed and requirements aligned as materials move through the operation.</p><a className="text-link" href="/contact?type=supply">Plan a requirement <span>↗</span></a></div>
+        <div className="control-system-copy" data-reveal="left"><p className="eyebrow">Practical supply control</p><h2>Visibility at<br /><em>every handover.</em></h2><p>KH Wood&apos;s process is designed to keep commercial teams informed and requirements aligned as materials move through the operation.</p><Link className="text-link" href="/contact?type=supply">Plan a requirement <span>↗</span></Link></div>
         <div className="control-system-grid">
           {[['Requirement review','Confirm product, volume, destination, and timing before coordination begins.'],['Availability alignment','Match the request to current stock, sourcing route, and practical lead time.'],['Staging visibility','Prepare loads around the agreed requirement and dispatch sequence.'],['Communication','Keep the commercial contact informed as the supply plan moves forward.']].map(([title,text],index)=><article key={title} data-reveal="right"><span>0{index+1}</span><h3>{title}</h3><p>{text}</p></article>)}
         </div>
@@ -67,7 +68,7 @@ export default function OperationsPage() {
         <div className="question-list"><details data-reveal><summary>What does the 27-acre footprint support?<span>+</span></summary><p>It supports high-volume stockholding, material organisation, staging, handling, and coordinated dispatch for commercial and project requirements.</p></details><details data-reveal><summary>Can supply be organised around project phases?<span>+</span></summary><p>Share the expected quantity, site, timing, and call-off pattern. KH Wood can assess a practical staging and dispatch plan around those requirements.</p></details><details data-reveal><summary>Does KH Wood manage imported products?<span>+</span></summary><p>Import and distribution coordination is part of the company&apos;s service model, especially for approved international manufacturer partnerships.</p></details><details data-reveal><summary>How should urgent requirements be raised?<span>+</span></summary><p>Use WhatsApp or the contact form with the product, volume, destination, and required date clearly stated. Availability and feasibility must be confirmed by the team.</p></details></div>
       </section>
 
-      <section className="ops-close"><div data-reveal><p className="eyebrow">Plan the requirement</p><h2>Volume, timing,<br /><em>destination.</em></h2></div><p data-reveal>Bring us the operating realities of the project. We&apos;ll help shape a practical supply plan around them.</p><a className="button button-red" href="/contact?type=supply">Discuss supply logistics <span>↗</span></a></section>
+      <section className="ops-close"><div data-reveal><p className="eyebrow">Plan the requirement</p><h2>Volume, timing,<br /><em>destination.</em></h2></div><p data-reveal>Bring us the operating realities of the project. We&apos;ll help shape a practical supply plan around them.</p><Link className="button button-red" href="/contact?type=supply">Discuss supply logistics <span>↗</span></Link></section>
     </SiteShell>
   );
 }

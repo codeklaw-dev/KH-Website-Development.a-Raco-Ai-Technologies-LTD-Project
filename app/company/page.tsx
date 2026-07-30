@@ -1,5 +1,6 @@
 import { SiteShell } from "../components/SiteShell";
 import Image from "next/image";
+import Link from "next/link";
 
 export const metadata = {
   title: "Our Company | KH Wood",
@@ -63,7 +64,7 @@ export default function CompanyPage() {
       <section className="mission-statement">
         <Image src="/assets/imported-timber.jpg" alt="Timber structure representing KH Wood's mission" fill sizes="100vw" />
         <div className="mission-shade" />
-        <div data-reveal="up"><p className="eyebrow">Our mission</p><blockquote>“To connect Iraq&apos;s wood, construction, and infrastructure markets with reliable supply, trusted family leadership, and long-term international partnerships.”</blockquote><a className="button button-red" href="/partners">Explore partnership opportunities <span>↗</span></a></div>
+        <div data-reveal="up"><p className="eyebrow">Our mission</p><blockquote>“To connect Iraq&apos;s wood, construction, and infrastructure markets with reliable supply, trusted family leadership, and long-term international partnerships.”</blockquote><Link className="button button-red" href="/partners">Explore partnership opportunities <span>↗</span></Link></div>
       </section>
 
       <section className="values-band" id="values">
@@ -82,12 +83,12 @@ export default function CompanyPage() {
 
       <section className="footprint" id="locations">
         <div className="footprint-map" aria-hidden="true" data-reveal="scale"><span className="map-line one" /><span className="map-line two" /><b className="dot baghdad">Baghdad</b><b className="dot basra">Basra</b><b className="dot amman">Amman</b><strong>IRQ<br /><i>↔</i><br />JOR</strong></div>
-        <div className="footprint-copy" data-reveal="right"><p className="eyebrow">Our footprint</p><h2>Local presence.<br /><em>Regional reach.</em></h2><div className="office-list"><p><span>Baghdad</span>Al-Basatin area, Iraq</p><p><span>Basra</span>Al-Istiqlal Street / Al-Ashar, Iraq</p><p><span>Amman</span>Gardens / Wasfi Al-Tal corridor, Jordan</p></div><a className="text-link" href="/contact">Contact an office <span>↗</span></a></div>
+        <div className="footprint-copy" data-reveal="right"><p className="eyebrow">Our footprint</p><h2>Local presence.<br /><em>Regional reach.</em></h2><div className="office-list"><p><span>Baghdad</span>Al-Basatin area, Iraq</p><p><span>Basra</span>Al-Istiqlal Street / Al-Ashar, Iraq</p><p><span>Amman</span>Gardens / Wasfi Al-Tal corridor, Jordan</p></div><Link className="text-link" href="/contact">Contact an office <span>↗</span></Link></div>
       </section>
 
       <section className="company-commitment">
         <div className="commitment-mark" data-reveal="scale"><span>KH</span><small>What the name stands for</small></div>
-        <div className="commitment-copy" data-reveal="right"><p className="eyebrow">A long-term operating standard</p><h2>Reputation is built<br /><em>shipment by shipment.</em></h2><p>KH Wood&apos;s family name is attached to every commercial relationship. That creates a simple expectation: be clear about what is possible, remain accountable for the agreed process, and build business that can last.</p><div className="commitment-points"><span>Direct senior involvement</span><span>Commercial transparency</span><span>Respect for local context</span><span>Long-term partner thinking</span></div><a className="button button-red" href="/contact">Speak with KH Wood <b>↗</b></a></div>
+        <div className="commitment-copy" data-reveal="right"><p className="eyebrow">A long-term operating standard</p><h2>Reputation is built<br /><em>shipment by shipment.</em></h2><p>KH Wood&apos;s family name is attached to every commercial relationship. That creates a simple expectation: be clear about what is possible, remain accountable for the agreed process, and build business that can last.</p><div className="commitment-points"><span>Direct senior involvement</span><span>Commercial transparency</span><span>Respect for local context</span><span>Long-term partner thinking</span></div><Link className="button button-red" href="/contact">Speak with KH Wood <b>↗</b></Link></div>
       </section>
     </SiteShell>
   );

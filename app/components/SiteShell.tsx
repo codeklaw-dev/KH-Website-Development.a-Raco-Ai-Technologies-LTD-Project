@@ -1,8 +1,9 @@
 "use client";
 
-import { FormEvent, ReactNode, useEffect, useState } from "react";
+import { FormEvent, ReactNode, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navigation = [
   ["Company", "/company"],
@@ -15,6 +16,7 @@ export function SiteShell({ children, active }: { children: ReactNode; active?: 
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [progress, setProgress] = useState(0);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,15 +35,35 @@ export function SiteShell({ children, active }: { children: ReactNode; active?: 
       { threshold: 0.12, rootMargin: "0px 0px -48px" },
     );
 
-    document.querySelectorAll("[data-reveal]").forEach((node) => observer.observe(node));
+    const prepareReveal = (node: Element) => {
+      if (node.classList.contains("is-visible") || node.classList.contains("reveal-ready")) return;
+      const rect = node.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.94) {
+        node.classList.add("is-visible");
+        return;
+      }
+      node.classList.add("reveal-ready");
+      observer.observe(node);
+    };
+
+    document.querySelectorAll("[data-reveal]").forEach(prepareReveal);
+    const mutationObserver = new MutationObserver((records) => {
+      records.forEach((record) => record.addedNodes.forEach((node) => {
+        if (!(node instanceof Element)) return;
+        if (node.matches("[data-reveal]")) prepareReveal(node);
+        node.querySelectorAll("[data-reveal]").forEach(prepareReveal);
+      }));
+    });
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
 
     return () => {
       observer.disconnect();
+      mutationObserver.disconnect();
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [pathname]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -76,11 +98,11 @@ export function SiteShell({ children, active }: { children: ReactNode; active?: 
             <Image src="/assets/kh-logo.png" alt="Khodeer Abbas & Partners Co." width={1088} height={245} />
             <p>Family-led wood supply and market access, built around the realities of Iraq.</p>
           </div>
-          <a className="footer-enquiry" href="/contact"><small>Have a requirement?</small><span>Let&apos;s move it forward <i>↗</i></span></a>
+          <Link className="footer-enquiry" href="/contact"><small>Have a requirement?</small><span>Let&apos;s move it forward <i>↗</i></span></Link>
         </div>
         <div className="footer-columns">
-          <div><span>Explore</span><a href="/company">Our company</a><a href="/products">Products</a><a href="/operations">Operations</a></div>
-          <div><span>Work with us</span><a href="/partners">Enter the Iraqi market</a><a href="/contact?type=supply">Request product supply</a><a href="/contact?type=partner">Discuss representation</a></div>
+          <div><span>Explore</span><Link href="/company">Our company</Link><Link href="/products">Products</Link><Link href="/operations">Operations</Link></div>
+          <div><span>Work with us</span><Link href="/partners">Enter the Iraqi market</Link><Link href="/contact?type=supply">Request product supply</Link><Link href="/contact?type=partner">Discuss representation</Link></div>
           <div><span>Contact</span><a href="mailto:info@khodeer.com">info@khodeer.com</a><a href="https://wa.me/962795185588" target="_blank" rel="noreferrer">WhatsApp +962 79 518 5588</a></div>
           <div><span>Locations</span><p>Baghdad · Iraq</p><p>Basra · Iraq</p><p>Amman · Jordan</p></div>
         </div>
@@ -94,6 +116,14 @@ export function SiteShell({ children, active }: { children: ReactNode; active?: 
 
 export function ContactForm({ compact = false }: { compact?: boolean }) {
   const [status, setStatus] = useState("");
+  const inquiryRef = useRef<HTMLSelectElement>(null);
+
+  useEffect(() => {
+    const type = new URLSearchParams(window.location.search).get("type");
+    if (inquiryRef.current) {
+      inquiryRef.current.value = type === "partner" ? "International partnership" : type === "supply" ? "Product supply" : "";
+    }
+  }, []);
 
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -126,7 +156,7 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
       </div>
       <div className="field-row">
         <label><span>Country *</span><input name="country" autoComplete="country-name" required placeholder="Country" /></label>
-        <label><span>I&apos;m interested in *</span><select name="inquiry" defaultValue="" required><option value="" disabled>Select one</option><option>Product supply</option><option>Project requirement</option><option>International partnership</option><option>Agency representation</option><option>General enquiry</option></select></label>
+        <label><span>I&apos;m interested in *</span><select ref={inquiryRef} name="inquiry" defaultValue="" required><option value="" disabled>Select one</option><option>Product supply</option><option>Project requirement</option><option>International partnership</option><option>Agency representation</option><option>General enquiry</option></select></label>
       </div>
       <label><span>Tell us what you need *</span><textarea name="message" rows={compact ? 3 : 5} required placeholder="Product, volume, project location, timeline, or partnership opportunity…" /></label>
       <div className="form-action"><p>We&apos;ll route your enquiry to the right commercial contact.</p><button className="button button-white" type="submit">Send enquiry <span>↗</span></button></div>

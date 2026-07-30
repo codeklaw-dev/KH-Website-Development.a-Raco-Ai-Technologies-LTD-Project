@@ -1,5 +1,6 @@
 import { SiteShell } from "../components/SiteShell";
 import Image from "next/image";
+import Link from "next/link";
 
 export const metadata = {
   title: "Wood, Timber & Project Supply | KH Wood",
@@ -19,7 +20,7 @@ export default function ProductsPage() {
     <SiteShell active="products">
       <section className="products-hero inner-hero">
         <div className="products-hero-title"><p className="eyebrow hero-animate one">Products &amp; supply</p><h1 className="hero-animate two">The right stock.<br /><em>The right scale.</em></h1></div>
-        <div className="products-hero-note hero-animate three"><span>For buyers &amp; project teams</span><p>Tell us what the material needs to do, how much you need, and where it needs to go. We&apos;ll build the supply route around the requirement.</p><a href="/contact?type=supply">Request a quote ↗</a></div>
+        <div className="products-hero-note hero-animate three"><span>For buyers &amp; project teams</span><p>Tell us what the material needs to do, how much you need, and where it needs to go. We&apos;ll build the supply route around the requirement.</p><Link href="/contact?type=supply">Request a quote ↗</Link></div>
         <div className="products-hero-image hero-animate four"><Image src="/assets/hardwood.jpg" alt="Commercial hardwood bundles" fill priority sizes="100vw" /></div>
       </section>
 
@@ -30,13 +31,13 @@ export default function ProductsPage() {
       </section>
 
       <section className="product-catalogue">
-        {range.map((item, index) => <a className={`catalogue-card card-${index + 1}`} href="/contact?type=supply" key={item.title} data-reveal={index % 2 ? "right" : "left"}>
+        {range.map((item, index) => <Link className={`catalogue-card card-${index + 1}`} href="/contact?type=supply" key={item.title} data-reveal={index % 2 ? "right" : "left"}>
           <Image src={item.image} alt={item.title} fill sizes={index === 0 ? "(max-width: 820px) 100vw, 58vw" : "(max-width: 820px) 100vw, 42vw"} />
           <span className="catalogue-shade" />
           <span className="catalogue-number">{item.n}</span>
           <small>{item.tag}</small>
           <div><h3>{item.title}</h3><p>{item.copy}</p><b>Enquire <i>↗</i></b></div>
-        </a>)}
+        </Link>)}
       </section>
 
       <section className="material-marquee" aria-label="KH Wood supply capabilities"><div><span>Timber supply</span><i>◆</i><span>Panel products</span><i>◆</i><span>Project materials</span><i>◆</i><span>Bulk supply</span><i>◆</i><span>Market representation</span><i>◆</i></div></section>
@@ -73,7 +74,7 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      <section className="product-cta"><div data-reveal><p className="eyebrow">Have a specification?</p><h2>Send the requirement.<br />We&apos;ll take it from there.</h2></div><a className="button button-red" href="/contact?type=supply">Request product supply <span>↗</span></a></section>
+      <section className="product-cta"><div data-reveal><p className="eyebrow">Have a specification?</p><h2>Send the requirement.<br />We&apos;ll take it from there.</h2></div><Link className="button button-red" href="/contact?type=supply">Request product supply <span>↗</span></Link></section>
     </SiteShell>
   );
 }
