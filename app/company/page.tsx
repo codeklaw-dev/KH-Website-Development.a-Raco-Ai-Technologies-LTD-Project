@@ -25,16 +25,49 @@ export default function CompanyPage() {
         <div className="company-monogram" aria-hidden="true">KH</div>
       </section>
 
+      <section className="company-proof" aria-label="Company highlights">
+        <div data-reveal><strong>27</strong><p>Acres of storage capacity maintained for high-volume readiness</p></div>
+        <div data-reveal><strong>50+</strong><p>Countries across the company&apos;s international market network</p></div>
+        <div data-reveal><strong>3</strong><p>Senior co-founders with complementary regional expertise</p></div>
+        <div data-reveal><span>IRQ</span><i>↔</i><span>JOR</span><p>A connected presence across Iraq and Jordan</p></div>
+      </section>
+
       <section className="origin-story">
         <aside data-reveal="left"><span>01</span><p>Where it began</p></aside>
         <div className="origin-copy" data-reveal="up"><p className="eyebrow">A craft became a company</p><h2>Rooted in making.<br /><em>Grown through trust.</em></h2><p className="large-copy">Founded by Khodeer Abbas Turki, the business carries forward the Al-Gburi family&apos;s culture of hospitality, responsibility, and commercial relationships that stand the test of time.</p></div>
         <div className="origin-detail" data-reveal="right"><p>The company evolved with the Iraqi market—from hands-on carpentry roots to large-scale importing, stockholding, distribution, and representation.</p><p>Today, a new generation combines that heritage with international supplier relationships and modern operational discipline.</p></div>
       </section>
 
+      <section className="company-evolution">
+        <div className="evolution-head" data-reveal="left"><p className="eyebrow">The KH Wood journey</p><h2>Craft became<br /><em>capacity.</em></h2><p>The company&apos;s growth has never been a break from its origins. Each stage added scale while preserving family accountability.</p></div>
+        <div className="evolution-track">
+          <article data-reveal="right"><time>Origin</time><div><h3>Carpentry roots</h3><p>First-hand understanding of wood, workmanship, and the expectations of local customers.</p></div></article>
+          <article data-reveal="right"><time>Expansion</time><div><h3>Supplier relationships</h3><p>Long-term connections across Asian and European markets broadened product access.</p></div></article>
+          <article data-reveal="right"><time>Scale</time><div><h3>National supply</h3><p>Storage, staging, and distribution grew to support larger commercial and infrastructure needs.</p></div></article>
+          <article data-reveal="right"><time>Today</time><div><h3>International market partner</h3><p>KH Wood now connects global manufacturers with practical, locally led access to Iraq.</p></div></article>
+        </div>
+      </section>
+
+      <section className="sector-field">
+        <div className="sector-field-head" data-reveal><p className="eyebrow">Enterprise client sectors</p><h2>Where dependable supply<br /><em>has to perform.</em></h2></div>
+        <div className="sector-mosaic">
+          <article className="sector-large" data-reveal="left"><Image src="/assets/logistics-truck.jpg" alt="KH Wood truck supporting large-scale supply" fill sizes="(max-width: 820px) 100vw, 60vw" /><div><span>Infrastructure</span><h3>Bridges, roads &amp; public works</h3><p>High-volume requirements coordinated around programme and destination.</p></div></article>
+          <article data-reveal="up"><Image src="/assets/formwork.jpg" alt="Construction wood materials" fill sizes="(max-width: 820px) 100vw, 40vw" /><div><span>Built environment</span><h3>Residential &amp; commercial construction</h3></div></article>
+          <article data-reveal="right"><Image src="/assets/pallet-stacks.jpg" alt="Stock for industrial use" fill sizes="(max-width: 820px) 100vw, 40vw" /><div><span>Industry</span><h3>Manufacturing &amp; facility supply</h3></div></article>
+          <article className="sector-text" data-reveal="right"><span>Public procurement</span><h3>Structured supply for institutional requirements.</h3><p>KH Wood supports serious commercial conversations without unsupported monopoly or dominance claims.</p></article>
+        </div>
+      </section>
+
+      <section className="mission-statement">
+        <Image src="/assets/imported-timber.jpg" alt="Timber structure representing KH Wood's mission" fill sizes="100vw" />
+        <div className="mission-shade" />
+        <div data-reveal="up"><p className="eyebrow">Our mission</p><blockquote>“To connect Iraq&apos;s wood, construction, and infrastructure markets with reliable supply, trusted family leadership, and long-term international partnerships.”</blockquote><a className="button button-red" href="/partners">Explore partnership opportunities <span>↗</span></a></div>
+      </section>
+
       <section className="values-band">
         <div className="values-heading" data-reveal><p className="eyebrow">How we work</p><h2>Four values.<br />One standard.</h2></div>
         <div className="value-stack">
-          {[['01','Accountability','We take ownership of the detail—from agreement through delivery.'],['02','Hospitality','Commercial relationships are human relationships, treated with care and respect.'],['03','Adaptability','We respond to changing specifications, markets, and project realities.'],['04','Continuity','We build partnerships for the long term, not for the next transaction.']].map(([number,title,text], index) => <article key={title} data-reveal style={{transitionDelay:`${index*60}ms`}}><span>{number}</span><h3>{title}</h3><p>{text}</p></article>)}
+          {[['01','Trust','We do what we say and communicate clearly when conditions change.'],['02','Adaptability','We respond to changing specifications, markets, and project realities.'],['03','Balance','We align commercial ambition with responsible, practical execution.'],['04','Community','We recognise our responsibility to the markets and people around us.'],['05','Continuous improvement','Every shipment and partnership should make the next one stronger.'],['06','Cost consciousness','Value is protected through disciplined sourcing and operational choices.'],['07','Creative solutions','Complex requirements deserve thoughtful, workable answers.'],['08','Customer focus','The requirement—not the catalogue—shapes the supply response.'],['09','Excellence','We hold the commercial detail to a consistently high standard.'],['10','Social responsibility','Long-term business depends on responsible decisions and conduct.'],['11','Transparency','Clear expectations and honest information build durable relationships.']].map(([number,title,text], index) => <article key={title} data-reveal style={{transitionDelay:`${(index%4)*45}ms`}}><span>{number}</span><h3>{title}</h3><p>{text}</p></article>)}
         </div>
       </section>
 

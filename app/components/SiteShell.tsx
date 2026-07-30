@@ -50,6 +50,7 @@ export function SiteShell({ children, active }: { children: ReactNode; active?: 
 
   return (
     <>
+      <div className="site-grain" aria-hidden="true" />
       <a className="skip-link" href="#main-content">Skip to content</a>
       <div className="scroll-progress" aria-hidden="true"><span style={{ width: `${progress}%` }} /></div>
       <header className={`site-header${scrolled ? " is-scrolled" : ""}${menuOpen ? " menu-active" : ""}${active === "company" || active === "products" ? " light-origin" : ""}`}>

@@ -11,6 +11,7 @@ const range = [
   { n: "02", title: "Panels & boards", copy: "Engineered panels and board products aligned to thickness, grade, finish, and volume.", image: "/assets/formwork.jpg", tag: "Specified supply" },
   { n: "03", title: "Project materials", copy: "Construction-related wood products sourced around programme, application, and delivery needs.", image: "/assets/timber-bundles.jpg", tag: "Project ready" },
   { n: "04", title: "Bulk requirements", copy: "Large-volume procurement with storage, staging, call-off, and dispatch coordination.", image: "/assets/yard-stock.jpg", tag: "High volume" },
+  { n: "05", title: "Agency representation", copy: "Exclusive distribution and franchise pathways for international wood and construction-material brands.", image: "/assets/logistics-truck.jpg", tag: "Market access" },
 ];
 
 export default function ProductsPage() {
@@ -38,6 +39,20 @@ export default function ProductsPage() {
         </a>)}
       </section>
 
+      <section className="material-marquee" aria-label="KH Wood supply capabilities"><div><span>Timber supply</span><i>◆</i><span>Panel products</span><i>◆</i><span>Project materials</span><i>◆</i><span>Bulk supply</span><i>◆</i><span>Market representation</span><i>◆</i></div></section>
+
+      <section className="service-ledger">
+        <div className="service-ledger-head" data-reveal="left"><p className="eyebrow">Comprehensive services</p><h2>More than stock<br /><em>on the ground.</em></h2><p>Our commercial role connects sourcing, market access, inventory, and project execution.</p></div>
+        <div className="service-ledger-list">
+          {[['Agency & franchise representation','Managing exclusive international partnerships and building a credible local market presence.','Representation'],['Import coordination','Supporting the practical movement of products into Iraq and aligning supply with demand.','Coordination'],['Bulk storage readiness','Maintaining space and handling capacity for continuity and high-volume response.','Capacity'],['Project supply support','Shaping material supply around programme, site, quantity, and delivery requirements.','Projects'],['Market-entry support','Helping international manufacturers understand opportunity, operating realities, and route to market.','Growth']].map(([title,text,label],index)=><article key={title} data-reveal="right"><span>0{index+1}</span><div><small>{label}</small><h3>{title}</h3><p>{text}</p></div><i>↗</i></article>)}
+        </div>
+      </section>
+
+      <section className="application-field">
+        <div className="application-image" data-reveal="left"><Image src="/assets/timber-bundles.jpg" alt="Timber bundles prepared for commercial applications" fill sizes="(max-width: 820px) 100vw, 52vw" /><div><span>From stock to site</span><strong>One supply partner.<br />Multiple applications.</strong></div></div>
+        <div className="application-copy" data-reveal="right"><p className="eyebrow">Where our materials work</p><h2>Specified for<br /><em>real demand.</em></h2><ul><li><span>01</span>Construction &amp; civil works</li><li><span>02</span>Manufacturing &amp; industrial use</li><li><span>03</span>Residential &amp; commercial fit-out</li><li><span>04</span>Public and infrastructure procurement</li><li><span>05</span>Wholesale and recurring supply</li></ul></div>
+      </section>
+
       <section className="supply-method">
         <div className="method-title" data-reveal="left"><p className="eyebrow">A clearer enquiry</p><h2>Four details help us<br /><em>move faster.</em></h2></div>
         <ol className="method-steps">
@@ -46,6 +61,16 @@ export default function ProductsPage() {
           <li data-reveal><span>03</span><div><b>Volume</b><p>Required quantity and expected call-off pattern.</p></div></li>
           <li data-reveal><span>04</span><div><b>Destination</b><p>Project location and target delivery window.</p></div></li>
         </ol>
+      </section>
+
+      <section className="product-questions">
+        <div data-reveal="left"><p className="eyebrow">Before you enquire</p><h2>Useful answers for<br /><em>serious buyers.</em></h2></div>
+        <div className="question-list">
+          <details data-reveal><summary>Can KH Wood support large-volume project requirements?<span>+</span></summary><p>Yes. The company&apos;s stated 27-acre storage footprint is designed to support high-volume stockholding, staging, and coordinated supply.</p></details>
+          <details data-reveal><summary>Can you source around a specification?<span>+</span></summary><p>Share the application, species or product type, dimensions, grade, volume, and destination. The team will assess the most practical supply response.</p></details>
+          <details data-reveal><summary>Do you only supply wood?<span>+</span></summary><p>KH Wood focuses on timber, panels, boards, construction-related wood materials, and selected international representation opportunities.</p></details>
+          <details data-reveal><summary>What information helps with pricing?<span>+</span></summary><p>Quantity, specification, target delivery date, project location, and any required call-off schedule help the team evaluate the requirement efficiently.</p></details>
+        </div>
       </section>
 
       <section className="product-cta"><div data-reveal><p className="eyebrow">Have a specification?</p><h2>Send the requirement.<br />We&apos;ll take it from there.</h2></div><a className="button button-red" href="/contact?type=supply">Request product supply <span>↗</span></a></section>
