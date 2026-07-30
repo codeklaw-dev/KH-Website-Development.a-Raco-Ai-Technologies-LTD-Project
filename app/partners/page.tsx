@@ -15,26 +15,28 @@ export default function PartnersPage() {
         <div className="partner-orbit" aria-hidden="true"><span /><span /><span /><b>IRQ</b></div>
       </section>
 
+      <nav className="page-rail page-rail-dark" aria-label="Partners page sections"><span>Partner pathway</span><a href="#network">Who we work with</a><a href="#route">Market-entry route</a><a href="#models">Partnership models</a><a href="#facilities">Facilities</a><a href="#fit">Partnership fit</a></nav>
+
       <section className="market-case">
         <div className="market-case-number" data-reveal="left">01</div>
         <div className="market-case-copy" data-reveal="up"><p className="eyebrow">Market access with substance</p><h2>Interest is easy.<br /><em>Execution is local.</em></h2></div>
         <div className="market-case-note" data-reveal="right"><p>Entering a market requires more than introductions. KH Wood connects your product to the relationships, stock position, coordination, and follow-through needed to make it commercially real.</p></div>
       </section>
 
-      <section className="partner-network">
+      <section className="partner-network" id="network">
         <div className="network-intro" data-reveal="left"><p className="eyebrow">Strategic partnership network</p><h2>Built for manufacturers<br /><em>ready to commit.</em></h2><p>KH Wood is interested in product categories that can answer real Iraqi market demand and benefit from a serious local operating partner.</p></div>
         <div className="network-rings" aria-hidden="true" data-reveal="scale"><span /><span /><span /><b>KH</b></div>
         <div className="network-list" data-reveal="right"><p><span>01</span>International timber manufacturers</p><p><span>02</span>Wood and raw-material suppliers</p><p><span>03</span>Panel and board manufacturers</p><p><span>04</span>Construction-material companies</p><p><span>05</span>Exclusive distribution partners</p></div>
       </section>
 
-      <section className="entry-path">
+      <section className="entry-path" id="route">
         <div className="entry-path-visual" data-reveal="left"><Image src="/assets/logistics-truck.jpg" alt="KH Wood logistics truck carrying timber" fill sizes="(max-width: 820px) 100vw, 53vw" /><div><span>From manufacturer</span><b>One connected route</b><span>To the Iraqi market</span></div></div>
         <div className="entry-steps">
           {[['01','Market fit','Align the product, opportunity, customer profile, and commercial model.'],['02','Representation','Structure a practical local agency, franchise, or distribution relationship.'],['03','Import & stock','Coordinate entry, storage, inventory readiness, and local availability.'],['04','Market growth','Build durable demand through established relationships and market feedback.']].map(([n,title,text],index)=><article key={title} data-reveal="right" style={{transitionDelay:`${index*70}ms`}}><span>{n}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}
         </div>
       </section>
 
-      <section className="partnership-models">
+      <section className="partnership-models" id="models">
         <div className="models-title" data-reveal><p className="eyebrow">Ways to work together</p><h2>One market.<br /><em>Three commercial routes.</em></h2></div>
         <div className="models-grid">
           <article data-reveal="left"><span>01</span><small>Long-term representation</small><h3>Exclusive agency</h3><p>A structured local relationship for manufacturers seeking focused representation and market development in Iraq.</p><ul><li>Local commercial presence</li><li>Customer development</li><li>Market feedback</li></ul></article>
@@ -43,7 +45,19 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      <section className="facility-proof">
+      <section className="partner-lifecycle">
+        <div className="lifecycle-head" data-reveal="left"><p className="eyebrow">From first conversation to market growth</p><h2>A partnership is<br /><em>a working system.</em></h2><p>The commercial model only succeeds when responsibilities, evidence, and decisions remain clear through every stage.</p></div>
+        <div className="lifecycle-line" aria-hidden="true"><span /></div>
+        <div className="lifecycle-steps">
+          <article data-reveal="right"><span>01</span><h3>Introduction</h3><p>Company, product range, existing markets, and ambition for Iraq.</p><small>Outcome · Initial relevance</small></article>
+          <article data-reveal="right"><span>02</span><h3>Evaluation</h3><p>Product fit, documentation, price position, territory, and supply capability.</p><small>Outcome · Shared business case</small></article>
+          <article data-reveal="right"><span>03</span><h3>Structure</h3><p>Responsibilities, commercial model, route to market, and operating plan.</p><small>Outcome · Partnership framework</small></article>
+          <article data-reveal="right"><span>04</span><h3>Activation</h3><p>Import coordination, stock planning, market introductions, and launch.</p><small>Outcome · Local readiness</small></article>
+          <article data-reveal="right"><span>05</span><h3>Development</h3><p>Customer feedback, demand building, supply continuity, and growth planning.</p><small>Outcome · Durable market access</small></article>
+        </div>
+      </section>
+
+      <section className="facility-proof" id="facilities">
         <div className="facility-proof-head" data-reveal="left"><p className="eyebrow">Facility capabilities</p><h2>Partnership backed<br /><em>by physical capacity.</em></h2></div>
         <div className="facility-panels">
           <article data-reveal="up"><Image src="/assets/yard-stock.jpg" alt="KH Wood strategic stockholding yard" fill sizes="(max-width: 820px) 100vw, 50vw" /><div><span>Strategic storage network</span><h3>Product availability needs a place to live.</h3><p>Extensive storage capacity supports inventory continuity and practical distribution across Iraq.</p></div></article>
@@ -61,12 +75,17 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      <section className="partner-readiness">
+      <section className="partner-readiness" id="fit">
         <div className="readiness-title" data-reveal="left"><p className="eyebrow">What makes a strong fit</p><h2>Clarity before<br /><em>commitment.</em></h2><p>We prefer a focused, evidence-led conversation about where the product fits and what success requires.</p></div>
         <div className="readiness-columns">
           <div data-reveal="up"><span>You bring</span><p>Proven product quality and documentation</p><p>Clear territory and partnership ambition</p><p>Commercially viable supply terms</p><p>Commitment to long-term market development</p></div>
           <div data-reveal="right"><span>KH Wood brings</span><p>Family-led Iraqi market knowledge</p><p>Local relationships and commercial access</p><p>Storage and distribution readiness</p><p>Ongoing market feedback and execution</p></div>
         </div>
+      </section>
+
+      <section className="partner-faq">
+        <div data-reveal="left"><p className="eyebrow">Partnership questions</p><h2>Start with<br /><em>the essentials.</em></h2></div>
+        <div className="question-list"><details data-reveal><summary>Which international manufacturers are a good fit?<span>+</span></summary><p>Established timber, panel, board, and construction-material manufacturers with proven products, reliable supply, and a serious long-term ambition for Iraq.</p></details><details data-reveal><summary>Does KH Wood offer exclusive representation?<span>+</span></summary><p>Exclusive agency, distribution, and franchise structures can be considered where product fit, territory, commercial terms, and responsibilities are mutually aligned.</p></details><details data-reveal><summary>What should an introductory proposal include?<span>+</span></summary><p>Include a company profile, product catalogue, certifications or product documentation, current export markets, indicative commercial terms, and the partnership model you are seeking.</p></details><details data-reveal><summary>What happens after the first meeting?<span>+</span></summary><p>KH Wood evaluates relevance, market opportunity, supply readiness, and the practical operating model before agreeing a clear next step.</p></details></div>
       </section>
 
       <section className="partnership-fit">
