@@ -1,5 +1,4 @@
 import { SiteShell } from "../components/SiteShell";
-import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
@@ -21,7 +20,7 @@ export default function ProductsPage() {
       <section className="products-hero inner-hero">
         <div className="products-hero-title"><p className="eyebrow hero-animate one">Products &amp; supply</p><h1 className="hero-animate two">The right stock.<br /><em>The right scale.</em></h1></div>
         <div className="products-hero-note hero-animate three"><span>For buyers &amp; project teams</span><p>Tell us what the material needs to do, how much you need, and where it needs to go. We&apos;ll build the supply route around the requirement.</p><Link href="/contact?type=supply">Request a quote ↗</Link></div>
-        <div className="products-hero-image hero-animate four"><Image src="/assets/hardwood.jpg" alt="Commercial hardwood bundles" fill priority sizes="100vw" /></div>
+        <div className="products-hero-image hero-animate four"><img className="cover-image" src="/assets/hardwood.jpg" alt="Commercial hardwood bundles" fetchPriority="high" /></div>
       </section>
 
       <section className="catalogue-intro">
@@ -32,7 +31,7 @@ export default function ProductsPage() {
 
       <section className="product-catalogue">
         {range.map((item, index) => <Link className={`catalogue-card card-${index + 1}`} href="/contact?type=supply" key={item.title} data-reveal={index % 2 ? "right" : "left"}>
-          <Image src={item.image} alt={item.title} fill sizes={index === 0 ? "(max-width: 820px) 100vw, 58vw" : "(max-width: 820px) 100vw, 42vw"} />
+          <img className="cover-image" src={item.image} alt={item.title} loading="lazy" decoding="async" />
           <span className="catalogue-shade" />
           <span className="catalogue-number">{item.n}</span>
           <small>{item.tag}</small>
@@ -50,7 +49,7 @@ export default function ProductsPage() {
       </section>
 
       <section className="application-field">
-        <div className="application-image" data-reveal="left"><Image src="/assets/timber-bundles.jpg" alt="Timber bundles prepared for commercial applications" fill sizes="(max-width: 820px) 100vw, 52vw" /><div><span>From stock to site</span><strong>One supply partner.<br />Multiple applications.</strong></div></div>
+        <div className="application-image" data-reveal="left"><img className="cover-image" src="/assets/timber-bundles.jpg" alt="Timber bundles prepared for commercial applications" loading="lazy" decoding="async" /><div><span>From stock to site</span><strong>One supply partner.<br />Multiple applications.</strong></div></div>
         <div className="application-copy" data-reveal="right"><p className="eyebrow">Where our materials work</p><h2>Specified for<br /><em>real demand.</em></h2><ul><li><span>01</span>Construction &amp; civil works</li><li><span>02</span>Manufacturing &amp; industrial use</li><li><span>03</span>Residential &amp; commercial fit-out</li><li><span>04</span>Public and infrastructure procurement</li><li><span>05</span>Wholesale and recurring supply</li></ul></div>
       </section>
 

@@ -1,7 +1,6 @@
 "use client";
 
 import { FormEvent, ReactNode, useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -77,7 +76,7 @@ export function SiteShell({ children, active }: { children: ReactNode; active?: 
       <div className="scroll-progress" aria-hidden="true"><span style={{ width: `${progress}%` }} /></div>
       <header className={`site-header${scrolled ? " is-scrolled" : ""}${menuOpen ? " menu-active" : ""}${active === "company" || active === "products" ? " light-origin" : ""}`}>
         <Link href="/" className="brand" aria-label="KH Wood home">
-          <Image src="/assets/kh-logo.png" alt="Khodeer Abbas & Partners Co." width={1088} height={245} priority />
+          <img src="/assets/kh-logo.png" alt="Khodeer Abbas & Partners Co." width={1088} height={245} fetchPriority="high" />
         </Link>
         <nav className={`nav-links${menuOpen ? " is-open" : ""}`} aria-label="Main navigation">
           {navigation.map(([label, href]) => (
@@ -95,7 +94,7 @@ export function SiteShell({ children, active }: { children: ReactNode; active?: 
       <footer className="site-footer">
         <div className="footer-lead">
           <div className="footer-brand">
-            <Image src="/assets/kh-logo.png" alt="Khodeer Abbas & Partners Co." width={1088} height={245} />
+            <img src="/assets/kh-logo.png" alt="Khodeer Abbas & Partners Co." width={1088} height={245} loading="lazy" decoding="async" />
             <p>Family-led wood supply and market access, built around the realities of Iraq.</p>
           </div>
           <Link className="footer-enquiry" href="/contact"><small>Have a requirement?</small><span>Let&apos;s move it forward <i>↗</i></span></Link>

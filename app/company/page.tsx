@@ -1,5 +1,4 @@
 import { SiteShell } from "../components/SiteShell";
-import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
@@ -22,7 +21,7 @@ export default function CompanyPage() {
           <h1 className="hero-animate two">A family name,<br /><em>built to endure.</em></h1>
           <p className="hero-animate three">From the craft of carpentry to the scale of international supply, KH Wood has always been shaped by relationships.</p>
         </div>
-        <figure className="company-portrait hero-animate four"><Image src="/assets/imported-timber.jpg" alt="Imported timber stock at KH Wood" fill priority sizes="(max-width: 820px) 100vw, 42vw" /><figcaption><span>Our foundation</span><b>Trust, adaptability &amp; long-term thinking</b></figcaption></figure>
+        <figure className="company-portrait hero-animate four"><img className="cover-image" src="/assets/imported-timber.jpg" alt="Imported timber stock at KH Wood" fetchPriority="high" /><figcaption><span>Our foundation</span><b>Trust, adaptability &amp; long-term thinking</b></figcaption></figure>
         <div className="company-monogram" aria-hidden="true">KH</div>
       </section>
 
@@ -54,15 +53,15 @@ export default function CompanyPage() {
       <section className="sector-field" id="sectors">
         <div className="sector-field-head" data-reveal><p className="eyebrow">Enterprise client sectors</p><h2>Where dependable supply<br /><em>has to perform.</em></h2></div>
         <div className="sector-mosaic">
-          <article className="sector-large" data-reveal="left"><Image src="/assets/logistics-truck.jpg" alt="KH Wood truck supporting large-scale supply" fill sizes="(max-width: 820px) 100vw, 60vw" /><div><span>Infrastructure</span><h3>Bridges, roads &amp; public works</h3><p>High-volume requirements coordinated around programme and destination.</p></div></article>
-          <article data-reveal="up"><Image src="/assets/formwork.jpg" alt="Construction wood materials" fill sizes="(max-width: 820px) 100vw, 40vw" /><div><span>Built environment</span><h3>Residential &amp; commercial construction</h3></div></article>
-          <article data-reveal="right"><Image src="/assets/pallet-stacks.jpg" alt="Stock for industrial use" fill sizes="(max-width: 820px) 100vw, 40vw" /><div><span>Industry</span><h3>Manufacturing &amp; facility supply</h3></div></article>
+          <article className="sector-large" data-reveal="left"><img className="cover-image" src="/assets/logistics-truck.jpg" alt="KH Wood truck supporting large-scale supply" loading="lazy" decoding="async" /><div><span>Infrastructure</span><h3>Bridges, roads &amp; public works</h3><p>High-volume requirements coordinated around programme and destination.</p></div></article>
+          <article data-reveal="up"><img className="cover-image" src="/assets/formwork.jpg" alt="Construction wood materials" loading="lazy" decoding="async" /><div><span>Built environment</span><h3>Residential &amp; commercial construction</h3></div></article>
+          <article data-reveal="right"><img className="cover-image" src="/assets/pallet-stacks.jpg" alt="Stock for industrial use" loading="lazy" decoding="async" /><div><span>Industry</span><h3>Manufacturing &amp; facility supply</h3></div></article>
           <article className="sector-text" data-reveal="right"><span>Public procurement</span><h3>Structured supply for institutional requirements.</h3><p>KH Wood supports serious commercial conversations without unsupported monopoly or dominance claims.</p></article>
         </div>
       </section>
 
       <section className="mission-statement">
-        <Image src="/assets/imported-timber.jpg" alt="Timber structure representing KH Wood's mission" fill sizes="100vw" />
+        <img className="cover-image" src="/assets/imported-timber.jpg" alt="Timber structure representing KH Wood's mission" loading="lazy" decoding="async" />
         <div className="mission-shade" />
         <div data-reveal="up"><p className="eyebrow">Our mission</p><blockquote>“To connect Iraq&apos;s wood, construction, and infrastructure markets with reliable supply, trusted family leadership, and long-term international partnerships.”</blockquote><Link className="button button-red" href="/partners">Explore partnership opportunities <span>↗</span></Link></div>
       </section>

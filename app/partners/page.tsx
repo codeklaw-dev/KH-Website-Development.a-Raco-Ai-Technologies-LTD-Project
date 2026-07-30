@@ -1,5 +1,4 @@
 import { SiteShell } from "../components/SiteShell";
-import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
@@ -31,7 +30,7 @@ export default function PartnersPage() {
       </section>
 
       <section className="entry-path" id="route">
-        <div className="entry-path-visual" data-reveal="left"><Image src="/assets/logistics-truck.jpg" alt="KH Wood logistics truck carrying timber" fill sizes="(max-width: 820px) 100vw, 53vw" /><div><span>From manufacturer</span><b>One connected route</b><span>To the Iraqi market</span></div></div>
+        <div className="entry-path-visual" data-reveal="left"><img className="cover-image" src="/assets/logistics-truck.jpg" alt="KH Wood logistics truck carrying timber" loading="lazy" decoding="async" /><div><span>From manufacturer</span><b>One connected route</b><span>To the Iraqi market</span></div></div>
         <div className="entry-steps">
           {[['01','Market fit','Align the product, opportunity, customer profile, and commercial model.'],['02','Representation','Structure a practical local agency, franchise, or distribution relationship.'],['03','Import & stock','Coordinate entry, storage, inventory readiness, and local availability.'],['04','Market growth','Build durable demand through established relationships and market feedback.']].map(([n,title,text],index)=><article key={title} data-reveal="right" style={{transitionDelay:`${index*70}ms`}}><span>{n}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}
         </div>
@@ -61,8 +60,8 @@ export default function PartnersPage() {
       <section className="facility-proof" id="facilities">
         <div className="facility-proof-head" data-reveal="left"><p className="eyebrow">Facility capabilities</p><h2>Partnership backed<br /><em>by physical capacity.</em></h2></div>
         <div className="facility-panels">
-          <article data-reveal="up"><Image src="/assets/yard-stock.jpg" alt="KH Wood strategic stockholding yard" fill sizes="(max-width: 820px) 100vw, 50vw" /><div><span>Strategic storage network</span><h3>Product availability needs a place to live.</h3><p>Extensive storage capacity supports inventory continuity and practical distribution across Iraq.</p></div></article>
-          <article data-reveal="right"><Image src="/assets/forklift-operations.jpg" alt="KH Wood staging and handling operation" fill sizes="(max-width: 820px) 100vw, 50vw" /><div><span>Staging &amp; dispatch</span><h3>Market access has an operational layer.</h3><p>Handling, preparation, and dispatch capability turn commercial plans into real local supply.</p></div></article>
+          <article data-reveal="up"><img className="cover-image" src="/assets/yard-stock.jpg" alt="KH Wood strategic stockholding yard" loading="lazy" decoding="async" /><div><span>Strategic storage network</span><h3>Product availability needs a place to live.</h3><p>Extensive storage capacity supports inventory continuity and practical distribution across Iraq.</p></div></article>
+          <article data-reveal="right"><img className="cover-image" src="/assets/forklift-operations.jpg" alt="KH Wood staging and handling operation" loading="lazy" decoding="async" /><div><span>Staging &amp; dispatch</span><h3>Market access has an operational layer.</h3><p>Handling, preparation, and dispatch capability turn commercial plans into real local supply.</p></div></article>
         </div>
       </section>
 

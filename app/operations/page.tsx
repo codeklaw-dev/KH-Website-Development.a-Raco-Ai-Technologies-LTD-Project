@@ -1,5 +1,4 @@
 import { SiteShell } from "../components/SiteShell";
-import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
@@ -11,7 +10,7 @@ export default function OperationsPage() {
   return (
     <SiteShell active="operations">
       <section className="operations-hero inner-hero">
-        <Image className="operations-hero-image" src="/assets/yard-wide.jpg" alt="Wide view of the KH Wood storage facility" fill priority sizes="100vw" />
+        <img className="operations-hero-image cover-image" src="/assets/yard-wide.jpg" alt="Wide view of the KH Wood storage facility" fetchPriority="high" />
         <div className="operations-hero-shade" />
         <div className="operations-hero-copy"><p className="eyebrow hero-animate one">Operations &amp; capacity</p><h1 className="hero-animate two">Stocked for scale.<br /><em>Run with control.</em></h1><p className="hero-animate three">From arrival and storage to staging and dispatch, our operation is organised around material readiness.</p></div>
         <div className="ops-status hero-animate four"><span><i /> Operations active</span><p>Storage · Handling · Dispatch</p></div>
@@ -27,15 +26,15 @@ export default function OperationsPage() {
 
       <section className="operations-flow" id="flow">
         <div className="flow-spine" aria-hidden="true"><span /></div>
-        {[['01','Arrive','Imported and locally sourced materials enter a controlled receiving process.','/assets/logistics-truck.jpg'],['02','Store','Stock is organised for visibility, protection, and practical access.','/assets/yard-stock.jpg'],['03','Stage','Materials are selected, grouped, and prepared around the requirement.','/assets/forklift-operations.jpg'],['04','Dispatch','Loads are coordinated for commercial, construction, and project destinations.','/assets/yard-loading.jpg']].map(([n,title,text,image], index)=><article className={`flow-step step-${index+1}`} key={title} data-reveal={index%2 ? 'right':'left'}><div className="flow-image"><Image src={image} alt={`${title} stage at KH Wood`} fill sizes="(max-width: 820px) 100vw, 32vw" /></div><div className="flow-copy"><span>{n}</span><h3>{title}</h3><p>{text}</p></div></article>)}
+        {[['01','Arrive','Imported and locally sourced materials enter a controlled receiving process.','/assets/logistics-truck.jpg'],['02','Store','Stock is organised for visibility, protection, and practical access.','/assets/yard-stock.jpg'],['03','Stage','Materials are selected, grouped, and prepared around the requirement.','/assets/forklift-operations.jpg'],['04','Dispatch','Loads are coordinated for commercial, construction, and project destinations.','/assets/yard-loading.jpg']].map(([n,title,text,image], index)=><article className={`flow-step step-${index+1}`} key={title} data-reveal={index%2 ? 'right':'left'}><div className="flow-image"><img className="cover-image" src={image} alt={`${title} stage at KH Wood`} loading="lazy" decoding="async" /></div><div className="flow-copy"><span>{n}</span><h3>{title}</h3><p>{text}</p></div></article>)}
       </section>
 
       <section className="facility-gallery" id="facility">
         <div className="facility-gallery-title" data-reveal="left"><p className="eyebrow">Inside the operation</p><h2>Capacity you can<br /><em>see and understand.</em></h2><p>Real photography from the storage and handling environment—because operational credibility should be visible.</p></div>
-        <figure className="gallery-a" data-reveal="up"><Image src="/assets/yard-stock.jpg" alt="Organised wood stock in the KH Wood yard" fill sizes="(max-width: 820px) 100vw, 55vw" /><figcaption>Stockholding · Inventory readiness</figcaption></figure>
-        <figure className="gallery-b" data-reveal="right"><Image src="/assets/pallet-stacks.jpg" alt="Palletised materials prepared in storage" fill sizes="(max-width: 820px) 100vw, 35vw" /><figcaption>Staged materials · Commercial supply</figcaption></figure>
-        <figure className="gallery-c" data-reveal="left"><Image src="/assets/forklift-operations.jpg" alt="Forklift handling materials" fill sizes="(max-width: 820px) 100vw, 35vw" /><figcaption>Handling · Yard movement</figcaption></figure>
-        <figure className="gallery-d" data-reveal="right"><Image src="/assets/yard-loading.jpg" alt="Loading activity for KH Wood dispatch" fill sizes="(max-width: 820px) 100vw, 55vw" /><figcaption>Dispatch · Load coordination</figcaption></figure>
+        <figure className="gallery-a" data-reveal="up"><img className="cover-image" src="/assets/yard-stock.jpg" alt="Organised wood stock in the KH Wood yard" loading="lazy" decoding="async" /><figcaption>Stockholding · Inventory readiness</figcaption></figure>
+        <figure className="gallery-b" data-reveal="right"><img className="cover-image" src="/assets/pallet-stacks.jpg" alt="Palletised materials prepared in storage" loading="lazy" decoding="async" /><figcaption>Staged materials · Commercial supply</figcaption></figure>
+        <figure className="gallery-c" data-reveal="left"><img className="cover-image" src="/assets/forklift-operations.jpg" alt="Forklift handling materials" loading="lazy" decoding="async" /><figcaption>Handling · Yard movement</figcaption></figure>
+        <figure className="gallery-d" data-reveal="right"><img className="cover-image" src="/assets/yard-loading.jpg" alt="Loading activity for KH Wood dispatch" loading="lazy" decoding="async" /><figcaption>Dispatch · Load coordination</figcaption></figure>
       </section>
 
       <section className="control-system" id="controls">

@@ -1,5 +1,4 @@
 import { SiteShell } from "./components/SiteShell";
-import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
@@ -53,7 +52,7 @@ export default function Home() {
       </section>
 
       <section className="home-story">
-        <div className="home-story-photo" data-reveal="left"><Image src="/assets/yard-wide.jpg" alt="KH Wood storage yard in Iraq" fill sizes="(max-width: 820px) 100vw, 58vw" /><span>Baghdad · Iraq</span></div>
+        <div className="home-story-photo" data-reveal="left"><img className="cover-image" src="/assets/yard-wide.jpg" alt="KH Wood storage yard in Iraq" loading="lazy" decoding="async" /><span>Baghdad · Iraq</span></div>
         <div className="home-story-copy" data-reveal="right">
           <p className="eyebrow">Heritage with momentum</p>
           <h2>Family values.<br /><em>Commercial discipline.</em></h2>
@@ -65,7 +64,7 @@ export default function Home() {
       <section className="home-capability">
         <div className="capability-title" data-reveal><p className="eyebrow">Visible capacity</p><h2>Built to stock.<br />Ready to supply.</h2></div>
         <div className="capability-visual" data-reveal="scale">
-          <Image src="/assets/yard-loading.jpg" alt="Forklift moving packaged wood at a KH Wood facility" fill sizes="(max-width: 560px) 100vw, 88vw" />
+          <img className="cover-image" src="/assets/yard-loading.jpg" alt="Forklift moving packaged wood at a KH Wood facility" loading="lazy" decoding="async" />
           <Link href="/operations"><span>See how we operate</span><i>↗</i></Link>
         </div>
         <div className="capability-list" data-reveal>
