@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   const product = getProductRange((await params).slug);
   if (!product) return {};
   return {
-    title: `${product.title} Supply in Iraq | KH Wood`,
+    title: `${product.title} | KH Wood Iraq`,
     description: `${product.copy} Discuss specifications, volume, availability, and delivery with KH Wood.`,
   };
 }
