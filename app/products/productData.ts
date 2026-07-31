@@ -1,3 +1,5 @@
+export type OrderField = { label: string; type: "select" | "text"; options?: string[]; placeholder?: string };
+
 export type ProductRange = {
   slug: string;
   n: string;
@@ -14,7 +16,7 @@ export type ProductRange = {
   secondaryAlt: string;
   applications: string[];
   options: { title: string; copy: string }[];
-  brief: string[];
+  orderFields: OrderField[];
   principle: string;
   process: { title: string; copy: string }[];
   ctaLabel: string;
@@ -42,7 +44,14 @@ export const productRanges: ProductRange[] = [
       { title: "Softwood", copy: "Practical material routes for construction, framing, joinery, packaging, and general commercial use." },
       { title: "Sawn sections", copy: "Dimensions, grading, moisture expectations, and finish discussed around the application." },
     ],
-    brief: ["Application or end use", "Preferred species or acceptable alternatives", "Grade and dimensions", "Volume and call-off pattern", "Delivery destination and date"],
+    orderFields: [
+      { label: "Application or end use", type: "select", options: ["Construction & carpentry", "Furniture & manufacturing", "Interior fit-out", "Industrial / recurring supply", "Other (specify in notes)"] },
+      { label: "Wood type", type: "select", options: ["Hardwood", "Softwood", "Sawn sections", "No preference — advise me"] },
+      { label: "Grade", type: "select", options: ["Select / premium grade", "Standard / commercial grade", "Utility / economy grade", "Not sure yet"] },
+      { label: "Dimensions & finish", type: "text", placeholder: "e.g. 50×100mm, planed, kiln-dried" },
+      { label: "Volume needed", type: "select", options: ["Trial order (under 5m³)", "5–20m³", "20–100m³", "100m³+ / recurring"] },
+      { label: "Delivery timing", type: "select", options: ["Within 2 weeks", "2–4 weeks", "1–2 months", "Ongoing / recurring supply"] },
+    ],
     principle: "The most useful timber enquiry starts with performance—not a generic price list.",
     process: [
       { title: "Define", copy: "We clarify use, specification, quantity, and destination." },
@@ -72,7 +81,14 @@ export const productRanges: ProductRange[] = [
       { title: "Engineered panels", copy: "Board formats considered around machining, finishing, consistency, and project needs." },
       { title: "Commercial boards", copy: "Volume supply shaped around repeat production, fit-out schedules, or site demand." },
     ],
-    brief: ["Panel type and intended use", "Thickness and sheet dimensions", "Face, grade, or finish", "Required standards or documentation", "Quantity and destination"],
+    orderFields: [
+      { label: "Panel type", type: "select", options: ["Plywood", "MDF / engineered board", "OSB", "Commercial board", "Not sure — advise me"] },
+      { label: "Intended use", type: "select", options: ["Formwork & construction", "Furniture production", "Cabinetry & joinery", "Fit-out & interior works"] },
+      { label: "Thickness", type: "select", options: ["6mm", "9mm", "12mm", "18mm", "25mm", "Other / mixed thicknesses"] },
+      { label: "Face, grade, or finish", type: "text", placeholder: "e.g. birch face, melamine, raw, A/B grade" },
+      { label: "Standards or documentation required", type: "select", options: ["None specified", "CE marked", "FSC certified", "Specific standard — see notes"] },
+      { label: "Quantity & destination", type: "text", placeholder: "e.g. 200 sheets to Baghdad site" },
+    ],
     principle: "A clear panel specification protects finish, programme, and cost before the order moves.",
     process: [
       { title: "Specify", copy: "Share the build-up, dimensions, finish, and performance expectation." },
@@ -102,7 +118,14 @@ export const productRanges: ProductRange[] = [
       { title: "Formwork support", copy: "Panel and timber supply coordinated around concrete programmes and practical site demand." },
       { title: "Phased supply", copy: "Staging and dispatch considered against work packages, call-offs, and destination." },
     ],
-    brief: ["Drawings, schedules, or bill of quantities", "Material specification", "Total volume and project phases", "Site location and access", "Required delivery windows"],
+    orderFields: [
+      { label: "Project type", type: "select", options: ["Residential development", "Commercial construction", "Civil / infrastructure works", "Temporary works / site use"] },
+      { label: "Material need", type: "select", options: ["Structural timber", "Formwork panels", "Mixed / general supply", "Not sure — advise me"] },
+      { label: "Project phase", type: "select", options: ["Planning / early stage", "Phase 1 underway", "Mid-project top-up", "Final phase / snagging"] },
+      { label: "Drawings or bill of quantities available", type: "select", options: ["Yes, can share on request", "Partial documentation", "Not yet prepared"] },
+      { label: "Site location & access", type: "text", placeholder: "e.g. Basra industrial zone, truck access" },
+      { label: "Delivery window", type: "text", placeholder: "e.g. Starting next month, phased over 6 weeks" },
+    ],
     principle: "Project supply performs best when material decisions and delivery realities are resolved together.",
     process: [
       { title: "Review", copy: "The team reads the requirement in the context of the programme." },
@@ -132,7 +155,13 @@ export const productRanges: ProductRange[] = [
       { title: "Staged call-off", copy: "Volume may be prepared around agreed phases rather than treated as one undifferentiated movement." },
       { title: "Dispatch planning", copy: "Destination, vehicle access, load configuration, and timing become part of the order brief." },
     ],
-    brief: ["Total quantity", "Product and dimensional breakdown", "Call-off or consumption forecast", "Storage and delivery expectations", "Commercial decision date"],
+    orderFields: [
+      { label: "Product category", type: "select", options: ["Timber", "Panels & boards", "Mixed / multiple products"] },
+      { label: "Total volume", type: "text", placeholder: "e.g. 200m³ or 500 sheets" },
+      { label: "Call-off pattern", type: "select", options: ["Single delivery", "Weekly call-off", "Monthly call-off", "Custom schedule — see notes"] },
+      { label: "Storage support needed", type: "select", options: ["We hold our own stock", "We need staged storage support", "Not sure yet"] },
+      { label: "Decision timeline", type: "select", options: ["This week", "This month", "Next quarter", "Just exploring options"] },
+    ],
     principle: "Volume becomes dependable when stock, timing, and responsibility stay visible.",
     process: [
       { title: "Forecast", copy: "We establish total need, timing, and expected consumption." },
@@ -162,7 +191,13 @@ export const productRanges: ProductRange[] = [
       { title: "Local representation", copy: "A practical role is defined across introductions, commercial development, feedback, and accountability." },
       { title: "Operating route", copy: "Import, stock, availability, and distribution planning turn interest into a workable market presence." },
     ],
-    brief: ["Company and product profile", "Certifications and technical documents", "Current export markets", "Preferred partnership model", "Territory and commercial expectations"],
+    orderFields: [
+      { label: "Partnership model", type: "select", options: ["Exclusive agency", "Distribution partnership", "Franchise", "Not sure — open to discussion"] },
+      { label: "Product category", type: "select", options: ["Timber / wood", "Panels & boards", "Construction materials", "Other (specify in notes)"] },
+      { label: "Current export markets", type: "text", placeholder: "e.g. GCC, Turkey, Europe" },
+      { label: "Certifications available", type: "select", options: ["Yes, can provide on request", "Some, partial documentation", "Not yet / in progress"] },
+      { label: "Target timeline", type: "select", options: ["Ready to move now", "Within 6 months", "Exploratory / long-term"] },
+    ],
     principle: "The strongest market-entry conversations begin with evidence, clarity, and long-term intent.",
     process: [
       { title: "Evaluate", copy: "We assess product relevance and the commercial case for Iraq." },

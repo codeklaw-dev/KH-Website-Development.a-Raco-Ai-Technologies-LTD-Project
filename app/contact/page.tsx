@@ -27,17 +27,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="contact-routing">
-        <div className="routing-visual" data-reveal="left"><div className="routing-orbit"><span /><span /><b>KH</b></div><p>One inbox.<br />The right route.</p></div>
-        <div className="routing-copy" data-reveal="right"><p className="eyebrow">Primary contact routing</p><h2>Send it once.<br /><em>We&apos;ll direct it.</em></h2><div className="routing-list"><a href="mailto:info@khodeer.com?subject=Sales%20enquiry"><span>Sales &amp; project supply</span><b>info@khodeer.com ↗</b></a><a href="mailto:purchasing@khodeer.com?subject=Supplier%20enquiry"><span>Suppliers &amp; purchasing</span><b>purchasing@khodeer.com ↗</b></a><a href="mailto:info@khodeer.com?subject=International%20partnership"><span>Partnership &amp; representation</span><b>info@khodeer.com ↗</b></a><a href="https://wa.me/962795185588" target="_blank" rel="noreferrer"><span>Phone &amp; WhatsApp</span><b>+962 79 518 5588 ↗</b></a></div></div>
-      </section>
-
       <section className="response-note"><span data-reveal>What happens next</span><div data-reveal><strong>01</strong><p>Your enquiry is reviewed and routed to the relevant commercial contact.</p></div><div data-reveal><strong>02</strong><p>We clarify product, project, or partnership requirements where needed.</p></div><div data-reveal><strong>03</strong><p>You receive a practical next step based on the opportunity.</p></div></section>
-
-      <section className="contact-faq">
-        <div data-reveal="left"><p className="eyebrow">Contact questions</p><h2>Before you<br /><em>press send.</em></h2></div>
-        <div className="question-list"><details data-reveal><summary>Which office should I contact?<span>+</span></summary><p>Use the central enquiry form or info@khodeer.com. The team will route the request according to location and commercial need.</p></details><details data-reveal><summary>What should a product enquiry include?<span>+</span></summary><p>Include product type, dimensions or specification, required quantity, destination, and target timing wherever possible.</p></details><details data-reveal><summary>How should international manufacturers approach KH Wood?<span>+</span></summary><p>Share your company profile, product range, existing markets, preferred partnership model, and ambition for Iraq.</p></details><details data-reveal><summary>Are social media channels available?<span>+</span></summary><p>No official social media handles are planned for launch. Email and WhatsApp are the confirmed contact channels.</p></details></div>
-      </section>
     </SiteShell>
   );
 }

@@ -3,12 +3,31 @@
 import { FormEvent, ReactNode, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { EnquiryNavCta, EnquiryDrawer } from "./EnquiryDrawer";
+import { useEnquiryCart } from "./EnquiryCart";
+import { EnquiryItemFields } from "./EnquiryItemFields";
 
 const navigation = [
   ["Company", "/company"],
   ["Products", "/products"],
   ["Partners", "/partners"],
+  ["Franchise", "/franchise"],
   ["Operations", "/operations"],
+  ["Contact", "/contact"],
+] as const;
+
+const productRoutes = [
+  ["Wood & timber", "/products/wood-timber"],
+  ["Panels & boards", "/products/panels-boards"],
+  ["Project materials", "/products/project-materials"],
+  ["Bulk requirements", "/products/bulk-requirements"],
+  ["Agency representation", "/products/agency-representation"],
+] as const;
+
+const audienceRoutes = [
+  ["Buyers & projects", "Source materials from stock", "/products"],
+  ["International manufacturers", "Your route into the Iraqi market", "/partners"],
+  ["Distributors & franchisees", "Carry the KH name in your territory", "/franchise"],
 ] as const;
 
 export function SiteShell({ children, active, headerOnLight }: { children: ReactNode; active?: string; headerOnLight?: boolean }) {
@@ -20,7 +39,7 @@ export function SiteShell({ children, active, headerOnLight }: { children: React
   useEffect(() => {
     const handleScroll = () => {
       const height = document.documentElement.scrollHeight - window.innerHeight;
-      setScrolled(window.scrollY > 28);
+      setScrolled(window.scrollY > 20);
       setProgress(height > 0 ? (window.scrollY / height) * 100 : 0);
     };
 
@@ -66,51 +85,84 @@ export function SiteShell({ children, active, headerOnLight }: { children: React
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    const closeOnEscape = (event: KeyboardEvent) => { if (event.key === "Escape") setMenuOpen(false); };
+    window.addEventListener("keydown", closeOnEscape);
+    return () => { document.body.style.overflow = ""; window.removeEventListener("keydown", closeOnEscape); };
   }, [menuOpen]);
 
-  const lightOrigin = headerOnLight ?? (active === "company" || active === "products");
+  useEffect(() => { setMenuOpen(false); }, [pathname]);
+
+  const lightOrigin = headerOnLight ?? active === "products";
+  const forceScrolledHeader = pathname === "/contact" || pathname === "/products" || pathname.startsWith("/products/");
+  const isScrolled = scrolled || forceScrolledHeader;
 
   return (
     <>
       <div className="site-grain" aria-hidden="true" />
       <a className="skip-link" href="#main-content">Skip to content</a>
       <div className="scroll-progress" aria-hidden="true"><span style={{ width: `${progress}%` }} /></div>
-      <header className={`site-header${scrolled ? " is-scrolled" : ""}${menuOpen ? " menu-active" : ""}${lightOrigin ? " light-origin" : ""}`}>
-        <Link href="/" className="brand" aria-label="KH Wood home">
-          <img src="/assets/kh-logo-transparent.png" alt="Khodeer Abbas & Partners Co." width={1088} height={245} fetchPriority="high" />
-        </Link>
-        <nav className={`nav-links${menuOpen ? " is-open" : ""}`} aria-label="Main navigation">
-          {navigation.map(([label, href]) => (
-            <Link key={href} href={href} aria-current={active === label.toLowerCase() ? "page" : undefined} onClick={() => setMenuOpen(false)}>{label}</Link>
-          ))}
-          <Link href="/contact" className="nav-cta" aria-current={active === "contact" ? "page" : undefined} onClick={() => setMenuOpen(false)}>Start an enquiry <span>↗</span></Link>
-        </nav>
-        <button className={`menu-button${menuOpen ? " is-open" : ""}`} type="button" aria-label={menuOpen ? "Close navigation" : "Open navigation"} aria-expanded={menuOpen} onClick={() => setMenuOpen((open) => !open)}>
-          <span /><span />
+      <header className={`site-header${isScrolled ? " is-scrolled" : ""}${menuOpen ? " menu-active" : ""}${lightOrigin ? " light-origin" : ""}`}>
+        <button className={`menu-button${menuOpen ? " is-open" : ""}`} type="button" aria-label={menuOpen ? "Close navigation" : "Open navigation"} aria-expanded={menuOpen} aria-controls="nav-panel" onClick={() => setMenuOpen((open) => !open)}>
+          <i aria-hidden="true"><span /><span /></i>
+          <b>{menuOpen ? "Close" : "Menu"}</b>
         </button>
+        <Link href="/" className="brand" aria-label="KH Wood home">
+          <img src="/assets/kh-logo-mark.png" alt="Khodeer Abbas & Partners Co." width={1047} height={236} fetchPriority="high" />
+        </Link>
+        <EnquiryNavCta onNavigate={() => setMenuOpen(false)} active={active === "contact"} />
       </header>
+
+      <nav id="nav-panel" className={`nav-panel${menuOpen ? " is-open" : ""}`} aria-label="Main navigation" aria-hidden={!menuOpen}>
+        <div className="nav-panel-inner">
+          <div className="nav-primary">
+            <span className="nav-group-label">Explore</span>
+            {navigation.map(([label, href]) => (
+              <Link key={href} href={href} tabIndex={menuOpen ? undefined : -1} aria-current={active === label.toLowerCase() ? "page" : undefined} onClick={() => setMenuOpen(false)}>{label}<i aria-hidden="true">↗</i></Link>
+            ))}
+          </div>
+          <div className="nav-products">
+            <span className="nav-group-label">Products &amp; services</span>
+            {productRoutes.map(([label, href]) => (
+              <Link key={href} href={href} tabIndex={menuOpen ? undefined : -1} onClick={() => setMenuOpen(false)}>{label}</Link>
+            ))}
+            <Link className="nav-products-all" href="/products#services" tabIndex={menuOpen ? undefined : -1} onClick={() => setMenuOpen(false)}>Services &amp; capabilities <i aria-hidden="true">↗</i></Link>
+          </div>
+          <div className="nav-audience">
+            <span className="nav-group-label">Work with us</span>
+            {audienceRoutes.map(([label, note, href]) => (
+              <Link key={href} href={href} tabIndex={menuOpen ? undefined : -1} onClick={() => setMenuOpen(false)}><b>{label}</b><small>{note}</small></Link>
+            ))}
+            <div className="nav-contact">
+              <a href="mailto:info@khodeer.com" tabIndex={menuOpen ? undefined : -1}>info@khodeer.com</a>
+              <a href="https://wa.me/962795185588" target="_blank" rel="noreferrer" tabIndex={menuOpen ? undefined : -1}>WhatsApp +962 79 518 5588</a>
+              <p>Baghdad · Basra · Amman</p>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <button className={`nav-scrim${menuOpen ? " is-open" : ""}`} type="button" tabIndex={-1} aria-hidden="true" onClick={() => setMenuOpen(false)} />
 
       <main id="main-content" className="page-enter">{children}</main>
 
       <footer className="site-footer">
         <div className="footer-lead">
           <div className="footer-brand">
-            <img src="/assets/kh-logo-transparent.png" alt="Khodeer Abbas & Partners Co." width={1088} height={245} loading="lazy" decoding="async" />
+            <img src="/assets/kh-logo-mark.png" alt="Khodeer Abbas & Partners Co." width={1047} height={236} loading="lazy" decoding="async" />
             <p>Family-led wood supply and market access, built around the realities of Iraq.</p>
           </div>
           <Link className="footer-enquiry" href="/contact"><small>Have a requirement?</small><span>Let&apos;s move it forward <i>↗</i></span></Link>
         </div>
         <div className="footer-columns">
           <div><span>Explore</span><Link href="/company">Our company</Link><Link href="/products">Products</Link><Link href="/operations">Operations</Link></div>
-          <div><span>Work with us</span><Link href="/partners">Enter the Iraqi market</Link><Link href="/contact?type=supply">Request product supply</Link><Link href="/contact?type=partner">Discuss representation</Link></div>
-          <div><span>Contact</span><a href="mailto:info@khodeer.com">info@khodeer.com</a><a href="https://wa.me/962795185588" target="_blank" rel="noreferrer">WhatsApp +962 79 518 5588</a></div>
+          <div><span>Work with us</span><Link href="/partners">Enter the Iraqi market</Link><Link href="/franchise">Franchise opportunities</Link><Link href="/contact?type=supply">Request product supply</Link><Link href="/contact?type=partner">Discuss representation</Link></div>
+          <div><span>Contact</span><a href="mailto:info@khodeer.com?subject=Sales%20enquiry">Sales &amp; project supply</a><a href="mailto:purchasing@khodeer.com?subject=Supplier%20enquiry">Suppliers &amp; purchasing</a><a href="mailto:info@khodeer.com?subject=International%20partnership">Partnership &amp; representation</a><a href="https://wa.me/962795185588" target="_blank" rel="noreferrer">Phone &amp; WhatsApp</a></div>
           <div><span>Locations</span><p>Baghdad · Iraq</p><p>Basra · Iraq</p><p>Amman · Jordan</p></div>
         </div>
         <div className="footer-bottom"><p>© 2026 KH Wood</p><p>Khodeer Abbas &amp; Partners Co.</p><a href="#main-content">Back to top ↑</a></div>
       </footer>
 
       <a className="whatsapp-bubble" href="https://wa.me/962795185588?text=Hello%20KH%20Wood%2C%20I%27d%20like%20to%20make%20an%20enquiry." target="_blank" rel="noreferrer" aria-label="Chat with KH Wood on WhatsApp"><span>WA</span><i>Chat with us</i></a>
+      <EnquiryDrawer />
     </>
   );
 }
@@ -119,13 +171,14 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
   const [status, setStatus] = useState("");
   const inquiryRef = useRef<HTMLSelectElement>(null);
   const messageRef = useRef<HTMLTextAreaElement>(null);
+  const { items } = useEnquiryCart();
 
   useEffect(() => {
     const search = new URLSearchParams(window.location.search);
     const type = search.get("type");
     const product = search.get("product");
     if (inquiryRef.current) {
-      inquiryRef.current.value = type === "partner" ? "International partnership" : type === "supply" ? "Product supply" : "";
+      inquiryRef.current.value = type === "partner" ? "International partnership" : type === "supply" ? "Product supply" : type === "franchise" ? "Franchise or distribution" : type === "profile" ? "Company profile request" : "";
     }
     if (product && messageRef.current) {
       const label = product.split("-").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
@@ -144,8 +197,19 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
       `Email: ${data.get("email")}`,
       `Phone / WhatsApp: ${data.get("phone")}`,
       `Enquiry type: ${data.get("inquiry")}`,
+      `Partnership interest: ${data.get("interest") || "Not specified"}`,
       "",
       `${data.get("message")}`,
+      ...(items.length > 0 ? [
+        "",
+        "Products in enquiry:",
+        "",
+        ...items.flatMap((item) => [
+          `${item.n} — ${item.title}`,
+          ...item.fields.map((field, index) => `  ${field.label}: ${item.values[index] || "—"}`),
+          "",
+        ]),
+      ] : []),
     ].join("\n");
 
     setStatus("Your email application is opening with this enquiry ready to send.");
@@ -154,6 +218,12 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
 
   return (
     <form className={`enquiry-form${compact ? " compact" : ""}`} onSubmit={submit}>
+      {items.length > 0 && (
+        <div className="contact-cart-summary">
+          <span>Your enquiry so far ({items.length})</span>
+          {items.map((item) => <EnquiryItemFields key={item.slug} item={item} />)}
+        </div>
+      )}
       <div className="field-row">
         <label><span>Your name *</span><input name="name" autoComplete="name" required placeholder="Full name" /></label>
         <label><span>Company *</span><input name="company" autoComplete="organization" required placeholder="Company name" /></label>
@@ -164,8 +234,9 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
       </div>
       <div className="field-row">
         <label><span>Country *</span><input name="country" autoComplete="country-name" required placeholder="Country" /></label>
-        <label><span>I&apos;m interested in *</span><select ref={inquiryRef} name="inquiry" defaultValue="" required><option value="" disabled>Select one</option><option>Product supply</option><option>Project requirement</option><option>International partnership</option><option>Agency representation</option><option>General enquiry</option></select></label>
+        <label><span>I&apos;m interested in *</span><select ref={inquiryRef} name="inquiry" defaultValue="" required><option value="" disabled>Select one</option><option>Product supply</option><option>Project requirement</option><option>International partnership</option><option>Agency representation</option><option>Franchise or distribution</option><option>Company profile request</option><option>General enquiry</option></select></label>
       </div>
+      <label><span>Partnership interest</span><select name="interest" defaultValue=""><option value="">Not applicable</option><option>Sole agency or franchise representation in Iraq</option><option>Distribution or local franchise territory</option><option>Import and distribution coordination</option><option>Bulk storage and supply readiness</option><option>Project supply support</option><option>Market-entry support</option></select></label>
       <label><span>Tell us what you need *</span><textarea ref={messageRef} name="message" rows={compact ? 3 : 5} required placeholder="Product, volume, project location, timeline, or partnership opportunity…" /></label>
       <div className="form-action"><p>We&apos;ll route your enquiry to the right commercial contact.</p><button className="button button-white" type="submit">Send enquiry <span>↗</span></button></div>
       <p className="form-status" aria-live="polite">{status}</p>

@@ -10,23 +10,29 @@ export default function PartnersPage() {
   return (
     <SiteShell active="partners">
       <section className="partners-hero inner-hero">
+        <img className="partners-hero-image cover-image" src="/assets/partners-hero.jpg" alt="" aria-hidden="true" fetchPriority="high" />
+        <div className="partners-hero-wash" aria-hidden="true" />
         <div className="partner-coordinate hero-animate one"><span>33.3152° N</span><i>44.3661° E</i></div>
         <div className="partners-hero-copy"><p className="eyebrow hero-animate one">For international manufacturers</p><h1 className="hero-animate two">Your route into<br /><em>the Iraqi market.</em></h1><p className="hero-animate three">Local representation, market knowledge, supply infrastructure, and commercial relationships—working as one route to growth.</p><Link className="button button-red hero-animate four" href="/contact?type=partner">Discuss a partnership <span>↗</span></Link></div>
-        <div className="partner-orbit" aria-hidden="true"><span /><span /><span /><b>IRQ</b></div>
       </section>
 
       <nav className="page-rail page-rail-dark" aria-label="Partners page sections"><span>Partner pathway</span><a href="#network">Who we work with</a><a href="#route">Market-entry route</a><a href="#models">Partnership models</a><a href="#facilities">Facilities</a><a href="#fit">Partnership fit</a></nav>
 
-      <section className="market-case">
-        <div className="market-case-number" data-reveal="left">01</div>
-        <div className="market-case-copy" data-reveal="up"><p className="eyebrow">Market access with substance</p><h2>Interest is easy.<br /><em>Execution is local.</em></h2></div>
-        <div className="market-case-note" data-reveal="right"><p>Entering a market requires more than introductions. KH Wood connects your product to the relationships, stock position, coordination, and follow-through needed to make it commercially real.</p></div>
-      </section>
-
-      <section className="partner-network" id="network">
-        <div className="network-intro" data-reveal="left"><p className="eyebrow">Strategic partnership network</p><h2>Built for manufacturers<br /><em>ready to commit.</em></h2><p>KH Wood is interested in product categories that can answer real Iraqi market demand and benefit from a serious local operating partner.</p></div>
-        <div className="network-rings" aria-hidden="true" data-reveal="scale"><span /><span /><span /><b>KH</b></div>
-        <div className="network-list" data-reveal="right"><p><span>01</span>International timber manufacturers</p><p><span>02</span>Wood and raw-material suppliers</p><p><span>03</span>Panel and board manufacturers</p><p><span>04</span>Construction-material companies</p><p><span>05</span>Exclusive distribution partners</p></div>
+      <section className="market-fit" id="network">
+        <div className="market-fit-heading">
+          <div data-reveal="left"><p className="eyebrow">Why manufacturers work with us</p><h2>Getting in is easy.<br /><em>Selling here takes a partner.</em></h2></div>
+          <p data-reveal="right">Introductions are simple. Selling in Iraq takes real relationships, stock already in the country, and someone who sees it through—that&apos;s what KH Wood brings. We work with manufacturers whose products fit real demand here and who want a serious local partner to sell them.</p>
+        </div>
+        <div className="market-fit-list" data-reveal>
+          <span className="market-fit-list-label">Who we&apos;re building this network with</span>
+          <div className="market-fit-list-grid">
+            <p><span>01</span>International timber manufacturers</p>
+            <p><span>02</span>Wood and raw-material suppliers</p>
+            <p><span>03</span>Panel and board manufacturers</p>
+            <p><span>04</span>Construction-material companies</p>
+            <p><span>05</span>Exclusive distribution partners</p>
+          </div>
+        </div>
       </section>
 
       <section className="entry-path" id="route">
@@ -46,14 +52,14 @@ export default function PartnersPage() {
       </section>
 
       <section className="partner-lifecycle">
-        <div className="lifecycle-head" data-reveal="left"><p className="eyebrow">From first conversation to market growth</p><h2>A partnership is<br /><em>a working system.</em></h2><p>The commercial model only succeeds when responsibilities, evidence, and decisions remain clear through every stage.</p></div>
+        <div className="lifecycle-head" data-reveal="left"><p className="eyebrow">From first hello to growing together</p><h2>Five simple steps.<br /><em>No surprises.</em></h2><p>We keep things clear from day one—so you always know what happens next, and what we&apos;re each responsible for.</p></div>
         <div className="lifecycle-line" aria-hidden="true"><span /></div>
         <div className="lifecycle-steps">
-          <article data-reveal="right"><span>01</span><h3>Introduction</h3><p>Company, product range, existing markets, and ambition for Iraq.</p><small>Outcome · Initial relevance</small></article>
-          <article data-reveal="right"><span>02</span><h3>Evaluation</h3><p>Product fit, documentation, price position, territory, and supply capability.</p><small>Outcome · Shared business case</small></article>
-          <article data-reveal="right"><span>03</span><h3>Structure</h3><p>Responsibilities, commercial model, route to market, and operating plan.</p><small>Outcome · Partnership framework</small></article>
-          <article data-reveal="right"><span>04</span><h3>Activation</h3><p>Import coordination, stock planning, market introductions, and launch.</p><small>Outcome · Local readiness</small></article>
-          <article data-reveal="right"><span>05</span><h3>Development</h3><p>Customer feedback, demand building, supply continuity, and growth planning.</p><small>Outcome · Durable market access</small></article>
+          <article data-reveal="right"><span>01</span><h3>Say hello</h3><p>Tell us about your products and where you&apos;d like to sell them in Iraq.</p><small>You get · A real answer, fast</small></article>
+          <article data-reveal="right"><span>02</span><h3>We take a look</h3><p>We check the fit—your product, our market, and whether it makes sense for both of us.</p><small>You get · A clear yes or no</small></article>
+          <article data-reveal="right"><span>03</span><h3>We shake on it</h3><p>We agree who does what, how we&apos;ll sell, and what success looks like.</p><small>You get · A simple, fair agreement</small></article>
+          <article data-reveal="right"><span>04</span><h3>We get moving</h3><p>We bring in stock, set up storage, and start telling the market you&apos;re here.</p><small>You get · Ready to sell in Iraq</small></article>
+          <article data-reveal="right"><span>05</span><h3>We grow together</h3><p>We listen to customers, keep the stock flowing, and build on what&apos;s working.</p><small>You get · Steady, lasting growth</small></article>
         </div>
       </section>
 

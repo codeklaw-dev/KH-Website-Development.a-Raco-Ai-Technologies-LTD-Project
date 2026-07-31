@@ -43,3 +43,6 @@ next-env.d.ts
 
 # Client source photography is kept locally; optimized selected copies live in public/assets.
 /kh images/
+
+# Claude Code local session permissions (machine-specific, not shared)
+.claude/settings.local.json

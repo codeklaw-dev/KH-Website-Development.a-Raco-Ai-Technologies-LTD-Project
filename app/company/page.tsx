@@ -16,13 +16,16 @@ export default function CompanyPage() {
   return (
     <SiteShell active="company">
       <section className="company-hero inner-hero">
+        <img className="company-hero-image cover-image" src="/assets/company-hero.jpg" alt="" aria-hidden="true" fetchPriority="high" />
+        <div className="company-hero-wash" aria-hidden="true" />
+        <div className="company-hero-vignette" aria-hidden="true" />
+        <div className="company-monogram" aria-hidden="true">KH</div>
         <div className="company-hero-copy">
           <p className="eyebrow hero-animate one">The company</p>
           <h1 className="hero-animate two">A family name,<br /><em>built to endure.</em></h1>
           <p className="hero-animate three">From the craft of carpentry to the scale of international supply, KH Wood has always been shaped by relationships.</p>
+          <div className="company-hero-note hero-animate four"><span>Our foundation</span><b>Trust, adaptability &amp; long-term thinking</b></div>
         </div>
-        <figure className="company-portrait hero-animate four"><img className="cover-image" src="/assets/imported-timber.jpg" alt="Imported timber stock at KH Wood" fetchPriority="high" /><figcaption><span>Our foundation</span><b>Trust, adaptability &amp; long-term thinking</b></figcaption></figure>
-        <div className="company-monogram" aria-hidden="true">KH</div>
       </section>
 
       <nav className="page-rail" aria-label="Company page sections"><span>Company overview</span><a href="#story">Our story</a><a href="#sectors">Sectors</a><a href="#values">Values</a><a href="#leadership">Leadership</a><a href="#locations">Locations</a></nav>

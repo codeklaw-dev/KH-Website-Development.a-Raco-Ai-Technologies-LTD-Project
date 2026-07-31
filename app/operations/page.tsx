@@ -16,25 +16,36 @@ export default function OperationsPage() {
         <div className="ops-status hero-animate four"><span><i /> Operations active</span><p>Storage · Handling · Dispatch</p></div>
       </section>
 
-      <nav className="page-rail page-rail-dark" aria-label="Operations page sections"><span>Operational view</span><a href="#flow">Material flow</a><a href="#facility">Facility</a><a href="#controls">Controls</a><a href="#capacity">Capabilities</a><a href="#questions">Questions</a></nav>
+      <nav className="page-rail page-rail-dark" aria-label="Operations page sections"><span>Operational view</span><a href="#flow">Material flow</a><a href="#facility">Facility</a><a href="#controls">Controls</a><a href="#demand">Demand patterns</a><a href="#questions">Questions</a></nav>
 
       <section className="ops-overview">
-        <div className="ops-stat" data-reveal="left"><strong>27</strong><span>Acres of storage<br />and staging capacity</span></div>
-        <div className="ops-overview-copy" data-reveal="up"><p className="eyebrow">Infrastructure with a purpose</p><h2>Space only matters<br /><em>when it moves well.</em></h2></div>
-        <p data-reveal="right">KH Wood&apos;s operating footprint supports high-volume stockholding, organised handling, and supply coordination for recurring demand and project schedules.</p>
+        <div className="ops-stat" data-reveal="left"><strong>27</strong><span>Acres</span></div>
+        <div className="ops-overview-copy" data-reveal="up">
+          <p className="eyebrow">Infrastructure with a purpose</p>
+          <h2>Space only matters<br /><em>when it moves well.</em></h2>
+          <p>KH Wood&apos;s operating footprint supports high-volume stockholding, organised handling, and supply coordination for recurring demand and project schedules.</p>
+        </div>
       </section>
 
       <section className="operations-flow" id="flow">
-        <div className="flow-spine" aria-hidden="true"><span /></div>
-        {[['01','Arrive','Imported and locally sourced materials enter a controlled receiving process.','/assets/logistics-truck.jpg'],['02','Store','Stock is organised for visibility, protection, and practical access.','/assets/yard-stock.jpg'],['03','Stage','Materials are selected, grouped, and prepared around the requirement.','/assets/forklift-operations.jpg'],['04','Dispatch','Loads are coordinated for commercial, construction, and project destinations.','/assets/yard-loading.jpg']].map(([n,title,text,image], index)=><article className={`flow-step step-${index+1}`} key={title} data-reveal={index%2 ? 'right':'left'}><div className="flow-image"><img className="cover-image" src={image} alt={`${title} stage at KH Wood`} loading="lazy" decoding="async" /></div><div className="flow-copy"><span>{n}</span><h3>{title}</h3><p>{text}</p></div></article>)}
+        <div className="flow-head" data-reveal="up"><p className="eyebrow">Material flow</p><h2>Four stages,<br /><em>one continuous line.</em></h2></div>
+        <div className="flow-track">
+          {[['01','Arrive','Imported and locally sourced materials enter a controlled receiving process.','/assets/logistics-truck.jpg'],['02','Store','Stock is organised for visibility, protection, and practical access.','/assets/yard-stock.jpg'],['03','Stage','Materials are selected, grouped, and prepared around the requirement.','/assets/forklift-operations.jpg'],['04','Dispatch','Loads are coordinated for commercial, construction, and project destinations.','/assets/yard-loading.jpg']].map(([n,title,text,image], index)=>(
+            <article className="flow-step" key={title} data-reveal="up" style={{transitionDelay:`${index*80}ms`}}>
+              <div className="flow-image"><img className="cover-image" src={image} alt={`${title} stage at KH Wood`} loading="lazy" decoding="async" /><b>{n}</b></div>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="facility-gallery" id="facility">
         <div className="facility-gallery-title" data-reveal="left"><p className="eyebrow">Inside the operation</p><h2>Capacity you can<br /><em>see and understand.</em></h2><p>Real photography from the storage and handling environment—because operational credibility should be visible.</p></div>
-        <figure className="gallery-a" data-reveal="up"><img className="cover-image" src="/assets/yard-stock.jpg" alt="Organised wood stock in the KH Wood yard" loading="lazy" decoding="async" /><figcaption>Stockholding · Inventory readiness</figcaption></figure>
+        <figure className="gallery-a" data-reveal="up"><img className="cover-image" src="/assets/network-warehouse-bay.jpg" alt="Covered storage bay stacked with banded panel inventory" loading="lazy" decoding="async" /><figcaption>Stockholding · Inventory readiness</figcaption></figure>
         <figure className="gallery-b" data-reveal="right"><img className="cover-image" src="/assets/pallet-stacks.jpg" alt="Palletised materials prepared in storage" loading="lazy" decoding="async" /><figcaption>Staged materials · Commercial supply</figcaption></figure>
-        <figure className="gallery-c" data-reveal="left"><img className="cover-image" src="/assets/forklift-operations.jpg" alt="Forklift handling materials" loading="lazy" decoding="async" /><figcaption>Handling · Yard movement</figcaption></figure>
-        <figure className="gallery-d" data-reveal="right"><img className="cover-image" src="/assets/yard-loading.jpg" alt="Loading activity for KH Wood dispatch" loading="lazy" decoding="async" /><figcaption>Dispatch · Load coordination</figcaption></figure>
+        <figure className="gallery-c" data-reveal="left"><img className="cover-image" src="/assets/timber-bundles.jpg" alt="Bundled sawn timber held in the yard" loading="lazy" decoding="async" /><figcaption>Sawn stock · Grade separation</figcaption></figure>
+        <figure className="gallery-d" data-reveal="right"><img className="cover-image" src="/assets/network-logistics-aerial.jpg" alt="Aerial view of the yard with trucks loading for dispatch" loading="lazy" decoding="async" /><figcaption>Dispatch · Load coordination</figcaption></figure>
       </section>
 
       <section className="control-system" id="controls">
@@ -42,24 +53,15 @@ export default function OperationsPage() {
         <div className="control-system-grid">
           {[['Requirement review','Confirm product, volume, destination, and timing before coordination begins.'],['Availability alignment','Match the request to current stock, sourcing route, and practical lead time.'],['Staging visibility','Prepare loads around the agreed requirement and dispatch sequence.'],['Communication','Keep the commercial contact informed as the supply plan moves forward.']].map(([title,text],index)=><article key={title} data-reveal="right"><span>0{index+1}</span><h3>{title}</h3><p>{text}</p></article>)}
         </div>
+        <div className="control-capabilities" data-reveal>
+          <span>On-site capabilities</span>
+          <p>Inventory readiness</p><p>Forklift handling</p><p>Stock staging</p><p>Bulk load coordination</p><p>Import support</p><p>Project dispatch</p>
+        </div>
       </section>
 
-      <section className="capacity-blueprint">
-        <div className="blueprint-grid" aria-hidden="true" />
-        <div className="blueprint-head" data-reveal="left"><p className="eyebrow">The operating blueprint</p><h2>Physical space.<br /><em>Commercial purpose.</em></h2><p>The 27-acre footprint supports a connected set of operational jobs—not simply storage.</p></div>
-        <div className="blueprint-diagram" data-reveal="scale"><div className="blueprint-core"><strong>27</strong><span>Acres</span></div><div className="blueprint-node node-a"><span>Receive</span><small>Inbound coordination</small></div><div className="blueprint-node node-b"><span>Hold</span><small>Stock readiness</small></div><div className="blueprint-node node-c"><span>Prepare</span><small>Staging &amp; handling</small></div><div className="blueprint-node node-d"><span>Dispatch</span><small>Supply execution</small></div></div>
-      </section>
-
-      <section className="operation-scenarios">
+      <section className="operation-scenarios" id="demand">
         <div className="scenario-head" data-reveal><p className="eyebrow">Built for different demand patterns</p><h2>One operation.<br />Three supply realities.</h2></div>
         <div className="scenario-grid"><article data-reveal="left"><span>Recurring</span><h3>Ongoing commercial demand</h3><p>Inventory planning and repeat supply for established purchasing patterns.</p></article><article data-reveal="up"><span>Project</span><h3>Programme-led requirements</h3><p>Staging and dispatch coordination around project location, phasing, and timing.</p></article><article data-reveal="right"><span>Market entry</span><h3>New product positioning</h3><p>Physical capacity to support international products entering the Iraqi market.</p></article></div>
-      </section>
-
-      <section className="operations-board" id="capacity">
-        <div className="board-heading" data-reveal="left"><p className="eyebrow">Operational capabilities</p><h2>Ready for everyday<br /><em>and exceptional demand.</em></h2></div>
-        <div className="board-grid" data-reveal="right">
-          <div><span>01</span><p>Inventory readiness</p></div><div><span>02</span><p>Forklift handling</p></div><div><span>03</span><p>Stock staging</p></div><div><span>04</span><p>Bulk load coordination</p></div><div><span>05</span><p>Import support</p></div><div><span>06</span><p>Project dispatch</p></div>
-        </div>
       </section>
 
       <section className="operations-faq" id="questions">

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteShell } from "../../components/SiteShell";
+import { ProductRangeNav } from "../../components/ProductRangeNav";
+import { ProductAddToEnquiry } from "../../components/ProductAddToEnquiry";
 import { getProductRange, productRanges } from "../productData";
 
 type ProductPageProps = { params: Promise<{ slug: string }> };
@@ -23,13 +25,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const product = getProductRange((await params).slug);
   if (!product) notFound();
 
-  const index = productRanges.findIndex(({ slug }) => slug === product.slug);
-  const previous = productRanges[(index - 1 + productRanges.length) % productRanges.length];
-  const next = productRanges[(index + 1) % productRanges.length];
-
   return (
-    <SiteShell active="products" headerOnLight={false}>
+    <SiteShell active="products">
       <article className={`product-detail detail-${product.theme}`}>
+        <ProductRangeNav ranges={productRanges} current={product.slug} />
+
         <section className="detail-hero">
           <img className="cover-image" src={product.image} alt={product.imageAlt} fetchPriority="high" />
           <div className="detail-hero-shade" />
@@ -38,62 +38,34 @@ export default async function ProductPage({ params }: ProductPageProps) {
             <p className="eyebrow hero-animate one">{product.eyebrow}</p>
             <h1 className="hero-animate two">{product.headline}</h1>
             <p className="hero-animate three">{product.intro}</p>
-            <Link className="button button-red hero-animate four" href={`/contact?type=${product.theme === "market" ? "partner" : "supply"}&product=${product.slug}`}>{product.ctaLabel} <span>↗</span></Link>
+            <div className="hero-animate four"><ProductAddToEnquiry slug={product.slug} title={product.title} n={product.n} fields={product.orderFields} /></div>
           </div>
           <div className="detail-hero-index hero-animate four"><span>{product.n}</span><small>{product.tag}</small></div>
         </section>
 
-        <nav className="product-range-rail" aria-label="Browse product ranges">
-          <span>Browse the range</span>
-          {productRanges.map((item) => <Link key={item.slug} href={`/products/${item.slug}`} aria-current={item.slug === product.slug ? "page" : undefined}><small>{item.n}</small>{item.shortTitle}</Link>)}
-        </nav>
-
-        <section className="detail-fit">
-          <div className="detail-fit-heading" data-reveal="left"><p className="eyebrow">Where it works</p><h2>Built around<br /><em>real demand.</em></h2></div>
-          <div className="detail-applications">
-            {product.applications.map((application, itemIndex) => <div key={application} data-reveal="right" style={{ transitionDelay: `${itemIndex * 55}ms` }}><span>0{itemIndex + 1}</span><p>{application}</p></div>)}
+        <section className="detail-overview" id="overview">
+          <img className="detail-overview-image cover-image" src={product.secondaryImage} alt="" aria-hidden="true" loading="lazy" decoding="async" />
+          <div className="detail-overview-wash" aria-hidden="true" />
+          <div className="detail-overview-heading" data-reveal="up"><p className="eyebrow">{product.eyebrow}</p><h2>Where it works.<br /><em>What you can choose.</em></h2></div>
+          <div className="detail-overview-body">
+            <div className="detail-overview-uses" data-reveal="left">
+              <span className="detail-overview-label">Where it works</span>
+              {product.applications.map((application, itemIndex) => <p key={application}><b>0{itemIndex + 1}</b>{application}</p>)}
+            </div>
+            <div className="detail-overview-options" data-reveal="right">
+              <span className="detail-overview-label">Ways to specify it</span>
+              {product.options.map((option, itemIndex) => <article key={option.title}><b>0{itemIndex + 1}</b><h3>{option.title}</h3><p>{option.copy}</p></article>)}
+            </div>
           </div>
-          <blockquote data-reveal="up">“{product.principle}”</blockquote>
+          <blockquote data-reveal>“{product.principle}”</blockquote>
         </section>
 
-        <section className="detail-options">
-          <div className="detail-options-head" data-reveal="left"><span>{product.n} / Product route</span><h2>What we can<br /><em>help you define.</em></h2></div>
-          <div className="detail-option-grid">
-            {product.options.map((option, itemIndex) => <article key={option.title} data-reveal="up" style={{ transitionDelay: `${itemIndex * 70}ms` }}><span>0{itemIndex + 1}</span><h3>{option.title}</h3><p>{option.copy}</p></article>)}
-          </div>
-        </section>
-
-        <section className="detail-visual-break">
-          <img className="cover-image" src={product.secondaryImage} alt={product.secondaryAlt} loading="lazy" decoding="async" />
-          <div className="detail-visual-shade" />
-          <p data-reveal="left"><span>KH Wood / Iraq</span>Specification, stock, and supply—connected.</p>
-        </section>
-
-        <section className="detail-brief">
-          <div className="detail-brief-copy" data-reveal="left"><p className="eyebrow">Build a useful enquiry</p><h2>Five details.<br /><em>A faster answer.</em></h2><p>Availability and exact specifications are confirmed per enquiry. Giving the team a complete brief helps us assess the right product and supply route sooner.</p><Link className="text-link" href={`/contact?type=${product.theme === "market" ? "partner" : "supply"}&product=${product.slug}`}>Send your requirement <span>↗</span></Link></div>
+        <section className="detail-brief" id="brief">
+          <div className="detail-brief-copy" data-reveal="left"><p className="eyebrow">Ready for a quote?</p><h2>Add it to<br /><em>your enquiry.</em></h2><p>Add this range to your enquiry, browse others you need, then fill in the details once and send it all together.</p><ProductAddToEnquiry slug={product.slug} title={product.title} n={product.n} fields={product.orderFields} /></div>
           <ol className="detail-checklist">
-            {product.brief.map((item, itemIndex) => <li key={item} data-reveal="right"><span>0{itemIndex + 1}</span><p>{item}</p><i>✓</i></li>)}
+            {product.orderFields.map((item, itemIndex) => <li key={item.label} data-reveal="right"><span>0{itemIndex + 1}</span><p>{item.label}</p><i>✓</i></li>)}
           </ol>
         </section>
-
-        <section className="detail-process">
-          <div className="detail-process-title" data-reveal><p className="eyebrow">How the conversation moves</p><h2>Clear steps.<br />Commercial momentum.</h2></div>
-          <div className="detail-process-grid">
-            {product.process.map((step, itemIndex) => <article key={step.title} data-reveal="up" style={{ transitionDelay: `${itemIndex * 70}ms` }}><span>0{itemIndex + 1}</span><h3>{step.title}</h3><p>{step.copy}</p></article>)}
-          </div>
-        </section>
-
-        <section className="detail-range">
-          <div className="detail-range-head" data-reveal="left"><p className="eyebrow">Continue browsing</p><h2>The KH Wood range.</h2></div>
-          <div className="detail-range-grid">
-            {productRanges.map((item) => <Link className={item.slug === product.slug ? "is-current" : ""} key={item.slug} href={`/products/${item.slug}`} data-reveal="up"><span>{item.n}</span><div><small>{item.tag}</small><h3>{item.title}</h3></div><i>{item.slug === product.slug ? "Current" : "↗"}</i></Link>)}
-          </div>
-        </section>
-
-        <nav className="product-loop" aria-label="Previous and next product ranges">
-          <Link href={`/products/${previous.slug}`}><small>← Previous range</small><strong>{previous.title}</strong></Link>
-          <Link href={`/products/${next.slug}`}><small>Next range →</small><strong>{next.title}</strong></Link>
-        </nav>
       </article>
     </SiteShell>
   );
