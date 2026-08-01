@@ -170,24 +170,35 @@ export default function Home() {
         </div>
         <div className="process-tracks">
           <div className="process-track" data-reveal="left">
-            <span className="process-track-label">For buyers &amp; projects</span>
+            <div className="process-route-head">
+              <span className="process-track-label">For buyers &amp; projects</span>
+              <h3>I need materials.</h3>
+              <p>Start here if you are sourcing timber, panels, or construction wood for trade, manufacturing, or a live project.</p>
+              <strong>Outcome: confirmed availability, price, and delivery plan.</strong>
+            </div>
             <ol>
-              <li><b>01</b><div><h3>Enquire with your spec</h3><p>Share quantities, grades, and delivery timelines by form, email, or WhatsApp.</p></div></li>
-              <li><b>02</b><div><h3>Quote from live stock</h3><p>Pricing and availability confirmed against inventory already on the ground in Iraq.</p></div></li>
-              <li><b>03</b><div><h3>Dispatch &amp; delivery</h3><p>Staged, loaded, and delivered to site&mdash;with volumes held for phased projects.</p></div></li>
+              <li><div><h4>Tell us what you need</h4><p>Share the material, grade, quantity, destination, and required date.</p></div></li>
+              <li><div><h4>Receive a practical offer</h4><p>We confirm suitable stock, pricing, lead time, and any alternatives.</p></div></li>
+              <li><div><h4>Approve and receive</h4><p>Your order is staged, loaded, and coordinated for collection or delivery.</p></div></li>
             </ol>
-            <Link className="text-link" href="/products">Browse materials <span>↗</span></Link>
+            <div className="process-route-actions"><Link className="button button-red" href="/products">Browse materials <span>↗</span></Link><Link className="process-secondary" href="/contact?type=supply">Ask about a requirement</Link></div>
           </div>
           <div className="process-track partner" data-reveal="right">
-            <span className="process-track-label">For international manufacturers</span>
+            <div className="process-route-head">
+              <span className="process-track-label">For international manufacturers</span>
+              <h3>I want to enter Iraq.</h3>
+              <p>Start here if you manufacture wood, panels, or related construction materials and need a serious local market partner.</p>
+              <strong>Outcome: a clear route to representation, stocking, and growth.</strong>
+            </div>
             <ol>
-              <li><b>01</b><div><h3>Introduce your line</h3><p>Tell us about your products, capacity, and ambitions for the Iraqi market.</p></div></li>
-              <li><b>02</b><div><h3>Market &amp; fit assessment</h3><p>We evaluate demand, pricing position, and the right entry model together.</p></div></li>
-              <li><b>03</b><div><h3>Representation &amp; rollout</h3><p>Agency or franchise terms, import coordination, stocking, and market development.</p></div></li>
+              <li><div><h4>Introduce your company</h4><p>Share your portfolio, capacity, certifications, and market ambitions.</p></div></li>
+              <li><div><h4>Assess the opportunity</h4><p>Together we review demand, product fit, pricing, and the right entry model.</p></div></li>
+              <li><div><h4>Agree and launch</h4><p>We define representation, imports, stockholding, and market development.</p></div></li>
             </ol>
-            <Link className="text-link" href="/partners">Explore partnership <span>↗</span></Link>
+            <div className="process-route-actions"><Link className="button button-white" href="/partners">Explore partnerships <span>↗</span></Link><Link className="process-secondary" href="/contact?type=partnership">Introduce your company</Link></div>
           </div>
         </div>
+        <div className="process-choice-help" data-reveal="up"><div><span>Not sure which route fits?</span><p>Tell us what you are trying to achieve. Our team will direct your enquiry.</p></div><Link href="/contact">Talk to the right person <span>↗</span></Link></div>
       </section>
 
       <section className="contact-strip" id="reach-us" aria-labelledby="contact-strip-heading">
