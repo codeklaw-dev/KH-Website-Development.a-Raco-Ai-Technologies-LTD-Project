@@ -16,7 +16,7 @@ export default function OperationsPage() {
         <div className="ops-status hero-animate four"><span><i /> Operations active</span><p>Storage · Handling · Dispatch</p></div>
       </section>
 
-      <nav className="page-rail page-rail-dark" aria-label="Operations page sections"><span>Operational view</span><a href="#flow">Material flow</a><a href="#facility">Facility</a><a href="#controls">Controls</a><a href="#demand">Demand patterns</a><a href="#questions">Questions</a></nav>
+      <nav className="page-rail page-rail-dark" aria-label="Operations page sections"><span>Operational view</span><a href="#flow">Material flow</a><a href="#infrastructure">Warehousing &amp; logistics</a><a href="#demand">Demand patterns</a><a href="#questions">Questions</a></nav>
 
       <section className="ops-overview">
         <div className="ops-stat" data-reveal="left"><strong>27</strong><span>Acres</span></div>
@@ -40,22 +40,34 @@ export default function OperationsPage() {
         </div>
       </section>
 
-      <section className="facility-gallery" id="facility">
-        <div className="facility-gallery-title" data-reveal="left"><p className="eyebrow">Inside the operation</p><h2>Capacity you can<br /><em>see and understand.</em></h2><p>Real photography from the storage and handling environment—because operational credibility should be visible.</p></div>
-        <figure className="gallery-a" data-reveal="up"><img className="cover-image" src="/assets/network-warehouse-bay.jpg" alt="Covered storage bay stacked with banded panel inventory" loading="lazy" decoding="async" /><figcaption>Stockholding · Inventory readiness</figcaption></figure>
-        <figure className="gallery-b" data-reveal="right"><img className="cover-image" src="/assets/pallet-stacks.jpg" alt="Palletised materials prepared in storage" loading="lazy" decoding="async" /><figcaption>Staged materials · Commercial supply</figcaption></figure>
-        <figure className="gallery-c" data-reveal="left"><img className="cover-image" src="/assets/timber-bundles.jpg" alt="Bundled sawn timber held in the yard" loading="lazy" decoding="async" /><figcaption>Sawn stock · Grade separation</figcaption></figure>
-        <figure className="gallery-d" data-reveal="right"><img className="cover-image" src="/assets/network-logistics-aerial.jpg" alt="Aerial view of the yard with trucks loading for dispatch" loading="lazy" decoding="async" /><figcaption>Dispatch · Load coordination</figcaption></figure>
-      </section>
-
-      <section className="control-system" id="controls">
-        <div className="control-system-copy" data-reveal="left"><p className="eyebrow">Practical supply control</p><h2>Visibility at<br /><em>every handover.</em></h2><p>KH Wood&apos;s process is designed to keep commercial teams informed and requirements aligned as materials move through the operation.</p><Link className="text-link" href="/contact?type=supply">Plan a requirement <span>↗</span></Link></div>
-        <div className="control-system-grid">
-          {[['Requirement review','Confirm product, volume, destination, and timing before coordination begins.'],['Availability alignment','Match the request to current stock, sourcing route, and practical lead time.'],['Staging visibility','Prepare loads around the agreed requirement and dispatch sequence.'],['Communication','Keep the commercial contact informed as the supply plan moves forward.']].map(([title,text],index)=><article key={title} data-reveal="right"><span>0{index+1}</span><h3>{title}</h3><p>{text}</p></article>)}
+      <section className="operations-infrastructure" id="infrastructure">
+        <div className="infrastructure-heading" data-reveal="up">
+          <div><p className="eyebrow">Warehousing &amp; logistics infrastructure</p><h2><strong>27 acres.</strong><br /><em>One national supply system.</em></h2></div>
+          <p>KH Wood combines high-volume stockholding, practical handling, import coordination, and organised dispatch to support commercial and project demand across Iraq.</p>
         </div>
-        <div className="control-capabilities" data-reveal>
-          <span>On-site capabilities</span>
-          <p>Inventory readiness</p><p>Forklift handling</p><p>Stock staging</p><p>Bulk load coordination</p><p>Import support</p><p>Project dispatch</p>
+
+        <div className="infrastructure-mosaic">
+          <figure className="infrastructure-main" data-reveal="left">
+            <img className="cover-image" src="/assets/home-material-destinations.jpg" alt="Aerial view of KH Wood's extensive warehousing and timber storage infrastructure" loading="lazy" decoding="async" />
+            <div className="infrastructure-image-shade" />
+            <figcaption><strong>27</strong><span>Acres of operating capacity</span></figcaption>
+          </figure>
+
+          <article className="infrastructure-control" data-reveal="right">
+            <span>Control at every handover</span>
+            <h3>From arrival to nationwide dispatch.</h3>
+            <p>One coordinated operating model connects incoming supply, protected stock, load preparation, and delivery planning.</p>
+            <ol><li>Receive &amp; verify</li><li>Store &amp; organise</li><li>Stage &amp; load</li><li>Coordinate delivery</li></ol>
+            <Link className="text-link" href="/contact?type=supply">Plan a requirement <span>↗</span></Link>
+          </article>
+
+          <figure className="infrastructure-road" data-reveal="right"><img className="cover-image" src="/assets/operations-national-logistics.jpg" alt="Freight vehicles travelling as part of a national logistics network" loading="lazy" decoding="async" /><figcaption>Nationwide delivery <span>Iraq</span></figcaption></figure>
+          <figure className="infrastructure-port" data-reveal="left"><img className="cover-image" src="/assets/home-visible-capacity.jpg" alt="Imported timber being handled between port and warehouse" loading="lazy" decoding="async" /><figcaption>Import coordination <span>Port to yard</span></figcaption></figure>
+          <figure className="infrastructure-fleet" data-reveal="up"><img className="cover-image" src="/assets/operations-flow-arrive.jpg" alt="KH Wood fleet staged for high-volume timber distribution" loading="lazy" decoding="async" /><figcaption>Fleet readiness <span>Volume at call</span></figcaption></figure>
+        </div>
+
+        <div className="infrastructure-controls" data-reveal="up">
+          {[["01","Inventory visibility"],["02","Protected stockholding"],["03","Load staging"],["04","Nationwide coordination"]].map(([number,label])=><div key={number}><span>{number}</span><p>{label}</p></div>)}
         </div>
       </section>
 

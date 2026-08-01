@@ -346,6 +346,39 @@ h1 em, h2 em { color: var(--red); font-weight: 400; }
 .control-capabilities span { margin-right:8px;color:#d78f8f;font-size:8px;font-weight:800;letter-spacing:.18em;text-transform:uppercase; }
 .control-capabilities p { position:relative;margin:0;padding-left:18px;color:rgba(255,255,255,.72);font-size:11px;letter-spacing:.02em; }
 .control-capabilities p::before { content:"";position:absolute;left:0;top:50%;width:5px;height:5px;margin-top:-2px;border-radius:50%;background:var(--red-bright); }
+.operations-infrastructure { padding:125px clamp(24px,6.4vw,108px);overflow:hidden;color:var(--white);background:var(--black); }
+.infrastructure-heading { display:grid;grid-template-columns:1.3fr .55fr;gap:clamp(50px,8vw,130px);align-items:end;margin-bottom:70px; }
+.infrastructure-heading .eyebrow { color:#d78f8f; }
+.infrastructure-heading h2 { font-size:clamp(54px,6.2vw,96px); }
+.infrastructure-heading h2 strong { color:var(--white);font-weight:400; }
+.infrastructure-heading > p { max-width:510px;margin:0 0 9px;color:rgba(255,255,255,.62);font-size:12px;line-height:1.85; }
+.infrastructure-mosaic { display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:370px 280px 280px;gap:3px; }
+.infrastructure-mosaic figure { position:relative;margin:0;overflow:hidden;background:#161616; }
+.infrastructure-mosaic figure > img { object-fit:cover;filter:saturate(.68) contrast(1.04);transition:transform 1s cubic-bezier(.2,.75,.2,1),filter .45s; }
+.infrastructure-mosaic figure:hover > img { transform:scale(1.045);filter:saturate(.95) contrast(1.02); }
+.infrastructure-mosaic figure > figcaption { position:absolute;z-index:3;left:24px;right:24px;bottom:22px;display:flex;align-items:end;justify-content:space-between;gap:20px;color:var(--white);font-size:9px;font-weight:800;letter-spacing:.13em;text-transform:uppercase; }
+.infrastructure-mosaic figure > figcaption span { color:rgba(255,255,255,.55);font-size:8px; }
+.infrastructure-main { grid-column:1/9;grid-row:1/3; }
+.infrastructure-main .infrastructure-image-shade { position:absolute;z-index:1;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.78),transparent 55%); }
+.infrastructure-main figcaption { justify-content:flex-start!important;gap:20px!important; }
+.infrastructure-main figcaption strong { font-family:var(--display);font-size:clamp(90px,11vw,165px);font-weight:400;line-height:.68;letter-spacing:-.08em; }
+.infrastructure-main figcaption span { max-width:120px;color:var(--white)!important;line-height:1.5; }
+.infrastructure-control { grid-column:9/13;grid-row:1;padding:35px;display:flex;flex-direction:column;color:var(--white);background:var(--red);transition:background .35s; }
+.infrastructure-control:hover { background:#a62626; }
+.infrastructure-control > span { font-size:8px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;opacity:.62; }
+.infrastructure-control h3 { max-width:480px;margin:25px 0 15px;font-family:var(--display);font-size:clamp(37px,3.4vw,53px);font-weight:400;line-height:.98;letter-spacing:-.03em; }
+.infrastructure-control p { max-width:480px;margin:0;color:rgba(255,255,255,.67);font-size:10px;line-height:1.7; }
+.infrastructure-control ol { display:grid;grid-template-columns:1fr 1fr;gap:9px 18px;margin:auto 0 0;padding:20px 0 0;border-top:1px solid rgba(255,255,255,.25);list-style-position:inside;font-size:8px;font-weight:800;letter-spacing:.08em;text-transform:uppercase; }
+.infrastructure-control .text-link { margin-top:18px;color:var(--white); }
+.infrastructure-road { grid-column:9/13;grid-row:2/4; }
+.infrastructure-road img { object-position:center 58%; }
+.infrastructure-port { grid-column:1/5;grid-row:3; }
+.infrastructure-fleet { grid-column:5/9;grid-row:3; }
+.infrastructure-controls { display:grid;grid-template-columns:repeat(4,1fr);margin-top:42px;border-top:1px solid rgba(255,255,255,.18);border-left:1px solid rgba(255,255,255,.18); }
+.infrastructure-controls > div { min-height:118px;padding:22px;border-right:1px solid rgba(255,255,255,.18);border-bottom:1px solid rgba(255,255,255,.18);transition:color .3s,background .3s; }
+.infrastructure-controls > div:hover { color:var(--black);background:var(--white); }
+.infrastructure-controls span { color:#d78f8f;font-size:8px;font-weight:800; }
+.infrastructure-controls p { margin:34px 0 0;font-family:var(--display);font-size:22px; }
 .operation-scenarios { padding:125px clamp(24px,6.4vw,108px);background:var(--soft); }.scenario-head { display:grid;grid-template-columns:.4fr 1fr;align-items:start;margin-bottom:70px; }.scenario-grid { display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line); }.scenario-grid article { min-height:320px;display:flex;flex-direction:column;padding:28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:color .3s,background .3s,transform .3s; }.scenario-grid article:hover { color:var(--white);background:var(--black);transform:translateY(-7px); }.scenario-grid span { color:var(--red);font-size:8px;font-weight:800;letter-spacing:.15em;text-transform:uppercase; }.scenario-grid h3 { margin:auto 0 15px;font-family:var(--display);font-size:38px;font-weight:400; }.scenario-grid p { margin:0;color:var(--muted);font-size:10px;line-height:1.7; }.scenario-grid article:hover p { color:rgba(255,255,255,.62); }
 
 .directory-list article a { margin-top:18px;padding-top:14px;border-top:1px solid var(--line);font-size:8px;font-weight:800;letter-spacing:.12em;text-transform:uppercase; }.directory-list article:hover a { border-color:rgba(255,255,255,.35); }
@@ -438,6 +471,9 @@ section[id] { scroll-margin-top:110px; }
   .facility-gallery-title { grid-template-columns:.35fr 1fr; }.facility-gallery-title > p:last-child { grid-column:2; }
   .company-commitment { grid-template-columns:.62fr 1.38fr; }
   .capacity-blueprint { grid-template-columns:1fr 1fr;gap:40px; }.blueprint-diagram { transform:scale(.88); }
+  .infrastructure-heading { grid-template-columns:1fr .55fr;gap:45px; }
+  .infrastructure-mosaic { grid-template-rows:340px 260px 250px; }
+  .infrastructure-control { padding:28px; }.infrastructure-control ol { grid-template-columns:1fr;gap:7px; }
 }
 
 @media (max-width:820px) {
@@ -455,6 +491,14 @@ section[id] { scroll-margin-top:110px; }
   .company-commitment { grid-template-columns:1fr; }.commitment-mark { min-height:470px; }.commitment-copy { padding:95px 24px; }
   .partner-lifecycle { grid-template-columns:1fr;padding:95px 24px; }.lifecycle-head { position:static; }.lifecycle-line { display:none; }.partner-faq,.operations-faq { grid-template-columns:1fr;gap:55px;padding:95px 24px; }
   .capacity-blueprint { grid-template-columns:1fr;padding:95px 24px; }.blueprint-diagram { width:min(650px,100%);justify-self:center;transform:none; }
+  .operations-infrastructure { padding:95px 24px; }
+  .infrastructure-heading { grid-template-columns:1fr;gap:30px;margin-bottom:52px; }
+  .infrastructure-heading > p { max-width:650px; }
+  .infrastructure-mosaic { grid-template-columns:1fr;grid-template-rows:500px auto 400px 330px 330px; }
+  .infrastructure-main,.infrastructure-control,.infrastructure-road,.infrastructure-port,.infrastructure-fleet { grid-column:1;grid-row:auto; }
+  .infrastructure-control { min-height:430px;padding:34px; }.infrastructure-control ol { grid-template-columns:1fr 1fr; }
+  .infrastructure-road img { object-position:center 62%; }
+  .infrastructure-controls { grid-template-columns:1fr 1fr; }
 }
 
 @media (min-width:821px) {
@@ -474,6 +518,12 @@ section[id] { scroll-margin-top:110px; }
   .company-commitment { min-height:auto; }.commitment-mark { min-height:390px;padding:42px 25px; }.commitment-mark span { font-size:52vw; }.commitment-copy { padding:82px 20px; }.commitment-points { grid-template-columns:1fr; }
   .partner-lifecycle,.partner-faq,.operations-faq,.capacity-blueprint { padding:82px 20px; }.lifecycle-steps article { grid-template-columns:34px 1fr;gap:12px; }.lifecycle-steps h3 { font-size:31px; }
   .blueprint-diagram { min-height:520px; }.blueprint-diagram::before { width:390px;height:390px; }.blueprint-diagram::after { width:270px;height:270px; }.blueprint-core { width:155px;height:155px; }.blueprint-core strong { font-size:67px; }.blueprint-node { width:122px;padding:14px; }.blueprint-node span { font-size:21px; }.node-a { left:0;top:8%; }.node-b { right:0;top:12%; }.node-c { left:0;bottom:10%; }.node-d { right:0;bottom:5%; }
+  .operations-infrastructure { padding:82px 20px; }
+  .infrastructure-mosaic { grid-template-rows:410px auto 360px 300px 300px; }
+  .infrastructure-control { min-height:480px;padding:28px 24px; }.infrastructure-control ol { grid-template-columns:1fr; }
+  .infrastructure-mosaic figure > figcaption { left:18px;right:18px;bottom:18px; }
+  .infrastructure-main figcaption strong { font-size:100px; }
+  .infrastructure-controls { grid-template-columns:1fr; }.infrastructure-controls > div { min-height:100px; }.infrastructure-controls p { margin-top:25px; }
 }
 
 @media (max-width:1100px) {
