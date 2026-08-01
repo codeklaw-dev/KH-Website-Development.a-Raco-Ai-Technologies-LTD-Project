@@ -8,8 +8,10 @@ export const metadata = {
 
 export default function FranchisePage() {
   return (
-    <SiteShell active="partners">
-      <section className="partners-hero inner-hero">
+    <SiteShell active="franchise">
+      <section className="partners-hero franchise-hero inner-hero">
+        <img className="cover-image franchise-hero-image" src="/assets/franchise-hero-port.jpg" alt="Timber arriving at a busy regional port and distribution yard" fetchPriority="high" decoding="async" />
+        <div className="franchise-hero-wash" aria-hidden="true" />
         <div className="partner-coordinate hero-animate one"><span>Franchise</span><i>Opportunities</i></div>
         <div className="partners-hero-copy">
           <p className="eyebrow hero-animate one">Franchise opportunities</p>
@@ -20,7 +22,6 @@ export default function FranchisePage() {
             <Link className="button button-ghost" href="/partners">I&apos;m a manufacturer <span>↗</span></Link>
           </div>
         </div>
-        <div className="partner-orbit" aria-hidden="true"><span /><span /><span /><b>IRQ</b></div>
       </section>
 
       <nav className="page-rail page-rail-dark" aria-label="Franchise page sections"><span>Franchise</span><a href="#opportunity">The opportunity</a><a href="#package">What you get</a><a href="#fit">Who we look for</a><a href="#steps">How to join</a><a href="#apply">Apply</a></nav>
@@ -53,6 +54,17 @@ export default function FranchisePage() {
         <div className="entry-path-visual" data-reveal="left"><img className="cover-image" src="/assets/network-logistics-aerial.jpg" alt="KH warehouses dispatching stock to distributor trucks" loading="lazy" decoding="async" /><div><span>From application</span><b>Four steps</b><span>To trading under KH</span></div></div>
         <div className="entry-steps">
           {[['01','Introduce yourself','Tell us who you are, where you trade, and what you currently sell.'],['02','Territory assessment','We look at your market, your standing, and where a franchise fits the network.'],['03','Terms & territory','Franchise terms, pricing structure, brand standards, and territory are agreed clearly.'],['04','Stock & launch','Your first inventory moves from KH yards, and you start trading under the KH name.']].map(([n,title,text],index)=><article key={title} data-reveal="right" style={{transitionDelay:`${index*70}ms`}}><span>{n}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}
+        </div>
+      </section>
+
+      <section className="franchise-logistics-proof" aria-labelledby="franchise-logistics-title">
+        <img className="cover-image" src="/assets/franchise-logistics-truck.jpg" alt="KH Wood truck leaving a timber yard with a full load" loading="lazy" decoding="async" />
+        <div className="franchise-logistics-shade" aria-hidden="true" />
+        <div className="franchise-logistics-copy" data-reveal="up">
+          <p className="eyebrow">Stock behind every territory</p>
+          <h2 id="franchise-logistics-title">From KH yards.<br /><em>Into your market.</em></h2>
+          <p>The franchise model is backed by KH-held inventory, import coordination, and practical dispatch support&mdash;so franchisees can focus on relationships and sales.</p>
+          <span>Supply &nbsp;&middot;&nbsp; Logistics &nbsp;&middot;&nbsp; Territory support</span>
         </div>
       </section>
 
