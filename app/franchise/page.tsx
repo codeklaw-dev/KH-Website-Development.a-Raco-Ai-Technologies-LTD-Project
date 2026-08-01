@@ -51,7 +51,7 @@ export default function FranchisePage() {
       </section>
 
       <section className="entry-path" id="steps">
-        <div className="entry-path-visual" data-reveal="left"><img className="cover-image" src="/assets/network-logistics-aerial.jpg" alt="KH warehouses dispatching stock to distributor trucks" loading="lazy" decoding="async" /><div><span>From application</span><b>Four steps</b><span>To trading under KH</span></div></div>
+        <div className="entry-path-visual" data-reveal="left"><img className="cover-image" src="/assets/franchise-step-gallery.png" alt="Contemporary wood showroom with furniture displays" loading="lazy" decoding="async" /><div><span>From application</span><b>Four steps</b><span>To trading under KH</span></div></div>
         <div className="entry-steps">
           {[['01','Introduce yourself','Tell us who you are, where you trade, and what you currently sell.'],['02','Territory assessment','We look at your market, your standing, and where a franchise fits the network.'],['03','Terms & territory','Franchise terms, pricing structure, brand standards, and territory are agreed clearly.'],['04','Stock & launch','Your first inventory moves from KH yards, and you start trading under the KH name.']].map(([n,title,text],index)=><article key={title} data-reveal="right" style={{transitionDelay:`${index*70}ms`}}><span>{n}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}
         </div>
