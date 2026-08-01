@@ -63,7 +63,7 @@ export default function OperationsPage() {
 
           <figure className="infrastructure-road" data-reveal="right"><img className="cover-image" src="/assets/operations-national-logistics.jpg" alt="Freight vehicles travelling as part of a national logistics network" loading="lazy" decoding="async" /><figcaption>Nationwide delivery <span>Iraq</span></figcaption></figure>
           <figure className="infrastructure-port" data-reveal="left"><img className="cover-image" src="/assets/home-visible-capacity.jpg" alt="Imported timber being handled between port and warehouse" loading="lazy" decoding="async" /><figcaption>Import coordination <span>Port to yard</span></figcaption></figure>
-          <figure className="infrastructure-fleet" data-reveal="up"><img className="cover-image" src="/assets/operations-flow-arrive.jpg" alt="KH Wood fleet staged for high-volume timber distribution" loading="lazy" decoding="async" /><figcaption>Fleet readiness <span>Volume at call</span></figcaption></figure>
+          <figure className="infrastructure-fleet" data-reveal="up"><img className="cover-image" src="/assets/operations-dispatch-load-coordination.jpg" alt="Timber bundles loaded onto a truck at the KH Wood warehouse" loading="lazy" decoding="async" /><figcaption>Dispatch <span>Load coordination</span></figcaption></figure>
         </div>
 
         <div className="infrastructure-controls" data-reveal="up">
