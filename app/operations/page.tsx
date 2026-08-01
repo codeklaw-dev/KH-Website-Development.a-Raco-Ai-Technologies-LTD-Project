@@ -10,7 +10,7 @@ export default function OperationsPage() {
   return (
     <SiteShell active="operations">
       <section className="operations-hero inner-hero">
-        <img className="operations-hero-image cover-image" src="/assets/yard-wide.jpg" alt="Wide view of the KH Wood storage facility" fetchPriority="high" />
+        <img className="operations-hero-image cover-image" src="/assets/operations-hero-capacity.jpg" alt="Expansive KH Wood warehouse stocked with timber and building materials" fetchPriority="high" />
         <div className="operations-hero-shade" />
         <div className="operations-hero-copy"><p className="eyebrow hero-animate one">Operations &amp; capacity</p><h1 className="hero-animate two">Stocked for scale.<br /><em>Run with control.</em></h1><p className="hero-animate three">From arrival and storage to staging and dispatch, our operation is organised around material readiness.</p></div>
         <div className="ops-status hero-animate four"><span><i /> Operations active</span><p>Storage · Handling · Dispatch</p></div>
