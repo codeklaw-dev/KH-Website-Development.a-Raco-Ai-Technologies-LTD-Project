@@ -30,7 +30,7 @@ export default function Home() {
       <LegacyScroll />
 
       <section className="decision" id="choose">
-        <video className="decision-video" autoPlay muted loop playsInline aria-hidden="true"><source src="/assets/kh-routes.mp4" type="video/mp4" /></video>
+        <video className="decision-video" autoPlay muted loop playsInline preload="metadata" aria-hidden="true"><source src="/assets/decision-route-video.mp4" type="video/mp4" /></video>
         <div className="decision-shade" />
         <div className="decision-heading" data-reveal="up">
           <p className="eyebrow">Choose your route</p>
