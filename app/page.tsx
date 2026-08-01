@@ -125,6 +125,11 @@ export default function Home() {
           <p className="eyebrow">Where our material lands</p>
           <h2 id="sectors-heading">Supplying the work<br /><em>that builds Iraq.</em></h2>
         </div>
+        <div className="sectors-visual" data-reveal="scale">
+          <img className="cover-image" src="/assets/home-material-destinations.jpg" alt="Large KH Wood stockholding and distribution complex serving construction and industry" loading="lazy" decoding="async" />
+          <div aria-hidden="true" />
+          <span><small>Stock · scale · dispatch</small><b>Material ready for the work ahead.</b></span>
+        </div>
         <div className="sectors-list">
           <article data-reveal><span>01</span><div><h3>National infrastructure</h3><p>Bridges, roads, and public works programmes requiring dependable volume and staged delivery.</p></div></article>
           <article data-reveal><span>02</span><div><h3>Construction at scale</h3><p>Large residential and commercial developments, supplied through phased project schedules.</p></div></article>
@@ -150,7 +155,7 @@ export default function Home() {
       <section className="home-capability">
         <div className="capability-title" data-reveal><p className="eyebrow">Visible capacity</p><h2>Built to stock.<br />Ready to supply.</h2></div>
         <div className="capability-visual" data-reveal="scale">
-          <img className="cover-image" src="/assets/yard-loading.jpg" alt="Forklift moving packaged wood at a KH Wood facility" loading="lazy" decoding="async" />
+          <img className="cover-image" src="/assets/home-visible-capacity.jpg" alt="Timber stock moving through a busy regional port and distribution yard" loading="lazy" decoding="async" />
           <Link href="/operations"><span>See how we operate</span><i>↗</i></Link>
         </div>
         <div className="capability-list" data-reveal>
