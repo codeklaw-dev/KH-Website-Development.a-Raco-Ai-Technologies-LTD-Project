@@ -202,6 +202,8 @@ export default function Home() {
       </section>
 
       <section className="contact-strip" id="reach-us" aria-labelledby="contact-strip-heading">
+        <video className="contact-strip-video" autoPlay muted loop playsInline preload="metadata" poster="/assets/kh-yard-poster.jpg" aria-hidden="true"><source src="/assets/kh-concept.mp4" type="video/mp4" /></video>
+        <div className="contact-strip-shade" aria-hidden="true" />
         <div className="contact-strip-lead" data-reveal="up">
           <p className="eyebrow">Your next move</p>
           <h2 id="contact-strip-heading">Tell us what you&apos;re<br /><em>working towards.</em></h2>
