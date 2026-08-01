@@ -1,3 +1,5 @@
+import type { PartnerId } from "../data/partnerData";
+
 export type OrderField = { label: string; type: "select" | "text"; options?: string[]; placeholder?: string };
 
 export type ProductRange = {
@@ -21,6 +23,7 @@ export type ProductRange = {
   process: { title: string; copy: string }[];
   ctaLabel: string;
   theme: "material" | "technical" | "project" | "scale" | "market";
+  partnerIds: PartnerId[];
 };
 
 export const productRanges: ProductRange[] = [
@@ -60,6 +63,7 @@ export const productRanges: ProductRange[] = [
     ],
     ctaLabel: "Request timber supply",
     theme: "material",
+    partnerIds: ["sawmill25", "spf", "fsc", "pefc"],
   },
   {
     slug: "panels-boards",
@@ -97,6 +101,7 @@ export const productRanges: ProductRange[] = [
     ],
     ctaLabel: "Send a panel specification",
     theme: "technical",
+    partnerIds: ["agt", "kastamonu", "fsc", "pefc"],
   },
   {
     slug: "project-materials",
@@ -134,6 +139,7 @@ export const productRanges: ProductRange[] = [
     ],
     ctaLabel: "Discuss a project requirement",
     theme: "project",
+    partnerIds: ["agt", "kastamonu", "sawmill25", "spf", "fsc"],
   },
   {
     slug: "bulk-requirements",
@@ -170,6 +176,7 @@ export const productRanges: ProductRange[] = [
     ],
     ctaLabel: "Plan a bulk requirement",
     theme: "scale",
+    partnerIds: ["kastamonu", "sawmill25", "spf", "agt", "pefc"],
   },
   {
     slug: "agency-representation",
@@ -206,6 +213,7 @@ export const productRanges: ProductRange[] = [
     ],
     ctaLabel: "Discuss representation",
     theme: "market",
+    partnerIds: ["agt", "kastamonu", "sawmill25", "spf", "fsc", "pefc"],
   },
 ];
 

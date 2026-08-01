@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { SiteShell } from "../../components/SiteShell";
 import { ProductRangeNav } from "../../components/ProductRangeNav";
 import { ProductAddToEnquiry } from "../../components/ProductAddToEnquiry";
+import { PartnerLogoRail } from "../../components/PartnerLogoRail";
 import { getProductRange, productRanges } from "../productData";
 
 type ProductPageProps = { params: Promise<{ slug: string }> };
@@ -58,6 +59,15 @@ export default async function ProductPage({ params }: ProductPageProps) {
             </div>
           </div>
           <blockquote data-reveal>“{product.principle}”</blockquote>
+        </section>
+
+        <section className="detail-partners" aria-labelledby="detail-partners-heading">
+          <div className="detail-partners-heading" data-reveal="up">
+            <p className="eyebrow">Relevant partners &amp; standards</p>
+            <h2 id="detail-partners-heading">Connected to the<br /><em>{product.shortTitle.toLowerCase()} range.</em></h2>
+            <p>The network shown here updates with each product range, keeping the most relevant manufacturers and standards in view.</p>
+          </div>
+          <PartnerLogoRail partnerIds={product.partnerIds} />
         </section>
 
         <section className="detail-brief" id="brief">

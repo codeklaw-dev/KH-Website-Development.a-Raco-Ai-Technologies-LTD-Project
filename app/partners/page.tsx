@@ -1,4 +1,5 @@
 import { SiteShell } from "../components/SiteShell";
+import { PartnerLogoRail } from "../components/PartnerLogoRail";
 import Link from "next/link";
 
 export const metadata = {
@@ -33,6 +34,14 @@ export default function PartnersPage() {
             <p><span>05</span>Exclusive distribution partners</p>
           </div>
         </div>
+      </section>
+
+      <section className="partners-logo-network" aria-labelledby="partners-logo-heading">
+        <div data-reveal="up">
+          <p className="eyebrow">Partner network</p>
+          <h2 id="partners-logo-heading">Brands and standards.<br /><em>Connected through KH.</em></h2>
+        </div>
+        <PartnerLogoRail />
       </section>
 
       <section className="entry-path" id="route">
