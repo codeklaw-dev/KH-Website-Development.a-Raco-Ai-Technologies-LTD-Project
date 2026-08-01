@@ -81,7 +81,13 @@ export default function OperationsPage() {
         <div className="question-list"><details data-reveal><summary>What does the 27-acre footprint support?<span>+</span></summary><p>It supports high-volume stockholding, material organisation, staging, handling, and coordinated dispatch for commercial and project requirements.</p></details><details data-reveal><summary>Can supply be organised around project phases?<span>+</span></summary><p>Share the expected quantity, site, timing, and call-off pattern. KH Wood can assess a practical staging and dispatch plan around those requirements.</p></details><details data-reveal><summary>Does KH Wood manage imported products?<span>+</span></summary><p>Import and distribution coordination is part of the company&apos;s service model, especially for approved international manufacturer partnerships.</p></details><details data-reveal><summary>How should urgent requirements be raised?<span>+</span></summary><p>Use WhatsApp or the contact form with the product, volume, destination, and required date clearly stated. Availability and feasibility must be confirmed by the team.</p></details></div>
       </section>
 
-      <section className="ops-close"><div data-reveal><p className="eyebrow">Plan the requirement</p><h2>Volume, timing,<br /><em>destination.</em></h2></div><p data-reveal>Bring us the operating realities of the project. We&apos;ll help shape a practical supply plan around them.</p><Link className="button button-red" href="/contact?type=supply">Discuss supply logistics <span>↗</span></Link></section>
+      <section className="ops-close">
+        <img className="ops-close-image cover-image" src="/assets/partners-facility-meeting.jpg" alt="KH Wood team planning material supply around a timber conference table" loading="lazy" decoding="async" />
+        <div className="ops-close-shade" />
+        <div className="ops-close-heading" data-reveal><p className="eyebrow">Plan the requirement</p><h2>Volume, timing,<br /><em>destination.</em></h2></div>
+        <p data-reveal>Bring us the operating realities of the project. We&apos;ll help shape a practical supply plan around them.</p>
+        <Link className="button button-red" href="/contact?type=supply">Discuss supply logistics <span>↗</span></Link>
+      </section>
     </SiteShell>
   );
 }
