@@ -1,5 +1,6 @@
 import { SiteShell } from "./components/SiteShell";
 import { LegacyScroll } from "./components/LegacyScroll";
+import { PartnerLogoRail } from "./components/PartnerLogoRail";
 import Link from "next/link";
 
 export const metadata = {
@@ -101,6 +102,7 @@ export default function Home() {
             </div>
           </article>
         </div>
+        <PartnerLogoRail borderless />
       </section>
 
       <section className="global-logistics" id="logistics" aria-labelledby="logistics-heading">

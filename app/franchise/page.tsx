@@ -1,19 +1,11 @@
 import { SiteShell } from "../components/SiteShell";
+import { PartnerLogoRail } from "../components/PartnerLogoRail";
 import Link from "next/link";
 
 export const metadata = {
   title: "Franchise Opportunities | Carry the KH Wood Name",
   description: "Take a KH Wood franchise in your territory: international brands, stocked yards behind you, and a principal-led partner with decades in the Iraqi wood trade.",
 };
-
-const opportunityLogos = [
-  { src: "/assets/partners/partner-fsc.svg", name: "Forest Stewardship Council" },
-  { src: "/assets/partners/partner-agt.svg", name: "AGT" },
-  { src: "/assets/partners/partner-pefc.svg", name: "PEFC" },
-  { src: "/assets/partners/partner-kastamonu.svg", name: "Kastamonu" },
-  { src: "/assets/partners/partner-sawmill25.svg", name: "Sawmill 25" },
-  { src: "/assets/partners/partner-spf.svg", name: "SPF Precut Lumber" },
-];
 
 export default function FranchisePage() {
   return (
@@ -39,20 +31,7 @@ export default function FranchisePage() {
         <div className="market-case-number" data-reveal="left">KH</div>
         <div className="market-case-copy" data-reveal="up"><p className="eyebrow">The opportunity</p><h2>Sell brands your market<br /><em>can&apos;t get anywhere else.</em></h2></div>
         <div className="market-case-note" data-reveal="right"><p>KH Wood holds exclusive agencies and franchises for international wood, panel, and construction-material brands. As a KH franchisee, those brands become yours to sell in your territory&mdash;drawn from stocked KH yards, not waiting on your own imports.</p></div>
-        <div className="opportunity-logo-rail" tabIndex={0} aria-label="KH Wood partner and certification logos. Animation pauses while focused or hovered.">
-          <div className="opportunity-logo-track">
-            {[0, 1].map((group) => (
-              <div className="opportunity-logo-group" key={group} aria-hidden={group === 1 ? "true" : undefined}>
-                {opportunityLogos.map((logo) => (
-                  <figure className="opportunity-logo-card" key={`${group}-${logo.name}`}>
-                    <img src={logo.src} alt={group === 0 ? logo.name : ""} loading="lazy" decoding="async" />
-                    <figcaption>{logo.name}</figcaption>
-                  </figure>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
+        <PartnerLogoRail />
       </section>
 
       <section className="partner-advantage" id="package">
