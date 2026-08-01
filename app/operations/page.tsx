@@ -30,7 +30,7 @@ export default function OperationsPage() {
       <section className="operations-flow" id="flow">
         <div className="flow-head" data-reveal="up"><p className="eyebrow">Material flow</p><h2>Four stages,<br /><em>one continuous line.</em></h2></div>
         <div className="flow-track">
-          {[['01','Arrive','Imported and locally sourced materials enter a controlled receiving process.','/assets/operations-flow-arrive.jpg'],['02','Store','Stock is organised for visibility, protection, and practical access.','/assets/operations-flow-store.jpg'],['03','Stage','Materials are selected, grouped, and prepared around the requirement.','/assets/operations-flow-stage.jpg'],['04','Dispatch','Loads are coordinated for commercial, construction, and project destinations.','/assets/yard-loading.jpg']].map(([n,title,text,image], index)=>(
+          {[['01','Arrive','Imported and locally sourced materials enter a controlled receiving process.','/assets/operations-flow-arrive.jpg'],['02','Store','Stock is organised for visibility, protection, and practical access.','/assets/operations-flow-store.jpg'],['03','Stage','Materials are selected, grouped, and prepared around the requirement.','/assets/operations-flow-stage.jpg'],['04','Dispatch','Loads are coordinated for commercial, construction, and project destinations.','/assets/operations-flow-dispatch.jpg']].map(([n,title,text,image], index)=>(
             <article className="flow-step" key={title} data-reveal="up" style={{transitionDelay:`${index*80}ms`}}>
               <div className="flow-image"><img className="cover-image" src={image} alt={`${title} stage at KH Wood`} loading="lazy" decoding="async" /><b>{n}</b></div>
               <h3>{title}</h3>
