@@ -18,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
     metadataBase: new URL(origin),
     title: "KH Wood | Iraq's Trusted Wood Supply & Market Partner",
     description:
-      "Family-led wood and construction supply for Iraqi projects, plus trusted market access for international manufacturers.",
+      "Principal-led timber and construction supply for Iraqi projects, plus proven market access for international manufacturers.",
     keywords: [
       "wood supplier Iraq",
       "timber distributor Iraq",

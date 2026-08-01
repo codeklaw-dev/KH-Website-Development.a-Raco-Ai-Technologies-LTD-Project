@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEnquiryCart } from "./EnquiryCart";
@@ -16,9 +16,9 @@ export function EnquiryNavCta({ onNavigate, active }: { onNavigate?: () => void;
   }
 
   return (
-    <button className="nav-cta nav-cta-bag" type="button" onClick={openDrawer}>
+    <button className="nav-cta nav-cta-bag" type="button" onClick={() => { onNavigate?.(); openDrawer(); }}>
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 8h12l-1 12a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L6 8Z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" /><path d="M9 8V6a3 3 0 0 1 6 0v2" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
-      Your enquiry <span>{items.length}</span>
+      <b>Your enquiry</b> <span>{items.length}</span>
     </button>
   );
 }
@@ -26,7 +26,29 @@ export function EnquiryNavCta({ onNavigate, active }: { onNavigate?: () => void;
 export function EnquiryDrawer() {
   const { items, drawerOpen, closeDrawer, clear } = useEnquiryCart();
   const [status, setStatus] = useState("");
+  const [confirmingClear, setConfirmingClear] = useState(false);
+  const closeRef = useRef<HTMLButtonElement>(null);
   const router = useRouter();
+
+  useEffect(() => {
+    if (!drawerOpen) return;
+
+    const previous = document.activeElement as HTMLElement | null;
+    document.body.style.overflow = "hidden";
+    closeRef.current?.focus();
+
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") closeDrawer();
+    }
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = "";
+      previous?.focus?.();
+      setConfirmingClear(false);
+    };
+  }, [drawerOpen, closeDrawer]);
 
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -61,16 +83,31 @@ export function EnquiryDrawer() {
   return (
     <>
       <button className={`enquiry-scrim${drawerOpen ? " is-open" : ""}`} type="button" tabIndex={-1} aria-hidden="true" onClick={closeDrawer} />
-      <aside className={`enquiry-drawer${drawerOpen ? " is-open" : ""}`} aria-hidden={!drawerOpen} aria-label="Your enquiry">
+      <aside className={`enquiry-drawer${drawerOpen ? " is-open" : ""}`} inert={!drawerOpen || undefined} aria-label="Your enquiry">
         <div className="enquiry-drawer-head">
           <div><span>Your enquiry</span><b>{items.length} product{items.length === 1 ? "" : "s"} selected</b></div>
-          <button type="button" onClick={closeDrawer} aria-label="Close enquiry">✕</button>
+          <div className="enquiry-drawer-head-actions">
+            {items.length > 0 && (confirmingClear ? (
+              <>
+                <button type="button" className="drawer-clear-confirm" onClick={() => { clear(); setConfirmingClear(false); }}>Clear all?</button>
+                <button type="button" className="drawer-clear-cancel" onClick={() => setConfirmingClear(false)}>Cancel</button>
+              </>
+            ) : (
+              <button type="button" className="drawer-icon-button" onClick={() => setConfirmingClear(true)} aria-label="Clear all products from this enquiry">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-13M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              </button>
+            ))}
+            <button type="button" ref={closeRef} className="drawer-icon-button" onClick={closeDrawer} aria-label="Close enquiry">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
+            </button>
+          </div>
         </div>
 
         {items.length === 0 ? (
           <p className="enquiry-drawer-empty">Browse the range and add products you&apos;d like a quote for.</p>
         ) : (
           <form className="enquiry-drawer-form" onSubmit={submit}>
+            <div className="enquiry-drawer-scroll">
             <div className="enquiry-drawer-contact">
               <span className="enquiry-drawer-label">Your details</span>
               <div className="field-row">
@@ -89,15 +126,13 @@ export function EnquiryDrawer() {
               <span className="enquiry-drawer-label">Products in this enquiry</span>
               {items.map((item) => <EnquiryItemFields key={item.slug} item={item} />)}
             </div>
+            </div>
 
             <div className="enquiry-drawer-actions">
-              <button type="button" className="text-link" onClick={clear}>Clear all</button>
-              <div className="enquiry-drawer-actions-primary">
-                <button type="button" className="button button-ghost-dark" onClick={goToContactPage}>Finish on contact page</button>
-                <button className="button button-red" type="submit">Send enquiry <span>↗</span></button>
-              </div>
+              <p className="form-status" aria-live="polite">{status}</p>
+              <button className="button button-red" type="submit">Send enquiry <span>↗</span></button>
+              <button type="button" className="drawer-secondary" onClick={goToContactPage}>Finish on contact page ↗</button>
             </div>
-            <p className="form-status" aria-live="polite">{status}</p>
           </form>
         )}
       </aside>

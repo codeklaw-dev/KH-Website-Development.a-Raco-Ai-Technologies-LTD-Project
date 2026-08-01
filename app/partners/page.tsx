@@ -77,7 +77,7 @@ export default function PartnersPage() {
           <article data-reveal><span>Network</span><h3>Commercial relationships</h3><p>Long-standing connections across Iraqi construction, manufacturing, and supply.</p></article>
           <article data-reveal><span>Infrastructure</span><h3>Stocking capability</h3><p>Space and handling capacity to support real product availability.</p></article>
           <article data-reveal><span>Insight</span><h3>Local feedback</h3><p>Practical market intelligence that helps improve product-market alignment.</p></article>
-          <article data-reveal><span>Continuity</span><h3>Family leadership</h3><p>Senior involvement and a long-term view of every partnership.</p></article>
+          <article data-reveal><span>Continuity</span><h3>Ownership continuity</h3><p>Senior involvement and a long-term view of every partnership.</p></article>
         </div>
       </section>
 
@@ -85,7 +85,7 @@ export default function PartnersPage() {
         <div className="readiness-title" data-reveal="left"><p className="eyebrow">What makes a strong fit</p><h2>Clarity before<br /><em>commitment.</em></h2><p>We prefer a focused, evidence-led conversation about where the product fits and what success requires.</p></div>
         <div className="readiness-columns">
           <div data-reveal="up"><span>You bring</span><p>Proven product quality and documentation</p><p>Clear territory and partnership ambition</p><p>Commercially viable supply terms</p><p>Commitment to long-term market development</p></div>
-          <div data-reveal="right"><span>KH Wood brings</span><p>Family-led Iraqi market knowledge</p><p>Local relationships and commercial access</p><p>Storage and distribution readiness</p><p>Ongoing market feedback and execution</p></div>
+          <div data-reveal="right"><span>KH Wood brings</span><p>Principal-led Iraqi market knowledge</p><p>Local relationships and commercial access</p><p>Storage and distribution readiness</p><p>Ongoing market feedback and execution</p></div>
         </div>
       </section>
 

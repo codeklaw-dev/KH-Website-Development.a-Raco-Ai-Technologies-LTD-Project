@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Franchise Opportunities | Carry the KH Wood Name",
-  description: "Take a KH Wood franchise in your territory: international brands, stocked yards behind you, and a family-led partner with decades in the Iraqi wood trade.",
+  description: "Take a KH Wood franchise in your territory: international brands, stocked yards behind you, and a principal-led partner with decades in the Iraqi wood trade.",
 };
 
 export default function FranchisePage() {
@@ -37,12 +37,12 @@ export default function FranchisePage() {
           <article data-reveal><span>Brands</span><h3>Exclusive portfolio</h3><p>Access to international brands KH represents in Iraq&mdash;products your competitors can&apos;t carry.</p></article>
           <article data-reveal><span>Stock</span><h3>Yards behind you</h3><p>Draw inventory from KH facilities in Baghdad, Basra, and Amman. Sell from stock, not from promises.</p></article>
           <article data-reveal><span>Territory</span><h3>Protected ground</h3><p>Clear territory boundaries and pricing structure, managed centrally so franchisees don&apos;t undercut each other.</p></article>
-          <article data-reveal><span>Backing</span><h3>A name that opens doors</h3><p>Three decades of Khodeer family standing in the Iraqi wood trade, behind your storefront.</p></article>
+          <article data-reveal><span>Backing</span><h3>A name that opens doors</h3><p>Three decades of Khodeer standing in the Iraqi wood trade, behind your storefront.</p></article>
         </div>
       </section>
 
       <section className="partner-readiness" id="fit">
-        <div className="readiness-title" data-reveal="left"><p className="eyebrow">Who we look for</p><h2>Standing matters<br /><em>more than size.</em></h2><p>We franchise to traders we&apos;d trust with the family name&mdash;established, known in their market, and building for the long term.</p></div>
+        <div className="readiness-title" data-reveal="left"><p className="eyebrow">Who we look for</p><h2>Standing matters<br /><em>more than size.</em></h2><p>We franchise to traders we&apos;d trust with the Khodeer name&mdash;established, known in their market, building for the long term.</p></div>
         <div className="readiness-columns">
           <div data-reveal="up"><span>You bring</span><p>An established trade in wood or construction materials</p><p>Reputation and relationships in your territory</p><p>Premises and capacity to hold and move stock</p><p>Commitment to KH pricing and brand standards</p></div>
           <div data-reveal="right"><span>KH brings</span><p>Exclusive international brands to carry</p><p>Stocked yards and import coordination</p><p>Territory protection and clear commercial terms</p><p>Ongoing supply continuity and market support</p></div>
