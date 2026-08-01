@@ -617,3 +617,80 @@ section[id] { scroll-margin-top:110px; }
 
 .contact-cart-summary { margin-bottom:30px;padding:22px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05); }
 .contact-cart-summary > span { display:block;margin-bottom:16px;color:#d78f8f;font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase; }
+
+/* Precision typography and rhythm refinement */
+h1,h2 { letter-spacing:-.038em; }
+h3,.footer-brand p,.footer-enquiry > span { letter-spacing:-.018em; }
+.eyebrow,.page-rail,.card-index,.process-track-label,.market-fit-list-label { font-size:10px;line-height:1.5;letter-spacing:.17em; }
+.button,.text-link { font-size:10px;line-height:1.4; }
+
+.decision-card p,.network-info p,.sectors-list p,.process-track li p,
+.evolution-track p,.value-stack p,.leader-list p,.catalogue-card p,
+.entry-steps p,.advantage-grid p,.models-grid p,.facility-panels p,
+.scenario-grid p,.question-list details p,.detail-overview-options p,
+.detail-brief-copy > p:last-of-type,.ops-close > p,.contact-form-heading > p,
+.directory-list p,.response-note p,.lifecycle-steps p {
+  font-size:13px;line-height:1.75;
+}
+.facility-gallery-title > p:last-child,.control-system-copy > p:not(.eyebrow),
+.readiness-title > p:last-child,.lifecycle-head > p:last-child,
+.detail-partners-heading > p:last-child,.market-case-note p,
+.infrastructure-heading > p,.partner-readiness p,.products-support li {
+  font-size:13px;line-height:1.8;
+}
+.sector-mosaic p,.flow-step > p,.control-system-grid p,
+.detail-overview-options p,.directory-list small,.form-action p {
+  font-size:12px;line-height:1.75;
+}
+.question-list summary { font-size:13px;line-height:1.5; }
+
+.footer-enquiry small,.footer-columns span { font-size:10px;line-height:1.4; }
+.footer-columns a,.footer-columns p { font-size:12px;line-height:1.7; }
+.footer-bottom { font-size:10px;line-height:1.6;letter-spacing:.08em; }
+.opportunity-logo-card figcaption { font-size:9px;line-height:1.45; }
+.opportunity-logo-card figcaption span { font-size:8px; }
+.models-grid small,.lifecycle-steps small { font-size:9px;line-height:1.5; }
+
+/* Decorative sequence numbers are removed everywhere except Material Flow. */
+.legacy-chapter > span,.catalogue-number,.detail-hero-index,
+.process-track li > b,.entry-steps article > span,.models-grid article > span,
+.lifecycle-steps article > span,.value-stack article > span,
+.leader-list article > span,.response-note strong,.infrastructure-controls span,
+.origin-story aside > span,.sectors-list article > span,.market-fit-list-grid span {
+  display:none;
+}
+.process-track li,.entry-steps article,.market-fit-list-grid p { grid-template-columns:1fr; }
+.value-stack article { grid-template-columns:.65fr 1fr; }
+.value-stack p { grid-column:auto; }
+.leader-list article { grid-template-columns:85px 1fr; }
+.lifecycle-steps article { grid-template-columns:1fr;grid-template-rows:auto auto auto;gap:8px; }
+.lifecycle-steps article > h3,.lifecycle-steps article > p,.lifecycle-steps article > small { grid-column:1;grid-row:auto; }
+.sectors-list article { justify-content:flex-end; }
+.infrastructure-controls p { margin-top:0; }
+.detail-overview-uses b,.detail-overview-options article > b,.detail-checklist span { display:none; }
+.detail-overview-uses p { grid-template-columns:1fr; }
+.detail-checklist li { grid-template-columns:1fr 35px;gap:20px; }
+
+@media (min-width:821px) {
+  .process-heading,.sector-field-head { align-items:center;justify-items:center; }
+  .process-heading h2,.sector-field-head h2 { width:100%;text-align:center; }
+}
+
+@media (max-width:820px) {
+  h1,h2 { letter-spacing:-.032em; }
+  .leader-list article { grid-template-columns:62px 1fr;gap:16px; }
+  .value-stack article { grid-template-columns:1fr;gap:12px; }
+  .value-stack p { grid-column:1; }
+}
+
+@media (max-width:560px) {
+  .eyebrow,.page-rail,.card-index,.process-track-label,.market-fit-list-label { font-size:9px; }
+  .decision-card p,.network-info p,.sectors-list p,.process-track li p,
+  .evolution-track p,.value-stack p,.leader-list p,.catalogue-card p,
+  .entry-steps p,.advantage-grid p,.models-grid p,.facility-panels p,
+  .scenario-grid p,.question-list details p,.detail-overview-options p,
+  .detail-brief-copy > p:last-of-type,.ops-close > p,.contact-form-heading > p,
+  .directory-list p,.response-note p,.lifecycle-steps p { font-size:12.5px; }
+  .footer-columns a,.footer-columns p { font-size:11.5px; }
+  .footer-bottom { font-size:9px; }
+}

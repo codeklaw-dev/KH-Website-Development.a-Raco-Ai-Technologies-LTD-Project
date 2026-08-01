@@ -38,17 +38,17 @@ export default function Home() {
         </div>
         <div className="decision-cards">
           <Link href="/products" className="decision-card buyer" data-reveal="left">
-            <span className="card-index">01 / Buyers &amp; projects</span>
+            <span className="card-index">Buyers &amp; projects</span>
             <div><h3>Source the right materials.</h3><p>Timber, panels, construction wood, and bulk project supply&mdash;from stock held in Iraq.</p></div>
             <b>View products <i>↗</i></b>
           </Link>
           <Link href="/partners" className="decision-card partner" data-reveal="up">
-            <span className="card-index">02 / Global manufacturers</span>
+            <span className="card-index">Global manufacturers</span>
             <div><h3>Build your route into Iraq.</h3><p>Agency, distribution, and market entry for manufacturers seeking a local operating partner.</p></div>
             <b>Explore partnerships <i>↗</i></b>
           </Link>
           <Link href="/franchise" className="decision-card franchise" data-reveal="right">
-            <span className="card-index">03 / Distributors &amp; traders</span>
+            <span className="card-index">Distributors &amp; traders</span>
             <div><h3>Carry the KH name.</h3><p>Take a franchise in your territory: exclusive brands, stocked yards, and principal-led backing.</p></div>
             <b>Franchise opportunities <i>↗</i></b>
           </Link>

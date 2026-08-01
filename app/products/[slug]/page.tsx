@@ -34,7 +34,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <section className="detail-hero">
           <img className="cover-image" src={product.image} alt={product.imageAlt} fetchPriority="high" />
           <div className="detail-hero-shade" />
-          <div className="detail-breadcrumb hero-animate one"><Link href="/products">All products</Link><span>/</span><b>{product.n}</b></div>
+          <div className="detail-breadcrumb hero-animate one"><Link href="/products">All products</Link><span>/</span><b>{product.shortTitle}</b></div>
           <div className="detail-hero-copy">
             <p className="eyebrow hero-animate one">{product.eyebrow}</p>
             <h1 className="hero-animate two">{product.headline}</h1>
