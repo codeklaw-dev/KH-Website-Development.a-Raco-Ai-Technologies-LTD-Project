@@ -36,7 +36,7 @@ export function LegacyScroll() {
 
   return (
     <section className="legacy-horizontal" id="legacy" aria-labelledby="legacy-heading" ref={sectionRef}>
-      <h2 className="sr-only" id="legacy-heading">The KH family legacy and Iraq&apos;s wood-trading tradition</h2>
+      <h2 className="sr-only" id="legacy-heading">The KH Wood legacy and Iraq&apos;s wood-trading tradition</h2>
       <div className="legacy-sticky">
         <div className="legacy-track" ref={trackRef}>
           <article className="legacy-panel legacy-origins" id="legacy-origins">
@@ -53,12 +53,12 @@ export function LegacyScroll() {
           <article className="legacy-panel legacy-present" id="legacy-present">
             <img className="cover-image" src="/assets/iraq-market.jpg" alt="Contemporary Iraqi city and commercial district at sunset" loading="lazy" decoding="async" />
             <div className="legacy-panel-shade" />
-            <div className="legacy-chapter"><span>02</span><small>KH family · Today</small></div>
+            <div className="legacy-chapter"><span>02</span><small>KH Wood · Today</small></div>
             <div className="legacy-panel-copy">
-              <p className="eyebrow">A family name in motion</p>
+              <p className="eyebrow">A name in motion</p>
               <h2>A living<br /><em>legacy.</em></h2>
             </div>
-            <p className="legacy-panel-note">From the carpentry roots of Khodeer Abbas Turki to operations spanning three countries today, KH Wood now supplies Iraq&apos;s local markets directly while connecting international manufacturers to the region—the same practical values, carried further: know the material, keep your word, and build for the long term.</p>
+            <p className="legacy-panel-note">From the carpentry roots of Khodeer Abbas Turki to operations across three countries, KH Wood supplies Iraq&apos;s markets directly while connecting international manufacturers to the region. The same standard, carried further: know the material, keep your word, build for the long term.</p>
           </article>
         </div>
         <div className="legacy-scroll-cue" aria-hidden="true" ref={cueRef}><span>Keep scrolling</span><i /><b>01 — 02</b></div>

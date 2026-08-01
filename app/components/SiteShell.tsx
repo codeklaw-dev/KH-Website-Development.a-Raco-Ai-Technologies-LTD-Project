@@ -148,7 +148,7 @@ export function SiteShell({ children, active, headerOnLight }: { children: React
         <div className="footer-lead">
           <div className="footer-brand">
             <img src="/assets/kh-logo-mark.png" alt="Khodeer Abbas & Partners Co." width={1047} height={236} loading="lazy" decoding="async" />
-            <p>Family-led wood supply and market access, built around the realities of Iraq.</p>
+            <p>Three generations in the Iraqi timber trade.<br />Global partners, local execution.</p>
           </div>
           <Link className="footer-enquiry" href="/contact"><small>Have a requirement?</small><span>Let&apos;s move it forward <i>↗</i></span></Link>
         </div>

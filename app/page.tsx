@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "KH Wood | Wood Supply & Market Access in Iraq",
-  description: "Family-led timber and construction wood supply for Iraqi projects, plus trusted market access for international manufacturers.",
+  description: "Principal-led timber and construction supply for Iraqi projects, plus proven market access for international manufacturers.",
 };
 
 export default function Home() {
@@ -14,7 +14,7 @@ export default function Home() {
         <video autoPlay muted loop playsInline poster="/assets/kh-yard-poster.jpg" aria-hidden="true"><source src="/assets/kh-yard.mp4" type="video/mp4" /></video>
         <div className="home-hero-shade" />
         <div className="home-hero-content">
-          <p className="eyebrow hero-animate one">Iraq &amp; Jordan · Family-led supply</p>
+          <p className="eyebrow hero-animate one">Iraq &amp; Jordan · Principal-led supply</p>
           <h1 className="hero-animate two">Wood moves<br /><em>business forward.</em></h1>
           <p className="hero-intro hero-animate three">A dependable supply partner for Iraqi projects, a credible route into Iraq for international manufacturers, and a franchise worth carrying for local distributors.</p>
           <div className="hero-actions hero-animate four">
@@ -48,7 +48,7 @@ export default function Home() {
           </Link>
           <Link href="/franchise" className="decision-card franchise" data-reveal="right">
             <span className="card-index">03 / Distributors &amp; traders</span>
-            <div><h3>Carry the KH name.</h3><p>Take a franchise in your territory: exclusive brands, stocked yards, and family-led backing.</p></div>
+            <div><h3>Carry the KH name.</h3><p>Take a franchise in your territory: exclusive brands, stocked yards, and principal-led backing.</p></div>
             <b>Franchise opportunities <i>↗</i></b>
           </Link>
         </div>
@@ -84,7 +84,7 @@ export default function Home() {
             <div className="network-info">
               <b>30+<span>Years of leadership</span></b>
               <h3>Partner relationships</h3>
-              <p>Family-led hospitality and long-term supplier relationships, from first meeting to standing agreement.</p>
+              <p>Principal-led relationships, from first meeting to standing agreement.</p>
             </div>
           </article>
           <article className="network-card wide" data-reveal="right">
@@ -109,7 +109,7 @@ export default function Home() {
         <div className="global-logistics-copy" data-reveal="up">
           <p className="eyebrow">Global logistics</p>
           <h2 id="logistics-heading">Sourced worldwide.<br /><em>Delivered in Iraq.</em></h2>
-          <p>Shipments from supplier mills and manufacturers move by sea to regional ports, cross by road through Jordan, and land in stocked KH yards ready for national distribution. One family-led operation coordinates the whole chain&mdash;vessel, border, warehouse, and site.</p>
+          <p>Supplier mills ship by sea to regional ports, cross by road through Jordan, and land in stocked KH yards ready for national distribution. One operator coordinates the whole chain&mdash;vessel, border, warehouse, site.</p>
         </div>
         <div className="global-logistics-facts" data-reveal>
           <div><strong>50+</strong><span>Supplier countries<br />sourced from</span></div>
@@ -139,8 +139,8 @@ export default function Home() {
         <div className="home-story-photo" data-reveal="left"><img className="cover-image" src="/assets/yard-wide.jpg" alt="KH Wood storage yard in Iraq" loading="lazy" decoding="async" /><span>Baghdad · Iraq</span></div>
         <div className="home-story-copy" data-reveal="right">
           <p className="eyebrow">Heritage with momentum</p>
-          <h2>Family values.<br /><em>Commercial discipline.</em></h2>
-          <p>KH Wood grew from carpentry roots into a modern supply and distribution business. The values stayed the same: accountability, hospitality, adaptability, and relationships built to last.</p>
+          <h2>Three generations.<br /><em>Commercial discipline.</em></h2>
+          <p>KH Wood grew from carpentry roots into a modern supply and distribution business. The standard never changed: accountability, adaptability, and relationships built to last.</p>
           <Link className="text-link" href="/company">Read our story <span>↗</span></Link>
         </div>
       </section>
