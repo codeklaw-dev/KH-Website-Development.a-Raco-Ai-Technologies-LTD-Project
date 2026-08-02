@@ -63,7 +63,7 @@ export default function Home() {
         </div>
         <div className="network-grid">
           <article className="network-card big" data-reveal="left">
-            <img className="cover-image" src="/assets/network-jordan-hub.jpg" alt="Aerial view of the KH Timber and Wood Industries yard in Jordan" loading="lazy" decoding="async" />
+            <img className="cover-image" src="/assets/network-jordan-hub.jpg" alt="Aerial view of a large KH Wood waterfront storage and logistics hub" loading="lazy" decoding="async" />
             <div className="network-shade" />
             <div className="network-info">
               <b>03<span>Countries of operation</span></b>
