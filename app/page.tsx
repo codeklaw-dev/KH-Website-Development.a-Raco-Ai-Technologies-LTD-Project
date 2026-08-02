@@ -1,6 +1,7 @@
 import { SiteShell } from "./components/SiteShell";
 import { LegacyScroll } from "./components/LegacyScroll";
 import { PartnerLogoRail } from "./components/PartnerLogoRail";
+import { HeroVideo } from "./components/HeroVideo";
 import Link from "next/link";
 
 export const metadata = {
@@ -12,7 +13,7 @@ export default function Home() {
   return (
     <SiteShell>
       <section className="home-hero">
-        <video autoPlay muted loop playsInline poster="/assets/kh-yard-poster.jpg" aria-hidden="true"><source src="/assets/kh-yard.mp4" type="video/mp4" /></video>
+        <HeroVideo />
         <div className="home-hero-shade" />
         <div className="home-hero-content">
           <p className="eyebrow hero-animate one">Iraq &amp; Jordan · Principal-led supply</p>
