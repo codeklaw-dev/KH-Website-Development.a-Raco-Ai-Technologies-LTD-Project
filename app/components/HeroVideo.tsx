@@ -26,7 +26,7 @@ export function HeroVideo() {
 
   return (
     <>
-      <video ref={videoRef} autoPlay muted loop playsInline preload="auto" poster="/assets/kh-yard-poster.jpg" aria-hidden="true">
+      <video ref={videoRef} autoPlay muted loop playsInline preload="auto" poster="/assets/home-hero-poster-bdad5a85.jpg" aria-hidden="true">
         <source src="/assets/home-hero-video.mp4" type="video/mp4" />
       </video>
       <button
