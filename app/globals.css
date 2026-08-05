@@ -16,8 +16,8 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scrollbar-gutter: stable; }
-body { margin: 0; overflow-x: hidden; color: var(--ink); background: var(--white); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+html { scroll-behavior: smooth; overflow-x: clip; }
+body { margin: 0; overflow-x: clip; color: var(--ink); background: var(--white); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
 body, button, input, select, textarea { font-family: var(--sans); }
 a { color: inherit; text-decoration: none; }
 button, input, select, textarea { border-radius: 0; }
@@ -787,3 +787,10 @@ h3,.footer-brand p,.footer-enquiry > span { letter-spacing:-.018em; }
   content-visibility:auto;
   contain-intrinsic-size:auto 900px;
 }
+
+/* Scroll lock.
+   `overflow-x: clip` above keeps <html> as the scroll container, so hiding the
+   body's overflow locks scrolling without removing the scrollbar — nothing
+   shifts and no width compensation is needed. This replaced
+   scrollbar-gutter:stable, which prevented the same shift but reserved a gutter
+   on every page, leaving a visible strip beside the content. */
