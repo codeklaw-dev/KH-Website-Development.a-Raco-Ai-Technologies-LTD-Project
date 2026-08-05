@@ -794,3 +794,135 @@ h3,.footer-brand p,.footer-enquiry > span { letter-spacing:-.018em; }
    shifts and no width compensation is needed. This replaced
    scrollbar-gutter:stable, which prevented the same shift but reserved a gutter
    on every page, leaving a visible strip beside the content. */
+
+/* ============================================================
+   MOBILE-ONLY REFINEMENT
+   Everything below is scoped to phone breakpoints. Desktop and
+   tablet layouts are untouched.
+   ============================================================ */
+
+/* Accordion: one markup tree, forced open above the phone breakpoint. */
+.m-acc-bar { display: flex; align-items: center; gap: 8px; }
+.m-acc-toggle { flex: 1; display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.m-acc-title { flex: 1; font-family: var(--display); font-size: 19px; font-weight: 400; letter-spacing: -.018em; }
+.m-acc-meta { color: var(--muted); font-family: var(--sans); font-size: 9px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.m-acc-chevron { flex: 0 0 16px; color: var(--muted); transition: transform .3s cubic-bezier(.2,.75,.2,1); }
+.m-acc.is-open .m-acc-chevron { transform: rotate(180deg); }
+.m-acc-panel-inner { min-height: 0; overflow: hidden; transition: padding .32s cubic-bezier(.2,.75,.2,1); }
+
+@media (min-width: 561px) {
+  /* Desktop keeps every section expanded and never shows a trigger. */
+  .m-acc-toggle { pointer-events: none; min-height: 0; }
+  .m-acc-chevron, .m-acc-meta { display: none; }
+  .m-acc-panel-inner { overflow: visible; }
+}
+
+@media (max-width: 560px) {
+  .m-acc-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .32s cubic-bezier(.2,.75,.2,1); }
+  .m-acc-title { min-width: 0; font-size: 17px; }
+  .m-acc-toggle { gap: 8px; }
+  .m-acc.is-open .m-acc-panel { grid-template-rows: 1fr; }
+  .m-acc-toggle:active .m-acc-title { opacity: .6; }
+
+  /* Enquiry drawer, compacted around the accordions. */
+  .enquiry-drawer-head { padding: 14px 12px 14px 18px; }
+  .enquiry-drawer-head b { font-size: 18px; }
+  .enquiry-drawer-contact { padding: 4px 18px; }
+  .enquiry-drawer-contact .m-acc.is-open .m-acc-panel-inner { padding-top: 6px; padding-bottom: 14px; }
+  .enquiry-drawer-items { padding: 10px 18px 4px; }
+  .enquiry-drawer-label { margin-bottom: 8px; }
+  .enquiry-item { margin-top: 8px; padding: 2px 14px; }
+  .enquiry-item .m-acc.is-open .m-acc-panel-inner { padding-bottom: 12px; }
+  .enquiry-item-index { margin-right: 9px; color: var(--red); font-weight: 400; }
+  .enquiry-item-remove { min-height: 44px; padding: 0 4px; border: 0; background: transparent; color: var(--muted); font: inherit; font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; }
+  .enquiry-drawer-actions { padding: 12px 18px calc(12px + env(safe-area-inset-bottom)); }
+  .enquiry-drawer-actions .button { min-height: 54px; }
+
+  /* Fields: floating labels reclaim the vertical space of a stacked label.
+     The placeholder is hidden rather than removed so :placeholder-shown still
+     drives the float, and desktop keeps its placeholders. */
+  .enquiry-item label,
+  .enquiry-drawer-contact label,
+  .enquiry-form label { position: relative; display: block; margin: 0 0 10px; }
+  .enquiry-item label > span,
+  .enquiry-drawer-contact label > span,
+  .enquiry-form label > span { position: absolute; z-index: 1; top: 15px; left: 13px; margin: 0; color: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: .02em; text-transform: none; pointer-events: none; transform-origin: left top; transition: transform .18s ease, color .18s ease; }
+  .enquiry-item input::placeholder,
+  .enquiry-drawer-contact input::placeholder,
+  .enquiry-drawer-contact textarea::placeholder,
+  .enquiry-form input::placeholder,
+  .enquiry-form textarea::placeholder { color: transparent; }
+  .enquiry-item input, .enquiry-item select,
+  .enquiry-drawer-contact input, .enquiry-drawer-contact textarea,
+  .enquiry-form input, .enquiry-form select, .enquiry-form textarea { width: 100%; min-height: 54px; padding: 22px 13px 8px; font-size: 16px; }
+  .enquiry-drawer-contact textarea { min-height: 76px; }
+  .enquiry-form textarea { min-height: 76px; height: 92px; }
+  .enquiry-item label:focus-within > span,
+  .enquiry-drawer-contact label:focus-within > span,
+  .enquiry-form label:focus-within > span,
+  .enquiry-item label:has(input:not(:placeholder-shown)) > span,
+  .enquiry-item label:has(select) > span,
+  .enquiry-drawer-contact label:has(input:not(:placeholder-shown)) > span,
+  .enquiry-drawer-contact label:has(textarea:not(:placeholder-shown)) > span,
+  .enquiry-form label:has(input:not(:placeholder-shown)) > span,
+  .enquiry-form label:has(textarea:not(:placeholder-shown)) > span,
+  .enquiry-form label:has(select) > span { transform: translateY(-9px) scale(.82); }
+  .enquiry-item label:focus-within > span,
+  .enquiry-drawer-contact label:focus-within > span,
+  .enquiry-form label:focus-within > span { color: var(--red); }
+
+  /* Contact page form: tighter block, single column, floating labels above. */
+  .enquiry-form { padding: 18px 16px; }
+  .enquiry-form label > span { color: rgba(255,255,255,.6); }
+  .enquiry-form label:focus-within > span { color: #e3a9a9; }
+  .enquiry-form input, .enquiry-form select, .enquiry-form textarea { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.16); color: var(--white); }
+  .field-row { gap: 0; }
+  .form-action { gap: 12px; margin-top: 4px; }
+  .form-action p { font-size: 11px; line-height: 1.6; }
+  .form-action .button { min-height: 54px; }
+  .contact-cart-summary { margin-bottom: 20px; padding: 12px; }
+  .contact-cart-summary .enquiry-item { padding: 2px 12px; }
+  .contact-cart-summary .m-acc-title { font-size: 16px; }
+  .contact-cart-summary > span { margin-bottom: 8px; }
+  .contact-cart-summary .enquiry-item { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.16); color: var(--white); }
+  .contact-cart-summary .m-acc-title { color: var(--white); }
+  .contact-cart-summary .m-acc-meta, .contact-cart-summary .m-acc-chevron { color: rgba(255,255,255,.55); }
+}
+
+/* Global mobile polish: the desktop rhythm (82-85px section padding, display
+   type sized off viewport width) reads as oversized on a phone. Tightened
+   uniformly so sections sit closer together and headings stop dominating the
+   fold, without touching the desktop scale. */
+@media (max-width: 560px) {
+  h1 { font-size: clamp(46px, 13.5vw, 64px); }
+  h2 { font-size: clamp(38px, 11vw, 54px); }
+  h3 { font-size: 26px; }
+  .eyebrow { margin-bottom: 16px; letter-spacing: .15em; }
+
+  /* One lever for the standard section block instead of per-section values. */
+  .decision, .home-capability, .partner-advantage, .supply-method,
+  .operations-board, .contact-workspace, .office-directory, .sectors-served,
+  .products-support, .market-fit, .partnership-fit, .entry-steps, .ops-close,
+  .company-evolution, .sector-field, .partnership-models, .facility-proof,
+  .partner-readiness, .facility-gallery, .control-system, .operation-scenarios,
+  .product-questions, .partner-lifecycle, .partner-faq, .operations-faq,
+  .capacity-blueprint, .operations-infrastructure, .origin-story, .values-band,
+  .leadership-editorial, .home-cta, .product-cta, .operations-flow,
+  .ops-overview, .detail-overview, .detail-brief { padding-inline: 20px; padding-block: 62px; }
+
+  .decision-heading { margin-bottom: 34px; }
+  .home-story-copy { min-height: 0; padding: 62px 20px; }
+  .home-story-photo { min-height: 360px; }
+
+  /* Thumb-friendly targets and full-width primary actions. */
+  .button { min-height: 54px; gap: 24px; }
+  .hero-actions .button, .sectors-action .button, .form-action .button,
+  .process-route-actions .button, .contact-strip-actions .button { width: 100%; }
+  .text-link { min-height: 44px; align-items: center; margin-top: 24px; }
+  .footer-columns a, .footer-columns p { padding-block: 4px; }
+  .footer-columns { gap: 36px 20px; padding: 44px 0 52px; }
+  .site-footer { padding: 56px 20px 22px; }
+
+  /* Body copy sits a little more open at small sizes. */
+  .hero-intro, .detail-hero-copy > p:not(.eyebrow) { font-size: 13.5px; line-height: 1.7; }
+}

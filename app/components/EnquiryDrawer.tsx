@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEnquiryCart } from "./EnquiryCart";
 import { EnquiryItemFields } from "./EnquiryItemFields";
+import { MobileAccordion } from "./MobileAccordion";
 import { lockBodyScroll } from "./scrollLock";
 
 export function EnquiryNavCta({ onNavigate, active }: { onNavigate?: () => void; active?: boolean }) {
@@ -120,7 +121,7 @@ export function EnquiryDrawer() {
           <form className="enquiry-drawer-form" onSubmit={submit}>
             <div className="enquiry-drawer-scroll">
             <div className="enquiry-drawer-contact">
-              <span className="enquiry-drawer-label">Your details</span>
+              <MobileAccordion title="Your details" meta="Required">
               <div className="field-row">
                 <label><span>Your name *</span><input name="name" autoComplete="name" required placeholder="Full name" /></label>
                 <label><span>Company *</span><input name="company" autoComplete="organization" required placeholder="Company name" /></label>
@@ -131,6 +132,7 @@ export function EnquiryDrawer() {
               </div>
               <label><span>Country *</span><input name="country" autoComplete="country-name" required placeholder="Country" /></label>
               <label><span>Anything else?</span><textarea name="message" rows={2} placeholder="Delivery destination, timeline, or other notes…" /></label>
+              </MobileAccordion>
             </div>
 
             <div className="enquiry-drawer-items">
