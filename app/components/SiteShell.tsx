@@ -118,7 +118,7 @@ export function SiteShell({ children, active, headerOnLight }: { children: React
           <div className="nav-primary">
             <span className="nav-group-label">Explore</span>
             {navigation.map(([label, href]) => (
-              <Link key={href} href={href} tabIndex={menuOpen ? undefined : -1} aria-current={active === label.toLowerCase() ? "page" : undefined} onClick={() => setMenuOpen(false)}>{label}<i aria-hidden="true">↗</i></Link>
+              <Link key={href} href={href} tabIndex={menuOpen ? undefined : -1} aria-current={active === label.toLowerCase() ? "page" : undefined} onClick={() => setMenuOpen(false)}>{label}<i aria-hidden="true">↗︎</i></Link>
             ))}
           </div>
           <div className="nav-products">
@@ -126,7 +126,7 @@ export function SiteShell({ children, active, headerOnLight }: { children: React
             {productRoutes.map(([label, href]) => (
               <Link key={href} href={href} tabIndex={menuOpen ? undefined : -1} onClick={() => setMenuOpen(false)}>{label}</Link>
             ))}
-            <Link className="nav-products-all" href="/products#services" tabIndex={menuOpen ? undefined : -1} onClick={() => setMenuOpen(false)}>Services &amp; capabilities <i aria-hidden="true">↗</i></Link>
+            <Link className="nav-products-all" href="/products#services" tabIndex={menuOpen ? undefined : -1} onClick={() => setMenuOpen(false)}>Services &amp; capabilities <i aria-hidden="true">↗︎</i></Link>
           </div>
           <div className="nav-audience">
             <span className="nav-group-label">Work with us</span>
@@ -151,7 +151,7 @@ export function SiteShell({ children, active, headerOnLight }: { children: React
             <img src="/assets/kh-logo-mark.png" alt="Khodeer Abbas & Partners Co." width={1047} height={236} loading="lazy" decoding="async" />
             <p>Three generations in the Iraqi timber trade.<br />Global partners, local execution.</p>
           </div>
-          <Link className="footer-enquiry" href="/contact"><small>Have a requirement?</small><span>Let&apos;s move it forward <i>↗</i></span></Link>
+          <Link className="footer-enquiry" href="/contact"><small>Have a requirement?</small><span>Let&apos;s move it forward <i>↗︎</i></span></Link>
         </div>
         <div className="footer-columns">
           <div><span>Explore</span><Link href="/company">Our company</Link><Link href="/products">Products</Link><Link href="/operations">Operations</Link></div>
@@ -159,7 +159,7 @@ export function SiteShell({ children, active, headerOnLight }: { children: React
           <div><span>Contact</span><a href="mailto:info@khodeer.com?subject=Sales%20enquiry">Sales &amp; project supply</a><a href="mailto:purchasing@khodeer.com?subject=Supplier%20enquiry">Suppliers &amp; purchasing</a><a href="mailto:info@khodeer.com?subject=International%20partnership">Partnership &amp; representation</a><a href="https://wa.me/962795185588" target="_blank" rel="noreferrer">Phone &amp; WhatsApp</a></div>
           <div><span>Locations</span><p>Baghdad · Iraq</p><p>Basra · Iraq</p><p>Amman · Jordan</p></div>
         </div>
-        <div className="footer-bottom"><p>© 2026 KH Wood</p><p>Khodeer Abbas &amp; Partners Co.</p><a href="#main-content">Back to top ↑</a></div>
+        <div className="footer-bottom"><p>© 2026 KH Wood</p><p>Khodeer Abbas &amp; Partners Co.</p><a href="#main-content">Back to top ↑︎</a></div>
       </footer>
 
       <a className="whatsapp-bubble" href="https://wa.me/962795185588?text=Hello%20KH%20Wood%2C%20I%27d%20like%20to%20make%20an%20enquiry." target="_blank" rel="noreferrer" aria-label="Chat with KH Wood on WhatsApp">
@@ -244,7 +244,7 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
       </div>
       <label><span>Partnership interest</span><select name="interest" defaultValue=""><option value="">Not applicable</option><option>Sole agency or franchise representation in Iraq</option><option>Distribution or local franchise territory</option><option>Import and distribution coordination</option><option>Bulk storage and supply readiness</option><option>Project supply support</option><option>Market-entry support</option></select></label>
       <label><span>Tell us what you need *</span><textarea ref={messageRef} name="message" rows={compact ? 3 : 5} required placeholder="Product, volume, project location, timeline, or partnership opportunity…" /></label>
-      <div className="form-action"><p>We&apos;ll route your enquiry to the right commercial contact.</p><button className="button button-white" type="submit">Send enquiry <span>↗</span></button></div>
+      <div className="form-action"><p>We&apos;ll route your enquiry to the right commercial contact.</p><button className="button button-white" type="submit">Send enquiry <span>↗︎</span></button></div>
       <p className="form-status" aria-live="polite">{status}</p>
     </form>
   );

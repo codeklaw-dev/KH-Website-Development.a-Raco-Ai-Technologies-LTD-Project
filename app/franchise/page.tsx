@@ -19,8 +19,8 @@ export default function FranchisePage() {
           <h1 className="hero-animate two">Carry the KH name<br /><em>in your territory.</em></h1>
           <p className="hero-animate three">KH Wood franchises put international brands, stocked yards, and three decades of market standing behind established local traders. Your territory, your customers&mdash;our brands, stock, and backing.</p>
           <div className="hero-actions hero-animate four">
-            <Link className="button button-red" href="/contact?type=franchise">Apply for a franchise <span>↗</span></Link>
-            <Link className="button button-ghost" href="/partners">I&apos;m a manufacturer <span>↗</span></Link>
+            <Link className="button button-red" href="/contact?type=franchise">Apply for a franchise <span>↗︎</span></Link>
+            <Link className="button button-ghost" href="/partners">I&apos;m a manufacturer <span>↗︎</span></Link>
           </div>
         </div>
       </section>
@@ -83,7 +83,7 @@ export default function FranchisePage() {
 
       <section className="partnership-fit" id="apply">
         <div data-reveal="left"><p className="eyebrow">Apply for a franchise</p><h2>Your territory.<br />Your customers.<br /><em>The KH name.</em></h2></div>
-        <div data-reveal="right"><p>Tell us where you trade and what you want to carry. If you&apos;re an international manufacturer looking to enter Iraq instead, start with our partnerships page.</p><Link className="button button-white" href="/contact?type=franchise">Apply now <span>↗</span></Link><Link className="text-link" href="/partners">For manufacturers: explore partnerships <span>↗</span></Link></div>
+        <div data-reveal="right"><p>Tell us where you trade and what you want to carry. If you&apos;re an international manufacturer looking to enter Iraq instead, start with our partnerships page.</p><Link className="button button-white" href="/contact?type=franchise">Apply now <span>↗︎</span></Link><Link className="text-link" href="/partners">For manufacturers: explore partnerships <span>↗︎</span></Link></div>
       </section>
     </SiteShell>
   );

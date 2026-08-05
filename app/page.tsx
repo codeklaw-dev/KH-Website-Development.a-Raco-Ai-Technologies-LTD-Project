@@ -20,12 +20,12 @@ export default function Home() {
           <h1 className="hero-animate two">Wood moves<br /><em>business forward.</em></h1>
           <p className="hero-intro hero-animate three">A dependable supply partner for Iraqi projects, a credible route into Iraq for international manufacturers, and a franchise worth carrying for local distributors.</p>
           <div className="hero-actions hero-animate four">
-            <Link className="button button-red" href="/products">I need materials <span>↗</span></Link>
-            <Link className="button button-ghost" href="/partners">I want to enter Iraq <span>↗</span></Link>
+            <Link className="button button-red" href="/products">I need materials <span>↗︎</span></Link>
+            <Link className="button button-ghost" href="/partners">I want to enter Iraq <span>↗︎</span></Link>
           </div>
         </div>
         <div className="hero-marker"><span>KH / 01</span><p>Supply · Distribution<br />Market access</p></div>
-        <a className="hero-scroll" href="#legacy">Explore <span>↓</span></a>
+        <a className="hero-scroll" href="#legacy">Explore <span>↓︎</span></a>
       </section>
 
       <LegacyScroll />
@@ -41,17 +41,17 @@ export default function Home() {
           <Link href="/products" className="decision-card buyer" data-reveal="left">
             <span className="card-index">Buyers &amp; projects</span>
             <div><h3>Source the right materials.</h3><p>Timber, panels, construction wood, and bulk project supply&mdash;from stock held in Iraq.</p></div>
-            <b>View products <i>↗</i></b>
+            <b>View products <i>↗︎</i></b>
           </Link>
           <Link href="/partners" className="decision-card partner" data-reveal="up">
             <span className="card-index">Global manufacturers</span>
             <div><h3>Build your route into Iraq.</h3><p>Agency, distribution, and market entry for manufacturers seeking a local operating partner.</p></div>
-            <b>Explore partnerships <i>↗</i></b>
+            <b>Explore partnerships <i>↗︎</i></b>
           </Link>
           <Link href="/franchise" className="decision-card franchise" data-reveal="right">
             <span className="card-index">Distributors &amp; traders</span>
             <div><h3>Carry the KH name.</h3><p>Take a franchise in your territory: exclusive brands, stocked yards, and principal-led backing.</p></div>
-            <b>Franchise opportunities <i>↗</i></b>
+            <b>Franchise opportunities <i>↗︎</i></b>
           </Link>
         </div>
       </section>
@@ -139,7 +139,7 @@ export default function Home() {
         </div>
         <div className="sectors-action" data-reveal>
           <p>Working on a project in any of these sectors?</p>
-          <Link className="button button-black" href="/contact?type=supply">Discuss a project requirement <span>↗</span></Link>
+          <Link className="button button-black" href="/contact?type=supply">Discuss a project requirement <span>↗︎</span></Link>
         </div>
       </section>
 
@@ -149,7 +149,7 @@ export default function Home() {
           <p className="eyebrow">Heritage with momentum</p>
           <h2>Three generations.<br /><em>Commercial discipline.</em></h2>
           <p>KH Wood grew from carpentry roots into a modern supply and distribution business. The standard never changed: accountability, adaptability, and relationships built to last.</p>
-          <Link className="text-link" href="/company">Read our story <span>↗</span></Link>
+          <Link className="text-link" href="/company">Read our story <span>↗︎</span></Link>
         </div>
       </section>
 
@@ -157,7 +157,7 @@ export default function Home() {
         <div className="capability-title" data-reveal><p className="eyebrow">Visible capacity</p><h2>Built to stock.<br />Ready to supply.</h2></div>
         <div className="capability-visual" data-reveal="scale">
           <img className="cover-image" src="/assets/home-visible-capacity.jpg" alt="Timber stock moving through a busy regional port and distribution yard" loading="lazy" decoding="async" />
-          <Link href="/operations"><span>See how we operate</span><i>↗</i></Link>
+          <Link href="/operations"><span>See how we operate</span><i>↗︎</i></Link>
         </div>
         <div className="capability-list" data-reveal>
           <p>Inventory readiness</p><p>Staging and handling</p><p>Import coordination</p><p>Project dispatch</p>
@@ -182,7 +182,7 @@ export default function Home() {
               <li><div><h4>Receive a practical offer</h4><p>We confirm suitable stock, pricing, lead time, and any alternatives.</p></div></li>
               <li><div><h4>Approve and receive</h4><p>Your order is staged, loaded, and coordinated for collection or delivery.</p></div></li>
             </ol>
-            <div className="process-route-actions"><Link className="button button-red" href="/products">Browse materials <span>↗</span></Link><Link className="process-secondary" href="/contact?type=supply">Ask about a requirement</Link></div>
+            <div className="process-route-actions"><Link className="button button-red" href="/products">Browse materials <span>↗︎</span></Link><Link className="process-secondary" href="/contact?type=supply">Ask about a requirement</Link></div>
           </div>
           <div className="process-track partner" data-reveal="right">
             <div className="process-route-head">
@@ -196,10 +196,10 @@ export default function Home() {
               <li><div><h4>Assess the opportunity</h4><p>Together we review demand, product fit, pricing, and the right entry model.</p></div></li>
               <li><div><h4>Agree and launch</h4><p>We define representation, imports, stockholding, and market development.</p></div></li>
             </ol>
-            <div className="process-route-actions"><Link className="button button-white" href="/partners">Explore partnerships <span>↗</span></Link><Link className="process-secondary" href="/contact?type=partnership">Introduce your company</Link></div>
+            <div className="process-route-actions"><Link className="button button-white" href="/partners">Explore partnerships <span>↗︎</span></Link><Link className="process-secondary" href="/contact?type=partnership">Introduce your company</Link></div>
           </div>
         </div>
-        <div className="process-choice-help" data-reveal="up"><div><span>Not sure which route fits?</span><p>Tell us what you are trying to achieve. Our team will direct your enquiry.</p></div><Link href="/contact">Talk to the right person <span>↗</span></Link></div>
+        <div className="process-choice-help" data-reveal="up"><div><span>Not sure which route fits?</span><p>Tell us what you are trying to achieve. Our team will direct your enquiry.</p></div><Link href="/contact">Talk to the right person <span>↗︎</span></Link></div>
       </section>
 
       <section className="contact-strip" id="reach-us" aria-labelledby="contact-strip-heading">
@@ -209,11 +209,11 @@ export default function Home() {
           <p className="eyebrow">Your next move</p>
           <h2 id="contact-strip-heading">Tell us what you&apos;re<br /><em>working towards.</em></h2>
           <div className="contact-strip-actions">
-            <Link className="button button-red" href="/contact">Start a commercial conversation <span>↗</span></Link>
-            <a className="button button-ghost" href="https://wa.me/962795185588?text=Hello%20KH%20Wood%2C%20I%27d%20like%20to%20make%20an%20enquiry." target="_blank" rel="noreferrer">WhatsApp us <span>↗</span></a>
+            <Link className="button button-red" href="/contact">Start a commercial conversation <span>↗︎</span></Link>
+            <a className="button button-ghost" href="https://wa.me/962795185588?text=Hello%20KH%20Wood%2C%20I%27d%20like%20to%20make%20an%20enquiry." target="_blank" rel="noreferrer">WhatsApp us <span>↗︎</span></a>
           </div>
           <a className="contact-strip-mail" href="mailto:info@khodeer.com">info@khodeer.com</a>
-          <Link className="contact-strip-profile" href="/contact?type=profile"><small>For manufacturers &amp; partners</small><b>Request the KH Wood company profile <i>↗</i></b></Link>
+          <Link className="contact-strip-profile" href="/contact?type=profile"><small>For manufacturers &amp; partners</small><b>Request the KH Wood company profile <i>↗︎</i></b></Link>
         </div>
         <div className="contact-strip-offices" data-reveal>
           <div><span>Baghdad · Iraq</span><p>Al-Basatin area</p></div>

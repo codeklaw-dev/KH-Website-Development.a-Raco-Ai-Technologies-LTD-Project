@@ -12,7 +12,7 @@ export function EnquiryNavCta({ onNavigate, active }: { onNavigate?: () => void;
 
   if (items.length === 0) {
     return (
-      <Link href="/contact" className="nav-cta" aria-current={active ? "page" : undefined} onClick={onNavigate}><b className="nav-cta-label-full">Start an enquiry</b><b className="nav-cta-label-short">Enquiry</b> <span>↗</span></Link>
+      <Link href="/contact" className="nav-cta" aria-current={active ? "page" : undefined} onClick={onNavigate}><b className="nav-cta-label-full">Start an enquiry</b><b className="nav-cta-label-short">Enquiry</b> <span>↗︎</span></Link>
     );
   }
 
@@ -141,8 +141,8 @@ export function EnquiryDrawer() {
 
             <div className="enquiry-drawer-actions">
               <p className="form-status" aria-live="polite">{status}</p>
-              <button className="button button-red" type="submit">Send enquiry <span>↗</span></button>
-              <button type="button" className="drawer-secondary" onClick={goToContactPage}>Finish on contact page ↗</button>
+              <button className="button button-red" type="submit">Send enquiry <span>↗︎</span></button>
+              <button type="button" className="drawer-secondary" onClick={goToContactPage}>Finish on contact page ↗︎</button>
             </div>
           </form>
         )}

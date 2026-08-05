@@ -58,7 +58,7 @@ export default function OperationsPage() {
             <h3>From arrival to nationwide dispatch.</h3>
             <p>One coordinated operating model connects incoming supply, protected stock, load preparation, and delivery planning.</p>
             <ol><li>Receive &amp; verify</li><li>Store &amp; organise</li><li>Stage &amp; load</li><li>Coordinate delivery</li></ol>
-            <Link className="text-link" href="/contact?type=supply">Plan a requirement <span>↗</span></Link>
+            <Link className="text-link" href="/contact?type=supply">Plan a requirement <span>↗︎</span></Link>
           </article>
 
           <figure className="infrastructure-road" data-reveal="right"><img className="cover-image" src="/assets/operations-national-logistics.jpg" alt="Freight vehicles travelling as part of a national logistics network" loading="lazy" decoding="async" /><figcaption>Nationwide delivery <span>Iraq</span></figcaption></figure>
@@ -86,7 +86,7 @@ export default function OperationsPage() {
         <div className="ops-close-shade" />
         <div className="ops-close-heading" data-reveal><p className="eyebrow">Plan the requirement</p><h2>Volume, timing,<br /><em>destination.</em></h2></div>
         <p data-reveal>Bring us the operating realities of the project. We&apos;ll help shape a practical supply plan around them.</p>
-        <Link className="button button-red" href="/contact?type=supply">Discuss supply logistics <span>↗</span></Link>
+        <Link className="button button-red" href="/contact?type=supply">Discuss supply logistics <span>↗︎</span></Link>
       </section>
     </SiteShell>
   );

@@ -10,7 +10,7 @@ export default function ContactPage() {
     <SiteShell active="contact">
       <section className="contact-hero inner-hero">
         <div className="contact-hero-title"><p className="eyebrow hero-animate one">Contact KH Wood</p><h1 className="hero-animate two">Start with<br /><em>the requirement.</em></h1><p className="hero-animate three">Product supply, project demand, or market-entry partnership—tell us the commercial context and we&apos;ll connect you with the right person.</p></div>
-        <div className="contact-direct hero-animate four"><span>Prefer a direct channel?</span><a href="mailto:info@khodeer.com">info@khodeer.com <i>↗</i></a><a href="https://wa.me/962795185588" target="_blank" rel="noreferrer">WhatsApp +962 79 518 5588 <i>↗</i></a></div>
+        <div className="contact-direct hero-animate four"><span>Prefer a direct channel?</span><a href="mailto:info@khodeer.com">info@khodeer.com <i>↗︎</i></a><a href="https://wa.me/962795185588" target="_blank" rel="noreferrer">WhatsApp +962 79 518 5588 <i>↗︎</i></a></div>
       </section>
 
       <section className="contact-workspace">
@@ -21,9 +21,9 @@ export default function ContactPage() {
       <section className="office-directory">
         <div className="directory-heading" data-reveal><p className="eyebrow">Our offices</p><h2>Three locations.<br />One connected team.</h2></div>
         <div className="directory-list">
-          <article data-reveal><span>IRQ / 01</span><h3>Baghdad</h3><p>Al-Basatin area</p><small>Iraq · Main commercial office</small><a href="https://www.google.com/maps/search/?api=1&query=Al-Basatin+Baghdad+Iraq" target="_blank" rel="noreferrer">Open in maps ↗</a></article>
-          <article data-reveal><span>IRQ / 02</span><h3>Basra</h3><p>Al-Istiqlal Street / Al-Ashar area</p><small>Iraq · Southern market office</small><a href="https://www.google.com/maps/search/?api=1&query=Al-Ashar+Basra+Iraq" target="_blank" rel="noreferrer">Open in maps ↗</a></article>
-          <article data-reveal><span>JOR / 03</span><h3>Amman</h3><p>Wasfi Al-Tal Street, Muhtaseb Building, 2nd Floor, Office 207</p><small>Amman 11190 · P.O. Box 928130 · Jordan</small><a href="https://www.google.com/maps/search/?api=1&query=Wasfi+Al+Tal+Street+Amman+Jordan" target="_blank" rel="noreferrer">Open in maps ↗</a></article>
+          <article data-reveal><span>IRQ / 01</span><h3>Baghdad</h3><p>Al-Basatin area</p><small>Iraq · Main commercial office</small><a href="https://www.google.com/maps/search/?api=1&query=Al-Basatin+Baghdad+Iraq" target="_blank" rel="noreferrer">Open in maps ↗︎</a></article>
+          <article data-reveal><span>IRQ / 02</span><h3>Basra</h3><p>Al-Istiqlal Street / Al-Ashar area</p><small>Iraq · Southern market office</small><a href="https://www.google.com/maps/search/?api=1&query=Al-Ashar+Basra+Iraq" target="_blank" rel="noreferrer">Open in maps ↗︎</a></article>
+          <article data-reveal><span>JOR / 03</span><h3>Amman</h3><p>Wasfi Al-Tal Street, Muhtaseb Building, 2nd Floor, Office 207</p><small>Amman 11190 · P.O. Box 928130 · Jordan</small><a href="https://www.google.com/maps/search/?api=1&query=Wasfi+Al+Tal+Street+Amman+Jordan" target="_blank" rel="noreferrer">Open in maps ↗︎</a></article>
         </div>
       </section>
 

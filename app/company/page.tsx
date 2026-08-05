@@ -72,7 +72,7 @@ export default function CompanyPage() {
       <section className="mission-statement">
         <img className="cover-image" src="/assets/imported-timber.jpg" alt="Timber structure representing KH Wood's mission" loading="lazy" decoding="async" />
         <div className="mission-shade" />
-        <div data-reveal="up"><p className="eyebrow">Our mission</p><blockquote>“To connect Iraq&apos;s wood, construction, and infrastructure markets with reliable supply, principal-led execution, and long-term international partnerships.”</blockquote><Link className="button button-red" href="/partners">Explore partnership opportunities <span>↗</span></Link></div>
+        <div data-reveal="up"><p className="eyebrow">Our mission</p><blockquote>“To connect Iraq&apos;s wood, construction, and infrastructure markets with reliable supply, principal-led execution, and long-term international partnerships.”</blockquote><Link className="button button-red" href="/partners">Explore partnership opportunities <span>↗︎</span></Link></div>
       </section>
 
       <section className="values-band" id="values">
@@ -98,12 +98,12 @@ export default function CompanyPage() {
           <b className="pin baghdad"><i /><span>Baghdad</span></b>
           <b className="pin basra"><i /><span>Basra</span></b>
         </div>
-        <div className="footprint-copy" data-reveal="up"><p className="eyebrow">Our footprint</p><h2>Local presence.<br /><em>Regional reach.</em></h2><div className="office-list"><p><span>Baghdad</span>Al-Basatin area, Iraq</p><p><span>Basra</span>Al-Istiqlal Street / Al-Ashar, Iraq</p><p><span>Amman</span>Gardens / Wasfi Al-Tal corridor, Jordan</p></div><Link className="text-link" href="/contact">Contact an office <span>↗</span></Link></div>
+        <div className="footprint-copy" data-reveal="up"><p className="eyebrow">Our footprint</p><h2>Local presence.<br /><em>Regional reach.</em></h2><div className="office-list"><p><span>Baghdad</span>Al-Basatin area, Iraq</p><p><span>Basra</span>Al-Istiqlal Street / Al-Ashar, Iraq</p><p><span>Amman</span>Gardens / Wasfi Al-Tal corridor, Jordan</p></div><Link className="text-link" href="/contact">Contact an office <span>↗︎</span></Link></div>
       </section>
 
       <section className="company-commitment">
         <div className="commitment-mark" data-reveal="scale"><span>KH</span><small>What the name stands for</small></div>
-        <div className="commitment-copy" data-reveal="right"><p className="eyebrow">A long-term operating standard</p><h2>Reputation is built<br /><em>shipment by shipment.</em></h2><p>The Khodeer name is attached to every commercial relationship. That sets one expectation: be clear about what is possible, stay accountable to the agreed process, and build business that lasts.</p><div className="commitment-points"><span>Direct senior involvement</span><span>Commercial transparency</span><span>Respect for local context</span><span>Long-term partner thinking</span></div><Link className="button button-red" href="/contact">Speak with KH Wood <b>↗</b></Link></div>
+        <div className="commitment-copy" data-reveal="right"><p className="eyebrow">A long-term operating standard</p><h2>Reputation is built<br /><em>shipment by shipment.</em></h2><p>The Khodeer name is attached to every commercial relationship. That sets one expectation: be clear about what is possible, stay accountable to the agreed process, and build business that lasts.</p><div className="commitment-points"><span>Direct senior involvement</span><span>Commercial transparency</span><span>Respect for local context</span><span>Long-term partner thinking</span></div><Link className="button button-red" href="/contact">Speak with KH Wood <b>↗︎</b></Link></div>
       </section>
     </SiteShell>
   );

@@ -14,7 +14,7 @@ export default function PartnersPage() {
         <img className="partners-hero-image cover-image" src="/assets/partners-hero.jpg" alt="" aria-hidden="true" fetchPriority="high" />
         <div className="partners-hero-wash" aria-hidden="true" />
         <div className="partner-coordinate hero-animate one"><span>33.3152° N</span><i>44.3661° E</i></div>
-        <div className="partners-hero-copy"><p className="eyebrow hero-animate one">For international manufacturers</p><h1 className="hero-animate two">Your route into<br /><em>the Iraqi market.</em></h1><p className="hero-animate three">Local representation, market knowledge, supply infrastructure, and commercial relationships—working as one route to growth.</p><Link className="button button-red hero-animate four" href="/contact?type=partner">Discuss a partnership <span>↗</span></Link></div>
+        <div className="partners-hero-copy"><p className="eyebrow hero-animate one">For international manufacturers</p><h1 className="hero-animate two">Your route into<br /><em>the Iraqi market.</em></h1><p className="hero-animate three">Local representation, market knowledge, supply infrastructure, and commercial relationships—working as one route to growth.</p><Link className="button button-red hero-animate four" href="/contact?type=partner">Discuss a partnership <span>↗︎</span></Link></div>
       </section>
 
       <nav className="page-rail page-rail-dark" aria-label="Partners page sections"><span>Partner pathway</span><a href="#network">Who we work with</a><a href="#route">Market-entry route</a><a href="#models">Partnership models</a><a href="#facilities">Facilities</a><a href="#fit">Partnership fit</a></nav>
@@ -105,7 +105,7 @@ export default function PartnersPage() {
 
       <section className="partnership-fit">
         <div data-reveal="left"><p className="eyebrow">A good fit starts here</p><h2>Tell us your product,<br />market ambition,<br /><em>and preferred model.</em></h2></div>
-        <div data-reveal="right"><p>We&apos;ll assess market relevance, operating requirements, and where KH Wood can add genuine value.</p><Link className="button button-white" href="/contact?type=partner">Start the conversation <span>↗</span></Link></div>
+        <div data-reveal="right"><p>We&apos;ll assess market relevance, operating requirements, and where KH Wood can add genuine value.</p><Link className="button button-white" href="/contact?type=partner">Start the conversation <span>↗︎</span></Link></div>
       </section>
     </SiteShell>
   );

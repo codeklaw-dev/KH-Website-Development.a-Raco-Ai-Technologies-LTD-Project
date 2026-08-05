@@ -12,25 +12,42 @@ export function LegacyScroll() {
     const track = trackRef.current;
     if (!section || !track) return;
 
+    const viewportWidth = () => track.parentElement?.clientWidth ?? window.innerWidth;
+
+    // Panel width is measured rather than left to a container-query unit: if the
+    // unit fails to resolve, flex-basis falls back to auto and the panels
+    // collapse to their content width, which desynchronises them from the
+    // scroll distance below and strands the track mid-slide.
+    const measure = () => {
+      section.style.setProperty("--legacy-panel-width", `${viewportWidth()}px`);
+    };
+
     let raf = 0;
     const update = () => {
       raf = 0;
       const distance = section.offsetHeight - window.innerHeight;
       const travelled = Math.min(Math.max(-section.getBoundingClientRect().top, 0), distance);
       const progress = distance > 0 ? travelled / distance : 0;
-      const viewport = track.parentElement?.clientWidth ?? window.innerWidth;
-      const shift = Math.max(track.scrollWidth - viewport, 0);
+      const shift = Math.max(track.scrollWidth - viewportWidth(), 0);
       track.style.transform = `translate3d(${-progress * shift}px,0,0)`;
       if (cueRef.current) cueRef.current.classList.toggle("at-end", progress > 0.98);
     };
     const onScroll = () => { if (!raf) raf = requestAnimationFrame(update); };
+    const onResize = () => { measure(); onScroll(); };
 
+    measure();
     update();
+
+    // Mobile browsers fire resize when the URL bar collapses; a ResizeObserver on
+    // the sticky element also catches orientation changes without a scroll event.
+    const observer = new ResizeObserver(onResize);
+    if (track.parentElement) observer.observe(track.parentElement);
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
+    window.addEventListener("resize", onResize);
     return () => {
+      observer.disconnect();
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      window.removeEventListener("resize", onResize);
       if (raf) cancelAnimationFrame(raf);
     };
   }, []);

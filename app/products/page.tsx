@@ -22,7 +22,7 @@ export default function ProductsPage() {
           <span className="catalogue-shade" />
           <span className="catalogue-number">{item.n}</span>
           <small>{item.tag}</small>
-          <div><h3>{item.title}</h3><p>{item.copy}</p><b>Explore range <i>↗</i></b></div>
+          <div><h3>{item.title}</h3><p>{item.copy}</p><b>Explore range <i>↗︎</i></b></div>
         </Link>)}
       </section>
 
