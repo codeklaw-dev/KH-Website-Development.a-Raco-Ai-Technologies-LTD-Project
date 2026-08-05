@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { EnquiryNavCta, EnquiryDrawer } from "./EnquiryDrawer";
 import { useEnquiryCart } from "./EnquiryCart";
 import { EnquiryItemFields } from "./EnquiryItemFields";
+import { lockBodyScroll } from "./scrollLock";
 
 const navigation = [
   ["Company", "/company"],
@@ -84,10 +85,10 @@ export function SiteShell({ children, active, headerOnLight }: { children: React
   }, [pathname]);
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
+    const release = menuOpen ? lockBodyScroll() : undefined;
     const closeOnEscape = (event: KeyboardEvent) => { if (event.key === "Escape") setMenuOpen(false); };
     window.addEventListener("keydown", closeOnEscape);
-    return () => { document.body.style.overflow = ""; window.removeEventListener("keydown", closeOnEscape); };
+    return () => { release?.(); window.removeEventListener("keydown", closeOnEscape); };
   }, [menuOpen]);
 
   useEffect(() => { setMenuOpen(false); }, [pathname]);

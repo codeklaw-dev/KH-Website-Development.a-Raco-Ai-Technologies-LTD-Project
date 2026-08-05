@@ -18,7 +18,8 @@ export function LegacyScroll() {
       const distance = section.offsetHeight - window.innerHeight;
       const travelled = Math.min(Math.max(-section.getBoundingClientRect().top, 0), distance);
       const progress = distance > 0 ? travelled / distance : 0;
-      const shift = Math.max(track.scrollWidth - window.innerWidth, 0);
+      const viewport = track.parentElement?.clientWidth ?? window.innerWidth;
+      const shift = Math.max(track.scrollWidth - viewport, 0);
       track.style.transform = `translate3d(${-progress * shift}px,0,0)`;
       if (cueRef.current) cueRef.current.classList.toggle("at-end", progress > 0.98);
     };

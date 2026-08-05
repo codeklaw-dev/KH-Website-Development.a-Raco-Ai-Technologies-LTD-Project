@@ -5,13 +5,14 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEnquiryCart } from "./EnquiryCart";
 import { EnquiryItemFields } from "./EnquiryItemFields";
+import { lockBodyScroll } from "./scrollLock";
 
 export function EnquiryNavCta({ onNavigate, active }: { onNavigate?: () => void; active?: boolean }) {
   const { items, openDrawer } = useEnquiryCart();
 
   if (items.length === 0) {
     return (
-      <Link href="/contact" className="nav-cta" aria-current={active ? "page" : undefined} onClick={onNavigate}>Start an enquiry <span>↗</span></Link>
+      <Link href="/contact" className="nav-cta" aria-current={active ? "page" : undefined} onClick={onNavigate}><b className="nav-cta-label-full">Start an enquiry</b><b className="nav-cta-label-short">Enquiry</b> <span>↗</span></Link>
     );
   }
 
@@ -28,23 +29,33 @@ export function EnquiryDrawer() {
   const [status, setStatus] = useState("");
   const [confirmingClear, setConfirmingClear] = useState(false);
   const closeRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLElement>(null);
   const router = useRouter();
 
   useEffect(() => {
     if (!drawerOpen) return;
 
     const previous = document.activeElement as HTMLElement | null;
-    document.body.style.overflow = "hidden";
+    const release = lockBodyScroll();
     closeRef.current?.focus();
 
     function onKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") closeDrawer();
+      if (event.key === "Escape") { closeDrawer(); return; }
+      if (event.key !== "Tab") return;
+      const panel = panelRef.current;
+      if (!panel) return;
+      const focusable = panel.querySelectorAll<HTMLElement>('a[href],button:not([disabled]),input,select,textarea,[tabindex]:not([tabindex="-1"])');
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
     }
 
     window.addEventListener("keydown", onKeyDown);
     return () => {
       window.removeEventListener("keydown", onKeyDown);
-      document.body.style.overflow = "";
+      release();
       previous?.focus?.();
       setConfirmingClear(false);
     };
@@ -83,7 +94,7 @@ export function EnquiryDrawer() {
   return (
     <>
       <button className={`enquiry-scrim${drawerOpen ? " is-open" : ""}`} type="button" tabIndex={-1} aria-hidden="true" onClick={closeDrawer} />
-      <aside className={`enquiry-drawer${drawerOpen ? " is-open" : ""}`} inert={!drawerOpen || undefined} aria-label="Your enquiry">
+      <aside ref={panelRef} className={`enquiry-drawer${drawerOpen ? " is-open" : ""}`} inert={!drawerOpen || undefined} aria-label="Your enquiry">
         <div className="enquiry-drawer-head">
           <div><span>Your enquiry</span><b>{items.length} product{items.length === 1 ? "" : "s"} selected</b></div>
           <div className="enquiry-drawer-head-actions">
