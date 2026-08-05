@@ -63,7 +63,7 @@ export default function Home() {
         </div>
         <div className="network-grid">
           <article className="network-card big" data-reveal="left">
-            <img className="cover-image" src="/assets/network-jordan-hub.jpg" alt="Aerial view of a large KH Wood waterfront storage and logistics hub" loading="lazy" decoding="async" />
+            <img className="cover-image" src="/assets/network-jordan-hub-5c9287e6.jpg" alt="Aerial view of a large KH Wood waterfront storage and logistics hub" loading="lazy" decoding="async" />
             <div className="network-shade" />
             <div className="network-info">
               <b>03<span>Countries of operation</span></b>
@@ -72,7 +72,7 @@ export default function Home() {
             </div>
           </article>
           <article className="network-card" data-reveal="up">
-            <img className="cover-image" src="/assets/network-warehouse-bay.jpg" alt="KH warehouse bay stacked with banded timber and panel inventory" loading="lazy" decoding="async" />
+            <img className="cover-image" src="/assets/network-warehouse-bay-c4d6e2c1.jpg" alt="KH warehouse bay stacked with banded timber and panel inventory" loading="lazy" decoding="async" />
             <div className="network-shade" />
             <div className="network-info">
               <b>27<span>Acres kept stocked</span></b>
@@ -90,7 +90,7 @@ export default function Home() {
             </div>
           </article>
           <article className="network-card wide" data-reveal="right">
-            <img className="cover-image" src="/assets/network-logistics-aerial.jpg" alt="Aerial view of KH warehouses with trucks loading for dispatch" loading="lazy" decoding="async" />
+            <img className="cover-image" src="/assets/network-logistics-aerial-22e452fa.jpg" alt="Aerial view of KH warehouses with trucks loading for dispatch" loading="lazy" decoding="async" />
             <div className="network-shade" />
             <div className="network-caption">
               <h3>Scaled operations</h3>

@@ -41,7 +41,7 @@ export function LegacyScroll() {
       <div className="legacy-sticky">
         <div className="legacy-track" ref={trackRef}>
           <article className="legacy-panel legacy-origins" id="legacy-origins">
-            <img className="cover-image" src="/assets/iraq-wood-trade-legacy.jpg" alt="Illustrated historical wood trade in an Iraqi market" fetchPriority="high" />
+            <img className="cover-image" src="/assets/iraq-wood-trade-legacy-14409cdf.jpg" alt="Illustrated historical wood trade in an Iraqi market" fetchPriority="high" />
             <div className="legacy-panel-shade" />
             <div className="legacy-chapter"><span>01</span><small>Iraq · Material history</small></div>
             <div className="legacy-panel-copy">
