@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { EnquiryNavCta, EnquiryDrawer } from "./EnquiryDrawer";
 import { useEnquiryCart } from "./EnquiryCart";
 import { EnquiryItemFields } from "./EnquiryItemFields";
+import { VideoAutoplay } from "./VideoAutoplay";
 import { lockBodyScroll } from "./scrollLock";
 
 const navigation = [
@@ -34,15 +35,38 @@ const audienceRoutes = [
 export function SiteShell({ children, active, headerOnLight }: { children: ReactNode; active?: string; headerOnLight?: boolean }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [progress, setProgress] = useState(0);
+  const progressRef = useRef<HTMLSpanElement>(null);
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => {
-      const height = document.documentElement.scrollHeight - window.innerHeight;
-      setScrolled(window.scrollY > 20);
-      setProgress(height > 0 ? (window.scrollY / height) * 100 : 0);
+    // The progress bar is written straight to the DOM and `scrolled` only set
+    // when it actually flips. Storing progress in state re-rendered the whole
+    // shell — including every page below it — on each scroll event, which was
+    // the bulk of the scroll jank. Reading scrollHeight is also a forced
+    // layout, so it is cached and refreshed on resize instead of per frame.
+    let raf = 0;
+    let maxScroll = 0;
+    let isScrolled = false;
+
+    const measure = () => {
+      maxScroll = document.documentElement.scrollHeight - window.innerHeight;
     };
+
+    const render = () => {
+      raf = 0;
+      const y = window.scrollY;
+      if (progressRef.current) {
+        progressRef.current.style.width = `${maxScroll > 0 ? (y / maxScroll) * 100 : 0}%`;
+      }
+      const next = y > 20;
+      if (next !== isScrolled) {
+        isScrolled = next;
+        setScrolled(next);
+      }
+    };
+
+    const handleScroll = () => { if (!raf) raf = requestAnimationFrame(render); };
+    const handleResize = () => { measure(); handleScroll(); };
 
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((entry) => {
@@ -75,9 +99,13 @@ export function SiteShell({ children, active, headerOnLight }: { children: React
     });
     mutationObserver.observe(document.body, { childList: true, subtree: true });
     window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleResize);
+    measure();
     handleScroll();
 
     return () => {
+      window.removeEventListener("resize", handleResize);
+      if (raf) cancelAnimationFrame(raf);
       observer.disconnect();
       mutationObserver.disconnect();
       window.removeEventListener("scroll", handleScroll);
@@ -101,7 +129,7 @@ export function SiteShell({ children, active, headerOnLight }: { children: React
     <>
       <div className="site-grain" aria-hidden="true" />
       <a className="skip-link" href="#main-content">Skip to content</a>
-      <div className="scroll-progress" aria-hidden="true"><span style={{ width: `${progress}%` }} /></div>
+      <div className="scroll-progress" aria-hidden="true"><span ref={progressRef} /></div>
       <header className={`site-header${isScrolled ? " is-scrolled" : ""}${menuOpen ? " menu-active" : ""}${lightOrigin ? " light-origin" : ""}`}>
         <button className={`menu-button${menuOpen ? " is-open" : ""}`} type="button" aria-label={menuOpen ? "Close navigation" : "Open navigation"} aria-expanded={menuOpen} aria-controls="nav-panel" onClick={() => setMenuOpen((open) => !open)}>
           <i aria-hidden="true"><span /><span /></i>
@@ -169,6 +197,7 @@ export function SiteShell({ children, active, headerOnLight }: { children: React
         <i>Chat with us</i>
       </a>
       <EnquiryDrawer />
+      <VideoAutoplay />
     </>
   );
 }

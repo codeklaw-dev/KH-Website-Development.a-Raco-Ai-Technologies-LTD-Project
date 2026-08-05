@@ -25,7 +25,14 @@ export function LegacyScroll() {
     let raf = 0;
     const update = () => {
       raf = 0;
-      const distance = section.offsetHeight - window.innerHeight;
+      // Measure the sticky element rather than using window.innerHeight. The
+      // sticky is sized in svh (the viewport with the URL bar showing) while
+      // innerHeight grows once the bar collapses, so on a phone the two differ
+      // by ~80-100px. Using innerHeight makes progress reach 1 before the
+      // section ends, which finishes the slide early and leaves a dead stretch
+      // of scrolling after the last panel.
+      const sticky = track.parentElement as HTMLElement | null;
+      const distance = section.offsetHeight - (sticky?.offsetHeight ?? window.innerHeight);
       const travelled = Math.min(Math.max(-section.getBoundingClientRect().top, 0), distance);
       const progress = distance > 0 ? travelled / distance : 0;
       const shift = Math.max(track.scrollWidth - viewportWidth(), 0);

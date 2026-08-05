@@ -1,34 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 export function HeroVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
 
-  // iOS refuses to autoplay while Low Power Mode is on, even for a muted inline
-  // video, and then paints the poster with a play button. Autoplay is allowed
-  // again once the user has interacted, so retry on the first gesture rather
-  // than leaving a still frame on the page.
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const events = ["touchstart", "pointerdown", "keydown", "scroll"] as const;
-    const stop = () => events.forEach((name) => window.removeEventListener(name, retry));
-
-    function retry() {
-      const target = videoRef.current;
-      if (!target) return stop();
-      target.play().then(stop, () => {});
-    }
-
-    video.play().catch(() => {
-      events.forEach((name) => window.addEventListener(name, retry, { passive: true, once: false }));
-    });
-
-    return stop;
-  }, []);
+  // Autoplay, retry-on-gesture and stall recovery are handled site-wide by
+  // <VideoAutoplay />; this component only owns the sound toggle.
 
   const toggleSound = async () => {
     const video = videoRef.current;
