@@ -3,89 +3,77 @@
 import { useEffect } from "react";
 
 /**
- * Keeps every background video on the site looping.
+ * Keeps every background video on the site playing, on a loop, at all times.
  *
- * iOS refuses autoplay outright in Low Power Mode and can also drop playback
- * when a tab is backgrounded or the connection stalls mid-buffer, which leaves
- * a video frozen on one frame for the rest of the visit. This watches all of
- * them centrally: it retries on the first user gesture, resumes anything that
- * stalls, and picks up videos added by client-side navigation.
+ * A muted inline video is allowed to autoplay, but browsers still refuse or drop
+ * playback in several situations that leave a frozen frame for the rest of the
+ * visit: iOS blocks autoplay outright in Low Power Mode, a `play()` issued
+ * before enough data has buffered can be rejected, and a backgrounded tab or a
+ * stalled connection pauses the element without asking.
  *
- * Offscreen videos are paused. Decoding four looping videos at once is the main
- * source of scroll jank on a phone, and a video nobody can see does not need to
- * be running — each one resumes from where it left off as it comes back.
+ * So rather than calling play() once at mount, every event that could mark a
+ * recovery point retries it. Videos are never paused deliberately — including
+ * when off screen — because a paused background video reads as broken.
  */
 export function VideoAutoplay() {
   useEffect(() => {
-    const videos = new Set<HTMLVideoElement>();
+    const tracked = new WeakSet<HTMLVideoElement>();
     let gestureBound = false;
 
-    const wanted = (video: HTMLVideoElement) => video.dataset.paused !== "user";
-
-    const tryPlay = (video: HTMLVideoElement) => {
-      if (!wanted(video) || !video.isConnected) return;
+    const play = (video: HTMLVideoElement) => {
+      if (!video.isConnected || !video.paused) return;
       const attempt = video.play();
       if (attempt) attempt.catch(bindGesture);
     };
 
-    const retryAll = () => {
-      videos.forEach((video) => {
-        if (video.dataset.visible === "false") return;
-        tryPlay(video);
-      });
-    };
+    const playAll = () => document.querySelectorAll("video").forEach((v) => play(v as HTMLVideoElement));
 
+    // Autoplay is permitted again once the user has interacted, so a blocked
+    // video starts on the first touch instead of staying frozen.
     function bindGesture() {
       if (gestureBound) return;
       gestureBound = true;
-      ["touchstart", "pointerdown", "keydown"].forEach((name) =>
-        window.addEventListener(name, retryAll, { passive: true }),
+      ["touchstart", "pointerdown", "keydown", "scroll"].forEach((name) =>
+        window.addEventListener(name, playAll, { passive: true }),
       );
     }
 
-    // Pause what is offscreen; resume it as it scrolls back in.
-    const visibility = new IntersectionObserver(
-      (entries) => entries.forEach((entry) => {
-        const video = entry.target as HTMLVideoElement;
-        video.dataset.visible = String(entry.isIntersecting);
-        if (entry.isIntersecting) tryPlay(video);
-        else if (!video.paused) video.pause();
-      }),
-      { rootMargin: "200px 0px" },
-    );
-
     const adopt = (video: HTMLVideoElement) => {
-      if (videos.has(video) || !video.hasAttribute("autoplay")) return;
-      videos.add(video);
-      // Safari only honours inline autoplay when both are set on the element.
-      video.muted = video.muted || !video.hasAttribute("data-unmuted");
+      if (tracked.has(video)) return;
+      tracked.add(video);
+
+      // Safari only honours inline autoplay with both of these set on the element.
+      video.muted = true;
       video.playsInline = true;
       video.loop = true;
-      video.addEventListener("stalled", () => tryPlay(video));
-      video.addEventListener("pause", () => {
-        // A pause we did not ask for (buffer underrun, OS interruption).
-        if (wanted(video) && video.dataset.visible !== "false" && !video.ended) {
-          requestAnimationFrame(() => tryPlay(video));
-        }
-      });
-      visibility.observe(video);
-      tryPlay(video);
+
+      // Each of these is a point where playback can legitimately resume.
+      (["loadeddata", "canplay", "stalled", "suspend", "pause", "ended"] as const).forEach((name) =>
+        video.addEventListener(name, () => play(video)),
+      );
+
+      play(video);
     };
 
     const scan = () => document.querySelectorAll("video").forEach((v) => adopt(v as HTMLVideoElement));
 
     scan();
 
+    // Client-side navigation swaps in new videos.
     const added = new MutationObserver(scan);
     added.observe(document.body, { childList: true, subtree: true });
-    document.addEventListener("visibilitychange", retryAll);
+    document.addEventListener("visibilitychange", playAll);
+
+    // A couple of early retries cover a first play() that lost the race with
+    // the network, without polling for the whole visit.
+    const timers = [400, 1500, 4000].map((delay) => window.setTimeout(playAll, delay));
 
     return () => {
       added.disconnect();
-      visibility.disconnect();
-      document.removeEventListener("visibilitychange", retryAll);
-      ["touchstart", "pointerdown", "keydown"].forEach((name) =>
-        window.removeEventListener(name, retryAll),
+      document.removeEventListener("visibilitychange", playAll);
+      timers.forEach(window.clearTimeout);
+      ["touchstart", "pointerdown", "keydown", "scroll"].forEach((name) =>
+        window.removeEventListener(name, playAll),
       );
     };
   }, []);
