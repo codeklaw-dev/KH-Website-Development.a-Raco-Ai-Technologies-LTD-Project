@@ -926,3 +926,26 @@ h3,.footer-brand p,.footer-enquiry > span { letter-spacing:-.018em; }
   /* Body copy sits a little more open at small sizes. */
   .hero-intro, .detail-hero-copy > p:not(.eyebrow) { font-size: 13.5px; line-height: 1.7; }
 }
+
+/* Thumb targets. Audited every interactive element at 375px: these were the
+   ones landing under ~40px, mostly inline text links whose hit area is just the
+   line box. Given a flex box and a minimum height so the tap area matches what
+   the eye reads as a button, without changing where the text sits. */
+@media (max-width: 560px) {
+  .brand { padding-block: 8px; }
+  .menu-button { min-height: 44px; }
+  .nav-contact a,
+  .footer-columns a,
+  .contact-strip-mail,
+  .contact-direct a,
+  .detail-breadcrumb a,
+  .directory-list article a,
+  .footer-bottom a,
+  .nav-products > a,
+  .nav-products-all { display: inline-flex; align-items: center; min-height: 44px; }
+  .footer-columns > div { gap: 2px; }
+  .footer-columns a { padding-block: 0; }
+  .hero-scroll, .hero-sound-toggle { min-height: 44px; }
+  .text-link { min-height: 46px; }
+  .market-fit-list-grid a, .entry-steps a, .advantage-grid a { min-height: 44px; display: inline-flex; align-items: center; }
+}
