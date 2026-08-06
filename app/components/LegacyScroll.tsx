@@ -12,49 +12,42 @@ export function LegacyScroll() {
     const track = trackRef.current;
     if (!section || !track) return;
 
-    const viewportWidth = () => track.parentElement?.clientWidth ?? window.innerWidth;
-
-    // Panel width is measured rather than left to a container-query unit: if the
-    // unit fails to resolve, flex-basis falls back to auto and the panels
-    // collapse to their content width, which desynchronises them from the
-    // scroll distance below and strands the track mid-slide.
-    const measure = () => {
-      section.style.setProperty("--legacy-panel-width", `${viewportWidth()}px`);
-    };
-
     let raf = 0;
     const update = () => {
       raf = 0;
-      // Measure the sticky element rather than using window.innerHeight. The
-      // sticky is sized in svh (the viewport with the URL bar showing) while
-      // innerHeight grows once the bar collapses, so on a phone the two differ
-      // by ~80-100px. Using innerHeight makes progress reach 1 before the
-      // section ends, which finishes the slide early and leaves a dead stretch
-      // of scrolling after the last panel.
       const sticky = track.parentElement as HTMLElement | null;
-      const distance = section.offsetHeight - (sticky?.offsetHeight ?? window.innerHeight);
+
+      // Vertical: measure the sticky element, not window.innerHeight. The sticky
+      // is sized against the viewport, which on a phone grows by ~90px when the
+      // URL bar collapses; innerHeight tracks that growth and the sticky does
+      // not, so mixing them desynchronises progress from the actual pinned run.
+      const distance = section.offsetHeight - (sticky?.offsetHeight || window.innerHeight);
       const travelled = Math.min(Math.max(-section.getBoundingClientRect().top, 0), distance);
       const progress = distance > 0 ? travelled / distance : 0;
-      const shift = Math.max(track.scrollWidth - viewportWidth(), 0);
-      track.style.transform = `translate3d(${-progress * shift}px,0,0)`;
+
+      // Horizontal: shift by a percentage of the track, never by measured pixels.
+      // The track is exactly one panel wide, so 100% is exactly one panel and the
+      // last panel always lands flush. Deriving it from track.scrollWidth minus a
+      // measured viewport meant a single bad reading — a clientWidth of 0 passes
+      // straight through `??` — slid the panels clean off the screen.
+      const panels = track.childElementCount;
+      track.style.transform = `translate3d(${-progress * (panels - 1) * 100}%,0,0)`;
       if (cueRef.current) cueRef.current.classList.toggle("at-end", progress > 0.98);
     };
     const onScroll = () => { if (!raf) raf = requestAnimationFrame(update); };
-    const onResize = () => { measure(); onScroll(); };
 
-    measure();
     update();
 
-    // Mobile browsers fire resize when the URL bar collapses; a ResizeObserver on
-    // the sticky element also catches orientation changes without a scroll event.
-    const observer = new ResizeObserver(onResize);
+    // Phones fire resize when the URL bar collapses; the observer also catches
+    // rotation without waiting for a scroll event.
+    const observer = new ResizeObserver(onScroll);
     if (track.parentElement) observer.observe(track.parentElement);
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onResize);
+    window.addEventListener("resize", onScroll);
     return () => {
       observer.disconnect();
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onResize);
+      window.removeEventListener("resize", onScroll);
       if (raf) cancelAnimationFrame(raf);
     };
   }, []);
