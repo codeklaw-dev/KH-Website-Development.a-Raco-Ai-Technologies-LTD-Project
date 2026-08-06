@@ -542,7 +542,7 @@ section[id] { scroll-margin-top:110px; }
   .brand,.site-header.is-scrolled .brand { width:128px; }
   .nav-cta-label-full { display:none; }
   .nav-cta-label-short { display:inline; }
-  .nav-cta { gap:10px;padding:11px 12px; }
+  .nav-cta { gap:10px;padding:11px 12px;min-height:44px; }
   .menu-button { padding:11px 8px 11px 2px;gap:8px; }
   .company-proof { grid-template-columns:1fr; }.company-proof > div { min-height:145px;border-bottom:1px solid var(--line); }
   .company-evolution,.sector-field,.partnership-models,.facility-proof,.partner-readiness,.facility-gallery,.control-system,.operation-scenarios,.product-questions { padding:82px 20px; }
