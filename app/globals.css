@@ -949,3 +949,9 @@ h3,.footer-brand p,.footer-enquiry > span { letter-spacing:-.018em; }
   .text-link { min-height: 46px; }
   .market-fit-list-grid a, .entry-steps a, .advantage-grid a { min-height: 44px; display: inline-flex; align-items: center; }
 }
+
+/* Phones are served silent, lightweight video encodes so playback can start on
+   a slow connection, so the sound control has nothing to unmute there. */
+@media (max-width: 820px) {
+  .hero-sound-toggle { display: none; }
+}

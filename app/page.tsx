@@ -31,7 +31,7 @@ export default function Home() {
       <LegacyScroll />
 
       <section className="decision" id="choose">
-        <video className="decision-video" autoPlay muted loop playsInline preload="metadata" aria-hidden="true"><source src="/assets/decision-route-video.mp4" type="video/mp4" /></video>
+        <video className="decision-video" autoPlay muted loop playsInline preload="metadata" aria-hidden="true"><source media="(max-width: 820px)" src="/assets/decision-route-video-mobile-59b450c1.mp4" type="video/mp4" /><source src="/assets/decision-route-video.mp4" type="video/mp4" /></video>
         <div className="decision-shade" />
         <div className="decision-heading" data-reveal="up">
           <p className="eyebrow">Choose your route</p>
@@ -203,7 +203,7 @@ export default function Home() {
       </section>
 
       <section className="contact-strip" id="reach-us" aria-labelledby="contact-strip-heading">
-        <video className="contact-strip-video" autoPlay muted loop playsInline preload="metadata" poster="/assets/kh-concept-poster-6e9dbb18.jpg" aria-hidden="true"><source src="/assets/kh-concept.mp4" type="video/mp4" /></video>
+        <video className="contact-strip-video" autoPlay muted loop playsInline preload="metadata" poster="/assets/kh-concept-poster-6e9dbb18.jpg" aria-hidden="true"><source media="(max-width: 820px)" src="/assets/kh-concept-mobile-bc4de27e.mp4" type="video/mp4" /><source src="/assets/kh-concept.mp4" type="video/mp4" /></video>
         <div className="contact-strip-shade" aria-hidden="true" />
         <div className="contact-strip-lead" data-reveal="up">
           <p className="eyebrow">Your next move</p>
