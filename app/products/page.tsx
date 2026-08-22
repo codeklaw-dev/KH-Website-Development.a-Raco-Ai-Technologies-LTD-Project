@@ -7,6 +7,19 @@ export const metadata = {
   description: "Explore KH Wood's commercial timber, panels, boards, construction wood, and bulk project supply capabilities in Iraq.",
 };
 
+const marqueeItems = [
+  "Timber supply",
+  "Panel products",
+  "Project materials",
+  "Bulk supply",
+  "Market representation",
+  "Construction wood",
+  "Hardwood & softwood",
+  "Plywood & boards",
+  "Site delivery",
+  "Import & sourcing",
+];
+
 export default function ProductsPage() {
   return (
     <SiteShell active="products">
@@ -26,7 +39,13 @@ export default function ProductsPage() {
         </Link>)}
       </section>
 
-      <section className="material-marquee" aria-label="KH Wood supply capabilities"><div><span>Timber supply</span><i>◆</i><span>Panel products</span><i>◆</i><span>Project materials</span><i>◆</i><span>Bulk supply</span><i>◆</i><span>Market representation</span><i>◆</i></div></section>
+      <section className="material-marquee" aria-label="KH Wood supply capabilities">
+        <div>
+          {[0, 1].map((copy) => <div key={copy} aria-hidden={copy === 1 || undefined}>
+            {marqueeItems.map((item) => <span key={item}>{item}<i>◆</i></span>)}
+          </div>)}
+        </div>
+      </section>
 
       <section className="products-support" id="services">
         <div className="products-support-heading" data-reveal="up"><p className="eyebrow">Beyond the stock</p><h2>We handle it all,<br /><em>start to finish.</em></h2></div>
