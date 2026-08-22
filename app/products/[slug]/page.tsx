@@ -58,20 +58,20 @@ export default async function ProductPage({ params }: ProductPageProps) {
               {product.options.map((option, itemIndex) => <article key={option.title}><b>0{itemIndex + 1}</b><h3>{option.title}</h3><p>{option.copy}</p></article>)}
             </div>
           </div>
-          <blockquote data-reveal>“{product.principle}”</blockquote>
+          <blockquote data-reveal>{product.principle}</blockquote>
         </section>
 
         <section className="detail-partners" aria-labelledby="detail-partners-heading">
           <div className="detail-partners-heading" data-reveal="up">
             <p className="eyebrow">Relevant partners &amp; standards</p>
             <h2 id="detail-partners-heading">Connected to the<br /><em>{product.shortTitle.toLowerCase()} range.</em></h2>
-            <p>The network shown here updates with each product range, keeping the most relevant manufacturers and standards in view.</p>
+            <p>The network shown updates with each range, keeping the relevant manufacturers and standards in view.</p>
           </div>
           <PartnerLogoRail partnerIds={product.partnerIds} />
         </section>
 
         <section className="detail-brief" id="brief">
-          <div className="detail-brief-copy" data-reveal="left"><p className="eyebrow">Ready for a quote?</p><h2>Add it to<br /><em>your enquiry.</em></h2><p>Add this range to your enquiry, browse others you need, then fill in the details once and send it all together.</p><ProductAddToEnquiry slug={product.slug} title={product.title} n={product.n} fields={product.orderFields} /></div>
+          <div className="detail-brief-copy" data-reveal="left"><p className="eyebrow">Ready for a quote?</p><h2>Add it to<br /><em>your enquiry.</em></h2><p>Add this range to your enquiry, add any others, then send the details once.</p><ProductAddToEnquiry slug={product.slug} title={product.title} n={product.n} fields={product.orderFields} /></div>
           <ol className="detail-checklist">
             {product.orderFields.map((item, itemIndex) => <li key={item.label} data-reveal="right"><span>0{itemIndex + 1}</span><p>{item.label}</p><i>✓</i></li>)}
           </ol>

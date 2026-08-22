@@ -13,7 +13,7 @@ export default function ProductsPage() {
       <section className="catalogue-intro">
         <p className="catalogue-side hero-animate one" data-reveal="left">01 — Product families</p>
         <div data-reveal="up"><h2 className="hero-animate two">What are you<br />looking for?</h2></div>
-        <p className="catalogue-copy hero-animate three" data-reveal="right">Pick the range that fits below. We&apos;ll help with the rest—quantity, delivery, and timing.</p>
+        <p className="catalogue-copy hero-animate three" data-reveal="right">Pick a range below. We handle quantity, delivery, and timing.</p>
       </section>
 
       <section className="product-catalogue">
@@ -54,7 +54,9 @@ export default function ProductsPage() {
         </div>
       </section>
 
+      {/* Hidden on request. Kept for future use.
       <section className="product-cta"><div data-reveal><p className="eyebrow">Ready when you are</p><h2>Add what you need.<br />Send it in one go.</h2></div><p data-reveal>Browse the ranges above, add each one to your enquiry, then fill in the details once at the end.</p></section>
+      */}
     </SiteShell>
   );
 }
