@@ -182,9 +182,9 @@ export function SiteShell({ children, active, headerOnLight }: { children: React
           <Link className="footer-enquiry" href="/contact"><small>Have a requirement?</small><span>Let&apos;s move it forward <i>↗︎</i></span></Link>
         </div>
         <div className="footer-columns">
-          <div><span>Explore</span><Link href="/company">Our company</Link><Link href="/products">Products</Link><Link href="/operations">Operations</Link></div>
-          <div><span>Work with us</span><Link href="/partners">Enter the Iraqi market</Link><Link href="/franchise">Franchise opportunities</Link><Link href="/contact?type=supply">Request product supply</Link><Link href="/contact?type=partner">Discuss representation</Link></div>
-          <div><span>Contact</span><a href="mailto:info@khodeer.com?subject=Sales%20enquiry">Sales &amp; project supply</a><a href="mailto:purchasing@khodeer.com?subject=Supplier%20enquiry">Suppliers &amp; purchasing</a><a href="mailto:info@khodeer.com?subject=International%20partnership">Partnership &amp; representation</a><a href="https://wa.me/962795185588" target="_blank" rel="noreferrer">Phone &amp; WhatsApp</a></div>
+          <div><span>Explore</span><Link href="/company">Company</Link><Link href="/products">Products</Link><Link href="/operations">Operations</Link></div>
+          <div><span>Work with us</span><Link href="/partners">Market entry</Link><Link href="/franchise">Franchise</Link><Link href="/contact?type=supply">Supply</Link><Link href="/contact?type=partner">Representation</Link></div>
+          <div><span>Contact</span><a href="mailto:info@khodeer.com?subject=Sales%20enquiry">Sales</a><a href="mailto:purchasing@khodeer.com?subject=Supplier%20enquiry">Purchasing</a><a href="mailto:info@khodeer.com?subject=International%20partnership">Partnerships</a><a href="https://wa.me/962795185588" target="_blank" rel="noreferrer">WhatsApp</a></div>
           <div><span>Locations</span><p>Baghdad · Iraq</p><p>Basra · Iraq</p><p>Amman · Jordan</p></div>
         </div>
         <div className="footer-bottom"><p>© 2026 KH Wood</p><p>Khodeer Abbas &amp; Partners Co.</p><a href="#main-content">Back to top ↑︎</a></div>
