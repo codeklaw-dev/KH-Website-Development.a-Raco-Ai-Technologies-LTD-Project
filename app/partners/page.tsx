@@ -14,7 +14,7 @@ export default function PartnersPage() {
         <img className="partners-hero-image cover-image" src="/assets/partners-hero.jpg" alt="" aria-hidden="true" fetchPriority="high" />
         <div className="partners-hero-wash" aria-hidden="true" />
         <div className="partner-coordinate hero-animate one"><span>33.3152° N</span><i>44.3661° E</i></div>
-        <div className="partners-hero-copy"><p className="eyebrow hero-animate one">For international manufacturers</p><h1 className="hero-animate two">Your route into<br /><em>the Iraqi market.</em></h1><p className="hero-animate three">Local representation, market knowledge, supply infrastructure, and commercial relationships—working as one route to growth.</p><Link className="button button-red hero-animate four" href="/contact?type=partner">Discuss a partnership <span>↗︎</span></Link></div>
+        <div className="partners-hero-copy"><p className="eyebrow hero-animate one">For international manufacturers</p><h1 className="hero-animate two">Your route into<br /><em>the Iraqi market.</em></h1><p className="hero-animate three">Local representation, market knowledge, supply infrastructure, and commercial relationships, working as one route to growth.</p><Link className="button button-red hero-animate four" href="/contact?type=partner">Discuss a partnership <span>↗︎</span></Link></div>
       </section>
 
       <nav className="page-rail page-rail-dark" aria-label="Partners page sections"><span>Partner pathway</span><a href="#network">Who we work with</a><a href="#route">Market-entry route</a><a href="#models">Partnership models</a><a href="#facilities">Facilities</a><a href="#fit">Partnership fit</a></nav>
@@ -22,7 +22,7 @@ export default function PartnersPage() {
       <section className="market-fit" id="network">
         <div className="market-fit-heading">
           <div data-reveal="left"><p className="eyebrow">Why manufacturers work with us</p><h2>Getting in is easy.<br /><em>Selling here takes a partner.</em></h2></div>
-          <p data-reveal="right">Introductions are simple. Selling in Iraq takes real relationships, stock already in the country, and someone who sees it through—that&apos;s what KH Wood brings. We work with manufacturers whose products fit real demand here and who want a serious local partner to sell them.</p>
+          <p data-reveal="right">Introductions are simple. Selling in Iraq takes real relationships, stock already in the country, and someone who sees it through. We work with manufacturers whose products fit real demand here and who want a serious local partner.</p>
         </div>
         <div className="market-fit-list" data-reveal>
           <span className="market-fit-list-label">Who we&apos;re building this network with</span>
@@ -54,29 +54,31 @@ export default function PartnersPage() {
       <section className="partnership-models" id="models">
         <div className="models-title" data-reveal><p className="eyebrow">Ways to work together</p><h2>One market.<br /><em>Three commercial routes.</em></h2></div>
         <div className="models-grid">
-          <article data-reveal="left"><span>01</span><small>Long-term representation</small><h3>Exclusive agency</h3><p>A structured local relationship for manufacturers seeking focused representation and market development in Iraq.</p><ul><li>Local commercial presence</li><li>Customer development</li><li>Market feedback</li></ul></article>
-          <article className="model-featured" data-reveal="up"><span>02</span><small>Stock-led market access</small><h3>Distribution</h3><p>A supply-led model supported by import coordination, storage readiness, and established local demand channels.</p><ul><li>Import coordination</li><li>Inventory positioning</li><li>Local supply execution</li></ul></article>
-          <article data-reveal="right"><span>03</span><small>Brand-led expansion</small><h3>Franchise partnership</h3><p>A broader brand and operating relationship where product, market fit, and long-term ambition align.</p><ul><li>Market planning</li><li>Brand representation</li><li>Scalable development</li></ul></article>
+          <article data-reveal="left"><span>01</span><small>Long-term representation</small><h3>Exclusive agency</h3><p>A structured local relationship for manufacturers who want focused representation in Iraq.</p><ul><li>Local commercial presence</li><li>Customer development</li><li>Market feedback</li></ul></article>
+          <article className="model-featured" data-reveal="up"><span>02</span><small>Stock-led market access</small><h3>Distribution</h3><p>A supply-led model backed by import coordination, storage readiness, and established demand channels.</p><ul><li>Import coordination</li><li>Inventory positioning</li><li>Local supply execution</li></ul></article>
+          <article data-reveal="right"><span>03</span><small>Brand-led expansion</small><h3>Franchise partnership</h3><p>A broader brand and operating relationship where product, fit, and ambition align.</p><ul><li>Market planning</li><li>Brand representation</li><li>Scalable development</li></ul></article>
         </div>
       </section>
 
+      {/* Hidden on request. Kept for future use.
       <section className="partner-lifecycle">
-        <div className="lifecycle-head" data-reveal="left"><p className="eyebrow">From first hello to growing together</p><h2>Five simple steps.<br /><em>No surprises.</em></h2><p>We keep things clear from day one—so you always know what happens next, and what we&apos;re each responsible for.</p></div>
+        <div className="lifecycle-head" data-reveal="left"><p className="eyebrow">From first hello to growing together</p><h2>Five simple steps.<br /><em>No surprises.</em></h2><p>We keep things clear from day one, so you always know what happens next, and what we&apos;re each responsible for.</p></div>
         <div className="lifecycle-line" aria-hidden="true"><span /></div>
         <div className="lifecycle-steps">
           <article data-reveal="right"><span>01</span><h3>Say hello</h3><p>Tell us about your products and where you&apos;d like to sell them in Iraq.</p><small>You get · A real answer, fast</small></article>
-          <article data-reveal="right"><span>02</span><h3>We take a look</h3><p>We check the fit—your product, our market, and whether it makes sense for both of us.</p><small>You get · A clear yes or no</small></article>
+          <article data-reveal="right"><span>02</span><h3>We take a look</h3><p>We check the fit: your product, our market, and whether it makes sense for both of us.</p><small>You get · A clear yes or no</small></article>
           <article data-reveal="right"><span>03</span><h3>We shake on it</h3><p>We agree who does what, how we&apos;ll sell, and what success looks like.</p><small>You get · A simple, fair agreement</small></article>
           <article data-reveal="right"><span>04</span><h3>We get moving</h3><p>We bring in stock, set up storage, and start telling the market you&apos;re here.</p><small>You get · Ready to sell in Iraq</small></article>
           <article data-reveal="right"><span>05</span><h3>We grow together</h3><p>We listen to customers, keep the stock flowing, and build on what&apos;s working.</p><small>You get · Steady, lasting growth</small></article>
         </div>
       </section>
+      */}
 
       <section className="facility-proof" id="facilities">
         <div className="facility-proof-head" data-reveal="left"><p className="eyebrow">Facility capabilities</p><h2>Partnership backed<br /><em>by physical capacity.</em></h2></div>
         <div className="facility-panels">
-          <article className="facility-meeting" data-reveal="up"><img className="cover-image" src="/assets/partners-facility-meeting.jpg" alt="KH Wood team meeting in a material-led collaboration room" loading="lazy" decoding="async" /><div><span>Strategic storage network</span><h3>Product availability needs a place to live.</h3><p>Extensive storage capacity supports inventory continuity and practical distribution across Iraq.</p></div></article>
-          <article className="facility-warehouse" data-reveal="right"><img className="cover-image" src="/assets/partners-facility-warehouse.jpg" alt="KH Wood warehouse holding timber inventory ready for distribution" loading="lazy" decoding="async" /><div><span>Staging &amp; dispatch</span><h3>Market access has an operational layer.</h3><p>Handling, preparation, and dispatch capability turn commercial plans into real local supply.</p></div></article>
+          <article className="facility-meeting" data-reveal="up"><img className="cover-image" src="/assets/partners-facility-meeting.jpg" alt="KH Wood team meeting in a material-led collaboration room" loading="lazy" decoding="async" /><div><span>Strategic storage network</span><h3>Product availability needs a place to live.</h3><p>Extensive storage capacity supports inventory continuity and distribution across Iraq.</p></div></article>
+          <article className="facility-warehouse" data-reveal="right"><img className="cover-image" src="/assets/partners-facility-warehouse.jpg" alt="KH Wood warehouse holding timber inventory ready for distribution" loading="lazy" decoding="async" /><div><span>Staging &amp; dispatch</span><h3>Market access has an operational layer.</h3><p>Handling, preparation, and dispatch turn commercial plans into real local supply.</p></div></article>
         </div>
       </section>
 
@@ -85,13 +87,13 @@ export default function PartnersPage() {
         <div className="advantage-grid">
           <article data-reveal><span>Network</span><h3>Commercial relationships</h3><p>Long-standing connections across Iraqi construction, manufacturing, and supply.</p></article>
           <article data-reveal><span>Infrastructure</span><h3>Stocking capability</h3><p>Space and handling capacity to support real product availability.</p></article>
-          <article data-reveal><span>Insight</span><h3>Local feedback</h3><p>Practical market intelligence that helps improve product-market alignment.</p></article>
+          <article data-reveal><span>Insight</span><h3>Local feedback</h3><p>Market intelligence that sharpens product-market alignment.</p></article>
           <article data-reveal><span>Continuity</span><h3>Ownership continuity</h3><p>Senior involvement and a long-term view of every partnership.</p></article>
         </div>
       </section>
 
       <section className="partner-readiness" id="fit">
-        <div className="readiness-title" data-reveal="left"><p className="eyebrow">What makes a strong fit</p><h2>Clarity before<br /><em>commitment.</em></h2><p>We prefer a focused, evidence-led conversation about where the product fits and what success requires.</p></div>
+        <div className="readiness-title" data-reveal="left"><p className="eyebrow">What makes a strong fit</p><h2>Clarity before<br /><em>commitment.</em></h2><p>We prefer an evidence-led conversation about where the product fits and what success requires.</p></div>
         <div className="readiness-columns">
           <div data-reveal="up"><span>You bring</span><p>Proven product quality and documentation</p><p>Clear territory and partnership ambition</p><p>Commercially viable supply terms</p><p>Commitment to long-term market development</p></div>
           <div data-reveal="right"><span>KH Wood brings</span><p>Principal-led Iraqi market knowledge</p><p>Local relationships and commercial access</p><p>Storage and distribution readiness</p><p>Ongoing market feedback and execution</p></div>
@@ -105,7 +107,7 @@ export default function PartnersPage() {
 
       <section className="partnership-fit">
         <div data-reveal="left"><p className="eyebrow">A good fit starts here</p><h2>Tell us your product,<br />market ambition,<br /><em>and preferred model.</em></h2></div>
-        <div data-reveal="right"><p>We&apos;ll assess market relevance, operating requirements, and where KH Wood can add genuine value.</p><Link className="button button-white" href="/contact?type=partner">Start the conversation <span>↗︎</span></Link></div>
+        <div data-reveal="right"><p>We assess market relevance, operating requirements, and where KH Wood adds real value.</p><Link className="button button-white" href="/contact?type=partner">Start the conversation <span>↗︎</span></Link></div>
       </section>
     </SiteShell>
   );
