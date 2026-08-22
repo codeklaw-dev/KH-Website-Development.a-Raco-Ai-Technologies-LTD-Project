@@ -1,5 +1,7 @@
+import { Suspense } from "react";
 import { SiteShell } from "../components/SiteShell";
 import { PartnerLogoRail } from "../components/PartnerLogoRail";
+import { MarketSignals, MarketSignalsSkeleton } from "../components/MarketSignals";
 import Link from "next/link";
 
 export const metadata = {
@@ -17,13 +19,20 @@ export default function PartnersPage() {
         <div className="partners-hero-copy"><p className="eyebrow hero-animate one">For international manufacturers</p><h1 className="hero-animate two">Your route into<br /><em>the Iraqi market.</em></h1><p className="hero-animate three">Local representation, market knowledge, supply infrastructure, and commercial relationships, working as one route to growth.</p><Link className="button button-red hero-animate four" href="/contact?type=partner">Discuss a partnership <span>↗︎</span></Link></div>
       </section>
 
-      <nav className="page-rail page-rail-dark" aria-label="Partners page sections"><span>Partner pathway</span><a href="#network">Who we work with</a><a href="#route">Market-entry route</a><a href="#models">Partnership models</a><a href="#facilities">Facilities</a><a href="#fit">Partnership fit</a></nav>
+      <nav className="page-rail page-rail-dark" aria-label="Partners page sections"><span>Partner pathway</span><a href="#signals">Market signals</a><a href="#network">Who we work with</a><a href="#route">Market-entry route</a><a href="#models">Partnership models</a><a href="#facilities">Facilities</a><a href="#fit">Partnership fit</a></nav>
+
+      <section className="market-signals" id="signals" aria-labelledby="market-signals-heading">
+        <div className="market-signals-head">
+          <div data-reveal="left"><p className="eyebrow">Live from the trade press</p><h2 id="market-signals-heading">What the market<br /><em>is doing today.</em></h2></div>
+          <p data-reveal="right">Timber, steel, and Iraqi trade headlines, pulled straight from the industry press. Read the conditions you would be entering before you talk to us about entering them.</p>
+        </div>
+        <Suspense fallback={<MarketSignalsSkeleton />}>
+          <MarketSignals />
+        </Suspense>
+        <p className="signal-disclaimer">Headlines are aggregated from third-party trade publications and link to the original reporting. They are not KH Wood commentary, and we do not endorse their contents.</p>
+      </section>
 
       <section className="market-fit" id="network">
-        <div className="market-fit-heading">
-          <div data-reveal="left"><p className="eyebrow">Why manufacturers work with us</p><h2>Getting in is easy.<br /><em>Selling here takes a partner.</em></h2></div>
-          <p data-reveal="right">Introductions are simple. Selling in Iraq takes real relationships, stock already in the country, and someone who sees it through. We work with manufacturers whose products fit real demand here and who want a serious local partner.</p>
-        </div>
         <div className="market-fit-list" data-reveal>
           <span className="market-fit-list-label">Who we&apos;re building this network with</span>
           <div className="market-fit-list-grid">
