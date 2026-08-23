@@ -21,7 +21,6 @@ function SignalTile({ item, lead }: { item: NewsItem; lead?: boolean }) {
 
   const classes = ["signal-tile"];
   if (lead) classes.push("signal-lead");
-  if (item.image) classes.push("has-image");
 
   return (
     <a
@@ -29,9 +28,6 @@ function SignalTile({ item, lead }: { item: NewsItem; lead?: boolean }) {
       href={item.link}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
     >
-      {item.image ? (
-        <span className="signal-shade" style={{ backgroundImage: `url(${item.image})` }} aria-hidden="true" />
-      ) : null}
       <span className="signal-meta">
         <b>{item.category}</b>
         {dateTime ? <time dateTime={dateTime}>{label}</time> : <time>{label}</time>}

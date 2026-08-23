@@ -51,8 +51,6 @@ export type NewsItem = {
   source: string;
   publishedAt: string | null;
   category: Category;
-  /** Publisher artwork, hotlinked. Null when the article exposes none. */
-  image: string | null;
 };
 
 /**
@@ -62,11 +60,11 @@ export type NewsItem = {
  * bento labels them as such.
  */
 export const seedItems: readonly NewsItem[] = [
-  { title: "Iraq continues to import the majority of its construction timber and panel products", link: "/products", source: "KH Wood", publishedAt: null, category: "Iraq", image: null },
-  { title: "Turkey, Iran and the Gulf remain the primary overland corridors into the Iraqi market", link: "/operations", source: "KH Wood", publishedAt: null, category: "Trade", image: null },
-  { title: "Stock held inside the country is what separates a supplier from a catalogue", link: "/operations#storage", source: "KH Wood", publishedAt: null, category: "Trade", image: null },
-  { title: "Panel and board demand tracks Iraqi residential and fit-out construction", link: "/products", source: "KH Wood", publishedAt: null, category: "Timber", image: null },
-  { title: "Steel and timber arrive on the same projects, and rarely on the same schedule", link: "/operations", source: "KH Wood", publishedAt: null, category: "Steel", image: null },
-  { title: "Import coordination, customs and storage decide whether a shipment lands on time", link: "/operations", source: "KH Wood", publishedAt: null, category: "Trade", image: null },
-  { title: "Market representation in Iraq is a relationship business before it is a supply one", link: "/partners#models", source: "KH Wood", publishedAt: null, category: "Iraq", image: null },
+  { title: "Iraq continues to import the majority of its construction timber and panel products", link: "/products", source: "KH Wood", publishedAt: null, category: "Iraq" },
+  { title: "Turkey, Iran and the Gulf remain the primary overland corridors into the Iraqi market", link: "/operations", source: "KH Wood", publishedAt: null, category: "Trade" },
+  { title: "Stock held inside the country is what separates a supplier from a catalogue", link: "/operations#storage", source: "KH Wood", publishedAt: null, category: "Trade" },
+  { title: "Panel and board demand tracks Iraqi residential and fit-out construction", link: "/products", source: "KH Wood", publishedAt: null, category: "Timber" },
+  { title: "Steel and timber arrive on the same projects, and rarely on the same schedule", link: "/operations", source: "KH Wood", publishedAt: null, category: "Steel" },
+  { title: "Import coordination, customs and storage decide whether a shipment lands on time", link: "/operations", source: "KH Wood", publishedAt: null, category: "Trade" },
+  { title: "Market representation in Iraq is a relationship business before it is a supply one", link: "/partners#models", source: "KH Wood", publishedAt: null, category: "Iraq" },
 ];
