@@ -19,7 +19,7 @@ export default function OperationsPage() {
       <nav className="page-rail page-rail-dark" aria-label="Operations page sections"><span>Operational view</span><a href="#flow">Material flow</a><a href="#infrastructure">Warehousing &amp; logistics</a><a href="#demand">Demand patterns</a><a href="#questions">Questions</a></nav>
 
       <section className="ops-overview">
-        <div className="ops-stat" data-reveal="left"><strong>27</strong><span>Acres</span></div>
+        <div className="ops-stat" data-reveal="left"><strong>31</strong><span>Acres</span></div>
         <div className="ops-overview-copy" data-reveal="up">
           <p className="eyebrow">Infrastructure with a purpose</p>
           <h2>Space only matters<br /><em>when it moves well.</em></h2>
@@ -42,7 +42,7 @@ export default function OperationsPage() {
 
       <section className="operations-infrastructure" id="infrastructure">
         <div className="infrastructure-heading" data-reveal="up">
-          <div><p className="eyebrow">Warehousing &amp; logistics infrastructure</p><h2><strong>27 acres.</strong><br /><em>One national supply system.</em></h2></div>
+          <div><p className="eyebrow">Warehousing &amp; logistics infrastructure</p><h2><strong>31 acres.</strong><br /><em>One national supply system.</em></h2></div>
           <p>KH Wood combines high-volume stockholding, practical handling, import coordination, and organised dispatch to support commercial and project demand across Iraq.</p>
         </div>
 
