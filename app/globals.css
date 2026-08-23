@@ -358,15 +358,6 @@ h1 em, h2 em { color: var(--red); font-weight: 400; }
 .signal-tile:hover .signal-source i { transform:translate(3px,-3px); }
 /* Photo-backed tiles: publisher artwork, blurred back to being a texture. */
 .signal-tile > .signal-meta,.signal-tile h3,.signal-tile .signal-source { position:relative;z-index:2; }
-.signal-shade { position:absolute;z-index:0;inset:0;background-position:center;background-size:cover;filter:blur(15px) saturate(1.15) brightness(.44);transform:scale(1.18);transition:filter .6s cubic-bezier(.2,.75,.2,1),transform .8s cubic-bezier(.2,.75,.2,1); }
-.signal-shade::after { content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,8,8,.62),rgba(8,8,8,.22)); }
-.signal-tile.has-image { color:var(--white);background:#141414; }
-.signal-tile.has-image .signal-meta b { color:#e79a9a; }
-.signal-tile.has-image .signal-meta time { color:rgba(255,255,255,.62); }
-.signal-tile.has-image .signal-source { color:rgba(255,255,255,.68); }
-.signal-tile.has-image .signal-source i { color:#e79a9a; }
-.signal-tile.has-image:hover { background:#141414; }
-.signal-tile.has-image:hover .signal-shade { filter:blur(11px) saturate(1.2) brightness(.5);transform:scale(1.24); }
 
 .signal-board { display:flex;flex-direction:column;justify-content:space-between;padding:28px;color:var(--white);background:var(--red); }
 .signal-board > span { font-size:8px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;opacity:.62; }

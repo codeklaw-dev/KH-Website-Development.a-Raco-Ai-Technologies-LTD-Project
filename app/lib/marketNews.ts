@@ -17,7 +17,6 @@ const MAX_ITEMS = 7;
 const SOURCE_CAP = 2;
 const CATEGORY_CAP = 3;
 const MAX_TITLE = 130;
-const ARTICLE_TIMEOUT_MS = 4500;
 
 export type NewsMode = "live" | "stale" | "seed";
 export type MarketNews = { items: readonly NewsItem[]; mode: NewsMode; fetchedAt: string | null };
@@ -62,62 +61,6 @@ function countMatches(text: string, words: readonly string[]): number {
   return total;
 }
 
-/**
- * Only absolute https image URLs, and nothing that could break out of the
- * CSS url() we drop it into.
- */
-function safeImage(raw: string | null | undefined): string | null {
-  if (!raw) return null;
-  const url = raw.trim().replace(/&amp;/g, "&");
-  if (!/^https:\/\//i.test(url)) return null;
-  if (/["'()\s\\]/.test(url)) return null;
-  if (url.length > 400) return null;
-  return url;
-}
-
-/** Some feeds inline the article artwork in content:encoded. Free image, no extra request. */
-function imageFromBlock(block: string): string | null {
-  const media = block.match(/<media:(?:content|thumbnail)[^>]*\burl=["']([^"']+)["']/i)
-    ?? block.match(/<enclosure[^>]*\burl=["']([^"']+)["'][^>]*\btype=["']image\//i)
-    ?? block.match(/<img[^>]*\bsrc=["']([^"']+)["']/i);
-  return safeImage(media?.[1]);
-}
-
-/**
- * Most trade feeds carry no artwork, so the article page is read for its
- * og:image. One extra request per rendered card, only on a cache miss.
- */
-async function fetchArticleImage(link: string): Promise<string | null> {
-  try {
-    const response = await fetch(link, {
-      headers: {
-        "user-agent": "KHWoodBot/1.0 (+https://khodeer.com; market signals for khwood.iq)",
-        accept: "text/html",
-      },
-      signal: AbortSignal.timeout(ARTICLE_TIMEOUT_MS),
-    });
-    if (!response.ok) return null;
-    // Meta tags live in <head>; there is no reason to read the whole document.
-    const html = (await response.text()).slice(0, 150_000);
-    const found = html.match(/<meta[^>]+property=["']og:image(?::url)?["'][^>]+content=["']([^"']+)["']/i)
-      ?? html.match(/<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:image(?::url)?["']/i)
-      ?? html.match(/<meta[^>]+name=["']twitter:image[^"']*["'][^>]+content=["']([^"']+)["']/i);
-    return safeImage(found?.[1]);
-  } catch {
-    return null;
-  }
-}
-
-async function hydrateImages(items: NewsItem[]): Promise<NewsItem[]> {
-  const resolved = await Promise.allSettled(
-    items.map((item) => (item.image ? Promise.resolve(item.image) : fetchArticleImage(item.link))),
-  );
-  return items.map((item, index) => {
-    const result = resolved[index];
-    return { ...item, image: result.status === "fulfilled" ? result.value : null };
-  });
-}
-
 function parseFeed(xml: string, source: string): NewsItem[] {
   const blocks = xml.match(/<item[\s>][\s\S]*?<\/item>|<entry[\s>][\s\S]*?<\/entry>/gi) ?? [];
   const items: NewsItem[] = [];
@@ -144,7 +87,6 @@ function parseFeed(xml: string, source: string): NewsItem[] {
       source,
       publishedAt,
       category: "Trade",
-      image: imageFromBlock(block),
     });
   }
 
@@ -287,7 +229,7 @@ export async function getMarketNews(): Promise<MarketNews> {
       newsSources.map((feed) => fetchFeed(feed.url, feed.source)),
     );
     const collected = settled.flatMap((result) => (result.status === "fulfilled" ? result.value : []));
-    const items = await hydrateImages(rank(collected));
+    const items = rank(collected);
 
     if (items.length >= 4) {
       const payload: MarketNews = { items, mode: "live", fetchedAt: new Date().toISOString() };
