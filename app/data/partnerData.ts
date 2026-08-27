@@ -1,10 +1,11 @@
 export const partners = [
-  { id: "fsc", src: "/assets/partners/partner-fsc.svg", name: "Forest Stewardship Council", kind: "Certification" },
-  { id: "agt", src: "/assets/partners/partner-agt.svg", name: "AGT", kind: "Manufacturing partner" },
-  { id: "pefc", src: "/assets/partners/partner-pefc.svg", name: "PEFC", kind: "Certification" },
-  { id: "kastamonu", src: "/assets/partners/partner-kastamonu.svg", name: "Kastamonu", kind: "Panel partner" },
-  { id: "sawmill25", src: "/assets/partners/partner-sawmill25.svg", name: "Sawmill 25", kind: "Timber partner" },
-  { id: "spf", src: "/assets/partners/partner-spf.svg", name: "SPF Precut Lumber", kind: "Timber partner" },
+  { id: "arrow", src: "/assets/partners/client-arrow.png", name: "Arrow Plywood" },
+  { id: "khparma", src: "/assets/partners/client-kh-parma.png", name: "KH Parma" },
+  { id: "doka", src: "/assets/partners/client-doka.png", name: "Doka" },
+  { id: "lkh", src: "/assets/partners/client-lkh.png", name: "LKH" },
+  { id: "abualtaj", src: "/assets/partners/client-abu-al-taj.png", name: "Abu Al-Taj" },
+  { id: "tb5", src: "/assets/partners/client-5tb.png", name: "5TB" },
+  { id: "tb", src: "/assets/partners/client-tb.png", name: "TB" },
 ] as const;
 
 export type PartnerId = (typeof partners)[number]["id"];
