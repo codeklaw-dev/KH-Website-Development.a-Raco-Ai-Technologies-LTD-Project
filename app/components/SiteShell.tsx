@@ -122,7 +122,10 @@ export function SiteShell({ children, active, headerOnLight }: { children: React
   useEffect(() => { setMenuOpen(false); }, [pathname]);
 
   const lightOrigin = headerOnLight ?? active === "products";
-  const forceScrolledHeader = pathname === "/contact" || pathname === "/products" || pathname.startsWith("/products/");
+  // Routes whose hero is light or starts flush under the header, so the
+  // transparent state would be unreadable: keep the solid red bar from load.
+  const SOLID_HEADER_ROUTES = ["/contact", "/products", "/partners"];
+  const forceScrolledHeader = SOLID_HEADER_ROUTES.includes(pathname) || pathname.startsWith("/products/");
   const isScrolled = scrolled || forceScrolledHeader;
 
   return (
