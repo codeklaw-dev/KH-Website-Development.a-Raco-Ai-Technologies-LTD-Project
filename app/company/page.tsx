@@ -39,7 +39,17 @@ export default function CompanyPage() {
 
       <section className="origin-story" id="story">
         <aside data-reveal="left"><span>01</span><p>Where it began</p></aside>
-        <div className="origin-copy" data-reveal="up"><p className="eyebrow">A craft became a company</p><h2>Rooted in making.<br /><em>Grown through trust.</em></h2><p className="large-copy">Founded by Khodeer Abbas Turki, the business carries the Jubur (Al-Jubouri) clan&apos;s culture of hospitality, responsibility, and lasting commercial relationships.</p></div>
+        <div className="origin-copy" data-reveal="up"><p className="eyebrow">A craft became a company</p><h2>Rooted in making.<br /><em>Grown through trust.</em></h2><picture className="origin-crest-wrap">
+            <source type="image/webp" sizes="(max-width: 820px) 56vw, min(38vw, 620px)" srcSet="/assets/kh-crest-560-f827ee04.webp 560w, /assets/kh-crest-900-65f42615.webp 900w" />
+            <img
+              className="origin-crest"
+              src="/assets/kh-crest-900-c91c5668.png"
+              srcSet="/assets/kh-crest-bf1a4a4a.png 560w, /assets/kh-crest-900-c91c5668.png 900w"
+              sizes="(max-width: 820px) 56vw, min(38vw, 620px)"
+              alt="The Khodeer Abbas family crest"
+              width="900" height="900" loading="lazy" decoding="async"
+            />
+          </picture><p className="large-copy">Founded by Khodeer Abbas Turki, the business carries the Jubur (Al-Jubouri) clan&apos;s culture of hospitality, responsibility, and lasting commercial relationships.</p></div>
         <div className="origin-detail" data-reveal="right"><p>The company grew with the Iraqi market, from carpentry roots to large-scale importing, stockholding, distribution, and representation.</p><p>A new generation now pairs that heritage with international supplier relationships and modern operational discipline.</p></div>
       </section>
 
