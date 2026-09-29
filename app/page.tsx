@@ -1,7 +1,7 @@
 import { SiteShell } from "./components/SiteShell";
 import { LegacyScroll } from "./components/LegacyScroll";
 import { PartnerLogoRail } from "./components/PartnerLogoRail";
-import { HeroVideo } from "./components/HeroVideo";
+import { HeroBuild } from "./components/HeroBuild";
 import Link from "next/link";
 
 export const metadata = {
@@ -12,21 +12,19 @@ export const metadata = {
 export default function Home() {
   return (
     <SiteShell>
-      <section className="home-hero">
-        <HeroVideo />
-        <div className="home-hero-shade" />
-        <div className="home-hero-content">
-          <p className="eyebrow hero-animate one">Iraq &amp; Jordan · Principal-led supply</p>
-          <h1 className="hero-animate two">Wood moves<br /><em>business forward.</em></h1>
-          <p className="hero-intro hero-animate three">A dependable supply partner for Iraqi projects, a credible route into Iraq for international manufacturers, and a franchise worth carrying for local distributors.</p>
-          <div className="hero-actions hero-animate four">
+      <HeroBuild>
+        <div className="home-hero-content hero-build-copy">
+          <p className="eyebrow">Iraq &amp; Jordan · Principal-led supply</p>
+          <h1>Wood moves<br /><em>business forward.</em></h1>
+          <p className="hero-intro">A dependable supply partner for Iraqi projects, a credible route into Iraq for international manufacturers, and a franchise worth carrying for local distributors.</p>
+          <div className="hero-actions">
             <Link className="button button-red" href="/products">Get a quotation <span>↗︎</span></Link>
             <Link className="button button-ghost" href="/partners">Gateway to Iraq <span>↗︎</span></Link>
           </div>
         </div>
-        <div className="hero-marker"><span>KH / 01</span><p>Supply · Distribution<br />Market access</p></div>
+        <div className="hero-marker hero-build-copy"><span>KH / 01</span><p>Supply · Distribution<br />Market access</p></div>
         <a className="hero-scroll" href="#legacy">Explore <span>↓︎</span></a>
-      </section>
+      </HeroBuild>
 
       <LegacyScroll />
 
