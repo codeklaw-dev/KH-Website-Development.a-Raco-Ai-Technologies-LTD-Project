@@ -303,7 +303,7 @@ const FRAGMENT = `precision highp float;
     if (photo) col += vec3(1., .78, .5) * band * .08;
     else col += B * band * .35;
     vec2 c = v - .5;
-    col *= 1. - .34 * pow(clamp(length(c * vec2(1.1, 1.25)), 0., 1.), 2.4);
+    col *= 1. - .16 * pow(clamp(length(c * vec2(1.1, 1.25)), 0., 1.), 2.4);
     col += (h(sp + fract(time) * 91.7) - .5) * .03;
     gl_FragColor = vec4(col, 1.);
   }`;
