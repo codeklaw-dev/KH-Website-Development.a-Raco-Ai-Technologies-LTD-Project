@@ -674,12 +674,14 @@ export function startHeroBuild(el: HeroBuildElements): () => void {
   let raf = 0;
   const frame = (now: number) => {
     raf = requestAnimationFrame(frame);
-    const dt = Math.min(0.05, (now - last) / 1000);
+    const elapsed = Math.min(0.5, (now - last) / 1000);
+    const dt = Math.min(0.05, elapsed); // vehicles never jump more than one short step
     last = now;
     if (!visible) return;
     clock += dt;
     const target = scrollTarget();
-    p = reduced ? target : p + (target - p) * (1 - Math.exp(-dt / 0.32));
+    // Smoothing uses real elapsed time so it settles at the same speed on slow devices.
+    p = reduced ? target : p + (target - p) * (1 - Math.exp(-elapsed / 0.32));
     if (Math.abs(target - p) < 1e-4) p = target;
     updateUI();
     renderer?.draw(p, clock, view.k * dpr);
