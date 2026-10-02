@@ -7,13 +7,26 @@ export const metadata = {
   description: "Explore KH Wood's commercial timber, panels, boards, construction wood, and bulk project supply capabilities in Iraq.",
 };
 
+const marqueeItems = [
+  "Timber supply",
+  "Panel products",
+  "Project materials",
+  "Bulk supply",
+  "Market representation",
+  "Construction wood",
+  "Hardwood & softwood",
+  "Plywood & boards",
+  "Site delivery",
+  "Import & sourcing",
+];
+
 export default function ProductsPage() {
   return (
     <SiteShell active="products">
       <section className="catalogue-intro">
         <p className="catalogue-side hero-animate one" data-reveal="left">01 — Product families</p>
         <div data-reveal="up"><h2 className="hero-animate two">What are you<br />looking for?</h2></div>
-        <p className="catalogue-copy hero-animate three" data-reveal="right">Pick the range that fits below. We&apos;ll help with the rest—quantity, delivery, and timing.</p>
+        <p className="catalogue-copy hero-animate three" data-reveal="right">Pick a range below. We handle quantity, delivery, and timing.</p>
       </section>
 
       <section className="product-catalogue">
@@ -22,11 +35,17 @@ export default function ProductsPage() {
           <span className="catalogue-shade" />
           <span className="catalogue-number">{item.n}</span>
           <small>{item.tag}</small>
-          <div><h3>{item.title}</h3><p>{item.copy}</p><b>Explore range <i>↗</i></b></div>
+          <div><h3>{item.title}</h3><p>{item.copy}</p><b>Explore range <i>↗︎</i></b></div>
         </Link>)}
       </section>
 
-      <section className="material-marquee" aria-label="KH Wood supply capabilities"><div><span>Timber supply</span><i>◆</i><span>Panel products</span><i>◆</i><span>Project materials</span><i>◆</i><span>Bulk supply</span><i>◆</i><span>Market representation</span><i>◆</i></div></section>
+      <section className="material-marquee" aria-label="KH Wood supply capabilities">
+        <div>
+          {[0, 1].map((copy) => <div key={copy} aria-hidden={copy === 1 || undefined}>
+            {marqueeItems.map((item) => <span key={item}>{item}<i>◆</i></span>)}
+          </div>)}
+        </div>
+      </section>
 
       <section className="products-support" id="services">
         <div className="products-support-heading" data-reveal="up"><p className="eyebrow">Beyond the stock</p><h2>We handle it all,<br /><em>start to finish.</em></h2></div>
@@ -54,7 +73,9 @@ export default function ProductsPage() {
         </div>
       </section>
 
+      {/* Hidden on request. Kept for future use.
       <section className="product-cta"><div data-reveal><p className="eyebrow">Ready when you are</p><h2>Add what you need.<br />Send it in one go.</h2></div><p data-reveal>Browse the ranges above, add each one to your enquiry, then fill in the details once at the end.</p></section>
+      */}
     </SiteShell>
   );
 }

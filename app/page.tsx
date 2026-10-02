@@ -1,35 +1,35 @@
 import { SiteShell } from "./components/SiteShell";
 import { LegacyScroll } from "./components/LegacyScroll";
+import { PartnerLogoRail } from "./components/PartnerLogoRail";
+import { HeroBuild } from "./components/HeroBuild";
 import Link from "next/link";
 
 export const metadata = {
   title: "KH Wood | Wood Supply & Market Access in Iraq",
-  description: "Family-led timber and construction wood supply for Iraqi projects, plus trusted market access for international manufacturers.",
+  description: "Principal-led timber and construction supply for Iraqi projects, plus proven market access for international manufacturers.",
 };
 
 export default function Home() {
   return (
     <SiteShell>
-      <section className="home-hero">
-        <video autoPlay muted loop playsInline poster="/assets/kh-yard-poster.jpg" aria-hidden="true"><source src="/assets/kh-yard.mp4" type="video/mp4" /></video>
-        <div className="home-hero-shade" />
-        <div className="home-hero-content">
-          <p className="eyebrow hero-animate one">Iraq &amp; Jordan · Family-led supply</p>
-          <h1 className="hero-animate two">Wood moves<br /><em>business forward.</em></h1>
-          <p className="hero-intro hero-animate three">A dependable supply partner for Iraqi projects, a credible route into Iraq for international manufacturers, and a franchise worth carrying for local distributors.</p>
-          <div className="hero-actions hero-animate four">
-            <Link className="button button-red" href="/products">I need materials <span>↗</span></Link>
-            <Link className="button button-ghost" href="/partners">I want to enter Iraq <span>↗</span></Link>
+      <HeroBuild>
+        <div className="home-hero-content hero-build-copy">
+          <p className="eyebrow">Iraq &amp; Jordan · Principal-led supply</p>
+          <h1>Wood moves<br /><em>business forward.</em></h1>
+          <p className="hero-intro">A dependable supply partner for Iraqi projects, a credible route into Iraq for international manufacturers, and a franchise worth carrying for local distributors.</p>
+          <div className="hero-actions">
+            <Link className="button button-red" href="/products">Get a quotation <span>↗︎</span></Link>
+            <Link className="button button-ghost" href="/partners">Gateway to Iraq <span>↗︎</span></Link>
           </div>
         </div>
-        <div className="hero-marker"><span>KH / 01</span><p>Supply · Distribution<br />Market access</p></div>
-        <a className="hero-scroll" href="#legacy">Explore <span>↓</span></a>
-      </section>
+        <div className="hero-marker hero-build-copy"><span>KH / 01</span><p>Supply · Distribution<br />Market access</p></div>
+        <a className="hero-scroll" href="#legacy">Explore <span>↓︎</span></a>
+      </HeroBuild>
 
-      <LegacyScroll />
+      {/* <LegacyScroll /> */}
 
       <section className="decision" id="choose">
-        <video className="decision-video" autoPlay muted loop playsInline aria-hidden="true"><source src="/assets/kh-routes.mp4" type="video/mp4" /></video>
+        <video className="decision-video" autoPlay muted loop playsInline preload="metadata" aria-hidden="true"><source media="(max-width: 820px)" src="/assets/decision-route-video-mobile-59b450c1.mp4" type="video/mp4" /><source src="/assets/decision-route-video.mp4" type="video/mp4" /></video>
         <div className="decision-shade" />
         <div className="decision-heading" data-reveal="up">
           <p className="eyebrow">Choose your route</p>
@@ -37,19 +37,19 @@ export default function Home() {
         </div>
         <div className="decision-cards">
           <Link href="/products" className="decision-card buyer" data-reveal="left">
-            <span className="card-index">01 / Buyers &amp; projects</span>
-            <div><h3>Source the right materials.</h3><p>Timber, panels, construction wood, and bulk project supply&mdash;from stock held in Iraq.</p></div>
-            <b>View products <i>↗</i></b>
+            <span className="card-index">Buyers &amp; projects</span>
+            <div><h3>Source the right materials.</h3><p>Timber, panels, construction wood, and bulk project supply, from stock held in Iraq.</p></div>
+            <b>View products <i>↗︎</i></b>
           </Link>
           <Link href="/partners" className="decision-card partner" data-reveal="up">
-            <span className="card-index">02 / Global manufacturers</span>
-            <div><h3>Build your route into Iraq.</h3><p>Agency, distribution, and market entry for manufacturers seeking a local operating partner.</p></div>
-            <b>Explore partnerships <i>↗</i></b>
+            <span className="card-index">Global manufacturers</span>
+            <div><h3>Build your route into Iraq.</h3><p>Agency, distribution, and market entry for manufacturers who need a local operating partner.</p></div>
+            <b>Explore partnerships <i>↗︎</i></b>
           </Link>
           <Link href="/franchise" className="decision-card franchise" data-reveal="right">
-            <span className="card-index">03 / Distributors &amp; traders</span>
-            <div><h3>Carry the KH name.</h3><p>Take a franchise in your territory: exclusive brands, stocked yards, and family-led backing.</p></div>
-            <b>Franchise opportunities <i>↗</i></b>
+            <span className="card-index">Distributors &amp; traders</span>
+            <div><h3>Carry the KH name.</h3><p>A franchise in your territory: exclusive brands, stocked yards, principal-led backing.</p></div>
+            <b>Franchise opportunities <i>↗︎</i></b>
           </Link>
         </div>
       </section>
@@ -61,21 +61,21 @@ export default function Home() {
         </div>
         <div className="network-grid">
           <article className="network-card big" data-reveal="left">
-            <img className="cover-image" src="/assets/network-jordan-hub.jpg" alt="Aerial view of the KH Timber and Wood Industries yard in Jordan" loading="lazy" decoding="async" />
+            <img className="cover-image" src="/assets/network-jordan-hub-5c9287e6.jpg" alt="Aerial view of a large KH Wood waterfront storage and logistics hub" loading="lazy" decoding="async" />
             <div className="network-shade" />
             <div className="network-info">
               <b>03<span>Countries of operation</span></b>
               <h3>Jordan operations hub</h3>
-              <p>KH Timber &amp; Wood Industries in Amman connects European and Asian suppliers to the Iraqi market through one coordinated yard.</p>
+              <p>KH Timber &amp; Wood Industries in Amman links European and Asian suppliers to Iraq through one coordinated yard.</p>
             </div>
           </article>
           <article className="network-card" data-reveal="up">
-            <img className="cover-image" src="/assets/network-warehouse-bay.jpg" alt="KH warehouse bay stacked with banded timber and panel inventory" loading="lazy" decoding="async" />
+            <img className="cover-image" src="/assets/network-warehouse-bay-c4d6e2c1.jpg" alt="KH warehouse bay stacked with banded timber and panel inventory" loading="lazy" decoding="async" />
             <div className="network-shade" />
             <div className="network-info">
               <b>27<span>Acres kept stocked</span></b>
               <h3>Ready inventory</h3>
-              <p>Storage that stays full, so national-scale orders ship without waiting on the next vessel.</p>
+              <p>Storage kept full, so national-scale orders ship without waiting on a vessel.</p>
             </div>
           </article>
           <article className="network-card" data-reveal="up">
@@ -84,11 +84,11 @@ export default function Home() {
             <div className="network-info">
               <b>30+<span>Years of leadership</span></b>
               <h3>Partner relationships</h3>
-              <p>Family-led hospitality and long-term supplier relationships, from first meeting to standing agreement.</p>
+              <p>Principal-led relationships, from first meeting to standing agreement.</p>
             </div>
           </article>
           <article className="network-card wide" data-reveal="right">
-            <img className="cover-image" src="/assets/network-logistics-aerial.jpg" alt="Aerial view of KH warehouses with trucks loading for dispatch" loading="lazy" decoding="async" />
+            <img className="cover-image" src="/assets/network-logistics-aerial-22e452fa.jpg" alt="Aerial view of KH warehouses with trucks loading for dispatch" loading="lazy" decoding="async" />
             <div className="network-shade" />
             <div className="network-caption">
               <h3>Scaled operations</h3>
@@ -97,10 +97,11 @@ export default function Home() {
             <div className="network-info">
               <b>50+<span>Supplier countries served</span></b>
               <h3>Dispatch, coordinated</h3>
-              <p>Import, staging, and project delivery managed as one flow&mdash;from port arrival to site handover.</p>
+              <p>Import, staging, and delivery managed as one flow, from port arrival to site handover.</p>
             </div>
           </article>
         </div>
+        <PartnerLogoRail borderless />
       </section>
 
       <section className="global-logistics" id="logistics" aria-labelledby="logistics-heading">
@@ -109,7 +110,7 @@ export default function Home() {
         <div className="global-logistics-copy" data-reveal="up">
           <p className="eyebrow">Global logistics</p>
           <h2 id="logistics-heading">Sourced worldwide.<br /><em>Delivered in Iraq.</em></h2>
-          <p>Shipments from supplier mills and manufacturers move by sea to regional ports, cross by road through Jordan, and land in stocked KH yards ready for national distribution. One family-led operation coordinates the whole chain&mdash;vessel, border, warehouse, and site.</p>
+          <p>Supplier mills ship by sea to regional ports, cross by road through Jordan, and land in stocked KH yards. One operator coordinates the whole chain: vessel, border, warehouse, site.</p>
         </div>
         <div className="global-logistics-facts" data-reveal>
           <div><strong>50+</strong><span>Supplier countries<br />sourced from</span></div>
@@ -123,15 +124,20 @@ export default function Home() {
           <p className="eyebrow">Where our material lands</p>
           <h2 id="sectors-heading">Supplying the work<br /><em>that builds Iraq.</em></h2>
         </div>
+        <div className="sectors-visual" data-reveal="scale">
+          <img className="cover-image" src="/assets/home-material-destinations.jpg" alt="Large KH Wood stockholding and distribution complex serving construction and industry" loading="lazy" decoding="async" />
+          <div aria-hidden="true" />
+          <span><small>Stock · scale · dispatch</small><b>Material ready for the work ahead.</b></span>
+        </div>
         <div className="sectors-list">
-          <article data-reveal><span>01</span><div><h3>National infrastructure</h3><p>Bridges, roads, and public works programmes requiring dependable volume and staged delivery.</p></div></article>
-          <article data-reveal><span>02</span><div><h3>Construction at scale</h3><p>Large residential and commercial developments, supplied through phased project schedules.</p></div></article>
-          <article data-reveal><span>03</span><div><h3>Public-sector procurement</h3><p>Government and public procurement channels, met with documentation and supply continuity.</p></div></article>
-          <article data-reveal><span>04</span><div><h3>Industrial &amp; manufacturing</h3><p>Facilities requiring wood and construction-related materials as a working input, not a one-off order.</p></div></article>
+          <article data-reveal><span>01</span><div><h3>National infrastructure</h3><p>Bridges, roads, and public works needing dependable volume and staged delivery.</p></div></article>
+          <article data-reveal><span>02</span><div><h3>Construction at scale</h3><p>Large residential and commercial developments, supplied on phased schedules.</p></div></article>
+          <article data-reveal><span>03</span><div><h3>Public-sector procurement</h3><p>Tender-driven channels, met with full documentation and supply continuity.</p></div></article>
+          <article data-reveal><span>04</span><div><h3>Industrial &amp; manufacturing</h3><p>Facilities using wood as a working input, not a one-off order.</p></div></article>
         </div>
         <div className="sectors-action" data-reveal>
           <p>Working on a project in any of these sectors?</p>
-          <Link className="button button-black" href="/contact?type=supply">Discuss a project requirement <span>↗</span></Link>
+          <Link className="button button-black" href="/contact?type=supply">Discuss a project requirement <span>↗︎</span></Link>
         </div>
       </section>
 
@@ -139,17 +145,17 @@ export default function Home() {
         <div className="home-story-photo" data-reveal="left"><img className="cover-image" src="/assets/yard-wide.jpg" alt="KH Wood storage yard in Iraq" loading="lazy" decoding="async" /><span>Baghdad · Iraq</span></div>
         <div className="home-story-copy" data-reveal="right">
           <p className="eyebrow">Heritage with momentum</p>
-          <h2>Family values.<br /><em>Commercial discipline.</em></h2>
-          <p>KH Wood grew from carpentry roots into a modern supply and distribution business. The values stayed the same: accountability, hospitality, adaptability, and relationships built to last.</p>
-          <Link className="text-link" href="/company">Read our story <span>↗</span></Link>
+          <h2>Commercial discipline,<br /><em>kept by three generations.</em></h2>
+          <p>From carpentry roots to a modern supply and distribution business. The standard never changed: accountability, adaptability, and relationships built to last.</p>
+          <Link className="text-link" href="/company">Read our story <span>↗︎</span></Link>
         </div>
       </section>
 
       <section className="home-capability">
         <div className="capability-title" data-reveal><p className="eyebrow">Visible capacity</p><h2>Built to stock.<br />Ready to supply.</h2></div>
         <div className="capability-visual" data-reveal="scale">
-          <img className="cover-image" src="/assets/yard-loading.jpg" alt="Forklift moving packaged wood at a KH Wood facility" loading="lazy" decoding="async" />
-          <Link href="/operations"><span>See how we operate</span><i>↗</i></Link>
+          <img className="cover-image" src="/assets/home-visible-capacity.jpg" alt="Timber stock moving through a busy regional port and distribution yard" loading="lazy" decoding="async" />
+          <Link href="/operations"><span>See how we operate</span><i>↗︎</i></Link>
         </div>
         <div className="capability-list" data-reveal>
           <p>Inventory readiness</p><p>Staging and handling</p><p>Import coordination</p><p>Project dispatch</p>
@@ -163,36 +169,49 @@ export default function Home() {
         </div>
         <div className="process-tracks">
           <div className="process-track" data-reveal="left">
-            <span className="process-track-label">For buyers &amp; projects</span>
+            <div className="process-route-head">
+              <span className="process-track-label">For buyers &amp; projects</span>
+              <h3>Get a quotation</h3>
+              <p>For buyers sourcing timber, panels, or construction wood.</p>
+              <strong>Outcome: availability, price, and delivery confirmed.</strong>
+            </div>
             <ol>
-              <li><b>01</b><div><h3>Enquire with your spec</h3><p>Share quantities, grades, and delivery timelines by form, email, or WhatsApp.</p></div></li>
-              <li><b>02</b><div><h3>Quote from live stock</h3><p>Pricing and availability confirmed against inventory already on the ground in Iraq.</p></div></li>
-              <li><b>03</b><div><h3>Dispatch &amp; delivery</h3><p>Staged, loaded, and delivered to site&mdash;with volumes held for phased projects.</p></div></li>
+              <li><div><h4>Send the requirement</h4><p>Material, grade, quantity, destination, date.</p></div></li>
+              <li><div><h4>Receive the offer</h4><p>Stock, pricing, lead time, and alternatives confirmed.</p></div></li>
+              <li><div><h4>Approve and receive</h4><p>Staged, loaded, and dispatched to your site.</p></div></li>
             </ol>
-            <Link className="text-link" href="/products">Browse materials <span>↗</span></Link>
+            <div className="process-route-actions"><Link className="button button-red" href="/products">Browse materials <span>↗︎</span></Link><Link className="process-secondary" href="/contact?type=supply">Ask about a requirement</Link></div>
           </div>
           <div className="process-track partner" data-reveal="right">
-            <span className="process-track-label">For international manufacturers</span>
+            <div className="process-route-head">
+              <span className="process-track-label">For international manufacturers</span>
+              <h3>Gateway to Iraq</h3>
+              <p>For manufacturers of wood, panels, and construction materials seeking a local partner.</p>
+              <strong>Outcome: representation, stocking, and market growth.</strong>
+            </div>
             <ol>
-              <li><b>01</b><div><h3>Introduce your line</h3><p>Tell us about your products, capacity, and ambitions for the Iraqi market.</p></div></li>
-              <li><b>02</b><div><h3>Market &amp; fit assessment</h3><p>We evaluate demand, pricing position, and the right entry model together.</p></div></li>
-              <li><b>03</b><div><h3>Representation &amp; rollout</h3><p>Agency or franchise terms, import coordination, stocking, and market development.</p></div></li>
+              <li><div><h4>Introduce your company</h4><p>Portfolio, capacity, certifications, ambitions.</p></div></li>
+              <li><div><h4>Assess the opportunity</h4><p>Demand, product fit, pricing, and entry model reviewed.</p></div></li>
+              <li><div><h4>Agree and launch</h4><p>Representation, imports, stock, and market development defined.</p></div></li>
             </ol>
-            <Link className="text-link" href="/partners">Explore partnership <span>↗</span></Link>
+            <div className="process-route-actions"><Link className="button button-white" href="/partners">Explore partnerships <span>↗︎</span></Link><Link className="process-secondary" href="/contact?type=partnership">Introduce your company</Link></div>
           </div>
         </div>
+        <div className="process-choice-help" data-reveal="up"><div><span>Not sure which route fits?</span><p>Tell us the goal. We will route the enquiry.</p></div><Link href="/contact">Talk to the right person <span>↗︎</span></Link></div>
       </section>
 
       <section className="contact-strip" id="reach-us" aria-labelledby="contact-strip-heading">
+        <video className="contact-strip-video" autoPlay muted loop playsInline preload="metadata" poster="/assets/kh-concept-poster-6e9dbb18.jpg" aria-hidden="true"><source media="(max-width: 820px)" src="/assets/kh-concept-mobile-bc4de27e.mp4" type="video/mp4" /><source src="/assets/kh-concept.mp4" type="video/mp4" /></video>
+        <div className="contact-strip-shade" aria-hidden="true" />
         <div className="contact-strip-lead" data-reveal="up">
           <p className="eyebrow">Your next move</p>
           <h2 id="contact-strip-heading">Tell us what you&apos;re<br /><em>working towards.</em></h2>
           <div className="contact-strip-actions">
-            <Link className="button button-red" href="/contact">Start a commercial conversation <span>↗</span></Link>
-            <a className="button button-ghost" href="https://wa.me/962795185588?text=Hello%20KH%20Wood%2C%20I%27d%20like%20to%20make%20an%20enquiry." target="_blank" rel="noreferrer">WhatsApp us <span>↗</span></a>
+            <Link className="button button-red" href="/contact">Start a commercial conversation <span>↗︎</span></Link>
+            <a className="button button-ghost" href="https://wa.me/962795185588?text=Hello%20KH%20Wood%2C%20I%27d%20like%20to%20make%20an%20enquiry." target="_blank" rel="noreferrer">WhatsApp us <span>↗︎</span></a>
           </div>
           <a className="contact-strip-mail" href="mailto:info@khodeer.com">info@khodeer.com</a>
-          <Link className="contact-strip-profile" href="/contact?type=profile"><small>For manufacturers &amp; partners</small><b>Request the KH Wood company profile <i>↗</i></b></Link>
+          <Link className="contact-strip-profile" href="/contact?type=profile"><small>For manufacturers &amp; partners</small><b>Request the KH Wood company profile <i>↗︎</i></b></Link>
         </div>
         <div className="contact-strip-offices" data-reveal>
           <div><span>Baghdad · Iraq</span><p>Al-Basatin area</p></div>
