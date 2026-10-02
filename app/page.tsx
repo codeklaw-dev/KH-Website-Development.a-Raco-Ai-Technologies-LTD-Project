@@ -26,7 +26,7 @@ export default function Home() {
         <a className="hero-scroll" href="#legacy">Explore <span>↓︎</span></a>
       </HeroBuild>
 
-      <LegacyScroll />
+      {/* <LegacyScroll /> */}
 
       <section className="decision" id="choose">
         <video className="decision-video" autoPlay muted loop playsInline preload="metadata" aria-hidden="true"><source media="(max-width: 820px)" src="/assets/decision-route-video-mobile-59b450c1.mp4" type="video/mp4" /><source src="/assets/decision-route-video.mp4" type="video/mp4" /></video>
