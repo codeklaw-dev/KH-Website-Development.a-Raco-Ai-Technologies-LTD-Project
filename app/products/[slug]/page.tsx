@@ -6,6 +6,7 @@ import { ProductRangeNav } from "../../components/ProductRangeNav";
 import { ProductAddToEnquiry } from "../../components/ProductAddToEnquiry";
 import { PartnerLogoRail } from "../../components/PartnerLogoRail";
 import { getProductRange, productRanges } from "../productData";
+import { absoluteUrl, pageMetadata } from "../../seo";
 
 type ProductPageProps = { params: Promise<{ slug: string }> };
 
@@ -16,10 +17,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
   const product = getProductRange((await params).slug);
   if (!product) return {};
-  return {
-    title: `${product.title} | KH Wood Iraq`,
-    description: `${product.copy} Discuss specifications, volume, availability, and delivery with KH Wood.`,
-  };
+  return pageMetadata(`${product.title} | KH Wood Iraq`, `${product.copy} Discuss specifications, volume, availability, and delivery with KH Wood.`, `/products/${product.slug}`);
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
@@ -28,6 +26,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   return (
     <SiteShell active="products">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Products", item: absoluteUrl("/products") },
+          { "@type": "ListItem", position: 2, name: product.title, item: absoluteUrl(`/products/${product.slug}`) },
+        ],
+      }) }} />
       <article className={`product-detail detail-${product.theme}`}>
         <ProductRangeNav ranges={productRanges} current={product.slug} />
 

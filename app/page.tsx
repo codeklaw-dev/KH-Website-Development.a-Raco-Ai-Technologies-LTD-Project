@@ -3,15 +3,24 @@ import { LegacyScroll } from "./components/LegacyScroll";
 import { PartnerLogoRail } from "./components/PartnerLogoRail";
 import { HeroBuild } from "./components/HeroBuild";
 import Link from "next/link";
+import { absoluteUrl, pageMetadata } from "./seo";
 
-export const metadata = {
-  title: "KH Wood | Wood Supply & Market Access in Iraq",
-  description: "Principal-led timber and construction supply for Iraqi projects, plus proven market access for international manufacturers.",
-};
+export const metadata = pageMetadata(
+  "KH Wood | Wood Supply & Market Access in Iraq",
+  "Principal-led timber and construction supply for Iraqi projects, plus proven market access for international manufacturers.",
+  "/",
+);
 
 export default function Home() {
   return (
     <SiteShell>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: "KH Wood",
+        url: absoluteUrl("/"),
+        logo: absoluteUrl("/assets/kh-logo.png"),
+      }) }} />
       <HeroBuild>
         <div className="home-hero-content hero-build-copy">
           <p className="eyebrow">Iraq &amp; Jordan · Principal-led supply</p>

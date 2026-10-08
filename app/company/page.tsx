@@ -1,10 +1,8 @@
 import { SiteShell } from "../components/SiteShell";
 import Link from "next/link";
+import { pageMetadata } from "../seo";
 
-export const metadata = {
-  title: "Our Company | KH Wood",
-  description: "KH Wood's heritage, leadership, values, and operating presence across Iraq and Jordan.",
-};
+export const metadata = pageMetadata("Our Company | KH Wood", "KH Wood's heritage, leadership, values, and operating presence across Iraq and Jordan.", "/company");
 
 const leaders = [
   ["Amer Khodeer", "Co-Founder", "Asian supplier relationships and business development"],

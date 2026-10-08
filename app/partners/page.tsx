@@ -4,11 +4,9 @@ import { KhMonogram } from "../components/KhMonogram";
 import { PartnerLogoRail } from "../components/PartnerLogoRail";
 import { MarketSignals, MarketSignalsSkeleton } from "../components/MarketSignals";
 import Link from "next/link";
+import { pageMetadata } from "../seo";
 
-export const metadata = {
-  title: "Enter the Iraqi Market | KH Wood Partnerships",
-  description: "Local representation, import coordination, stocking, and market development for international manufacturers entering Iraq.",
-};
+export const metadata = pageMetadata("Enter the Iraqi Market | KH Wood Partnerships", "Local representation, import coordination, stocking, and market development for international manufacturers entering Iraq.", "/partners");
 
 export default function PartnersPage() {
   return (
