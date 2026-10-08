@@ -1,11 +1,9 @@
 import { SiteShell } from "../components/SiteShell";
 import { PartnerLogoRail } from "../components/PartnerLogoRail";
 import Link from "next/link";
+import { pageMetadata } from "../seo";
 
-export const metadata = {
-  title: "Franchise Opportunities | Carry the KH Wood Name",
-  description: "Take a KH Wood franchise in your territory: international brands, stocked yards behind you, and a principal-led partner with decades in the Iraqi wood trade.",
-};
+export const metadata = pageMetadata("Franchise Opportunities | Carry the KH Wood Name", "Take a KH Wood franchise in your territory: international brands, stocked yards behind you, and a principal-led partner with decades in the Iraqi wood trade.", "/franchise");
 
 export default function FranchisePage() {
   return (

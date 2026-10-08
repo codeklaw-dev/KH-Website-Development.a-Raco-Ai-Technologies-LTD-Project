@@ -1,21 +1,10 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import { EnquiryProvider } from "./components/EnquiryCart";
+import { SITE_URL } from "./seo";
 import "./globals.css";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const requestHeaders = await headers();
-  const host =
-    requestHeaders.get("x-forwarded-host") ||
-    requestHeaders.get("host") ||
-    "khwood.example";
-  const protocol =
-    requestHeaders.get("x-forwarded-proto") ||
-    (host.includes("localhost") ? "http" : "https");
-  const origin = `${protocol}://${host}`;
-
-  return {
-    metadataBase: new URL(origin),
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
     title: "KH Wood | Iraq's Trusted Wood Supply & Market Partner",
     description:
       "Principal-led timber and construction supply for Iraqi projects, plus proven market access for international manufacturers.",
@@ -38,9 +27,9 @@ export async function generateMetadata(): Promise<Metadata> {
       type: "website",
       images: [
         {
-          url: `${origin}/og-v2.png`,
-          width: 1734,
-          height: 905,
+          url: `${SITE_URL}/og-v2.png`,
+          width: 1731,
+          height: 909,
           alt: "KH Wood — Iraq's trusted wood supply partner",
         },
       ],
@@ -50,10 +39,9 @@ export async function generateMetadata(): Promise<Metadata> {
       title: "KH Wood | Iraq's Trusted Wood Supply & Market Partner",
       description:
         "For projects at home. For partners around the world.",
-      images: [`${origin}/og-v2.png`],
+      images: [`${SITE_URL}/og-v2.png`],
     },
-  };
-}
+};
 
 export default function RootLayout({
   children,

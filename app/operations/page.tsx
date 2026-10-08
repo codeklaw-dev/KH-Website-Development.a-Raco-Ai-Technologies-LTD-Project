@@ -1,10 +1,8 @@
 import { SiteShell } from "../components/SiteShell";
 import Link from "next/link";
+import { pageMetadata } from "../seo";
 
-export const metadata = {
-  title: "Storage, Handling & Distribution | KH Wood Operations",
-  description: "See how KH Wood receives, stores, stages, and dispatches high-volume wood supply across Iraq.",
-};
+export const metadata = pageMetadata("Storage, Handling & Distribution | KH Wood Operations", "See how KH Wood receives, stores, stages, and dispatches high-volume wood supply across Iraq.", "/operations");
 
 export default function OperationsPage() {
   return (

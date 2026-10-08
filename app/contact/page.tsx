@@ -1,9 +1,7 @@
 import { ContactForm, SiteShell } from "../components/SiteShell";
+import { pageMetadata } from "../seo";
 
-export const metadata = {
-  title: "Contact KH Wood | Product & Partnership Enquiries",
-  description: "Contact KH Wood about product supply, project requirements, agency representation, or international partnerships.",
-};
+export const metadata = pageMetadata("Contact KH Wood | Product & Partnership Enquiries", "Contact KH Wood about product supply, project requirements, agency representation, or international partnerships.", "/contact");
 
 export default function ContactPage() {
   return (

@@ -1,91 +1,65 @@
 import assert from "node:assert/strict";
-import { access, readFile, readdir } from "node:fs/promises";
+import { readdir } from "node:fs/promises";
 import test from "node:test";
 
-const developmentPreviewMeta =
-  /<meta(?=[^>]*\bname=["']codex-preview["'])(?=[^>]*\bcontent=["']development["'])[^>]*>/i;
-const templateRoot = new URL("../", import.meta.url);
-const previewRoot = new URL("../app/_sites-preview/", import.meta.url);
+const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
+const { default: worker } = await import(workerUrl.href);
 
-async function render() {
-  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
-  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
-  const { default: worker } = await import(workerUrl.href);
-
+function request(path, host = "khodeer.com") {
   return worker.fetch(
-    new Request("http://localhost/", {
-      headers: { accept: "text/html" },
-    }),
-    {
-      ASSETS: {
-        fetch: async () => new Response("Not found", { status: 404 }),
-      },
-    },
-    {
-      waitUntil() {},
-      passThroughOnException() {},
-    },
+    new Request(`https://${host}${path}`),
+    { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
+    { waitUntil() {}, passThroughOnException() {} },
   );
 }
 
-test("server-renders the starter loading skeleton", async () => {
-  const response = await render();
-  assert.equal(response.status, 200);
-  assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
+test("public routes render unique canonical URLs and page headings", async () => {
+  const routes = [
+    "/", "/company", "/products", "/products/wood-timber", "/products/panels-boards",
+    "/products/project-materials", "/products/bulk-requirements", "/products/agency-representation",
+    "/partners", "/franchise", "/operations", "/contact",
+  ];
 
-  const html = await response.text();
-  assert.match(html, developmentPreviewMeta);
-  assert.match(html, /<title>Your site is taking shape<\/title>/i);
-  assert.match(html, /Building your site/);
-  assert.match(html, /Your site is taking shape/);
-  assert.match(
-    html,
-    /Your first version will appear here automatically when it’s ready\./,
-  );
-  assert.doesNotMatch(html, /Codex/);
-  assert.match(html, /react-loading-skeleton/);
-  assert.match(html, /role="status"/);
+  for (const path of routes) {
+    const response = await request(path);
+    assert.equal(response.status, 200, path);
+    const html = await response.text();
+    assert.match(html, /<title>[^<]+<\/title>/, path);
+    assert.equal((html.match(/<h1\b/g) ?? []).length, 1, path);
+    assert.match(html, new RegExp(`<link rel="canonical" href="https://khodeer\\.com${path}"\\/>`), path);
+    assert.doesNotMatch(html, /<meta[^>]+name="robots"[^>]+content="noindex"/, path);
+  }
 });
 
-test("keeps the loading skeleton scoped and disposable", async () => {
-  const [preview, css, page, layout, packageJson, files] = await Promise.all([
-    readFile(new URL("SkeletonPreview.tsx", previewRoot), "utf8"),
-    readFile(new URL("preview.css", previewRoot), "utf8"),
-    readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../package.json", import.meta.url), "utf8"),
-    readdir(previewRoot),
-  ]);
+test("product gallery images exist and use descriptive alternative text", async () => {
+  const html = await (await request("/products")).text();
+  const images = [...html.matchAll(/<img[^>]+src="\/assets\/product-gallery\/([^"]+)"[^>]*>/g)];
+  assert.equal(images.length, 12);
+  assert.ok(images.every(([tag]) => /alt="[^"]+"/.test(tag) && /loading="lazy"/.test(tag)));
+  const files = await readdir(new URL("../public/assets/product-gallery/", import.meta.url));
+  assert.ok(images.every(([, name]) => files.includes(name)));
+});
 
-  assert.deepEqual(files.sort(), ["SkeletonPreview.tsx", "preview.css"]);
-  assert.match(preview, /from "react-loading-skeleton"/);
-  assert.match(preview, /baseColor="#eceae7"/);
-  assert.match(preview, /highlightColor="#f9f8f6"/);
-  assert.match(preview, /duration=\{2\.8\}/);
-  assert.match(preview, /sites-skeleton-search-placeholder/);
-  assert.match(packageJson, /"react-loading-skeleton": "3\.5\.0"/);
+test("robots, sitemap, structured data, and preferred host are ready for crawling", async () => {
+  const robots = await request("/robots.txt");
+  assert.equal(robots.status, 200);
+  assert.match(robots.headers.get("content-type") ?? "", /^text\/plain/);
+  assert.match(await robots.text(), /Sitemap: https:\/\/khodeer\.com\/sitemap\.xml/);
 
-  const shellIndex = preview.indexOf('className="sites-skeleton-shell"');
-  const statusIndex = preview.indexOf('className="sites-skeleton-status"');
-  assert.ok(shellIndex >= 0 && statusIndex > shellIndex);
-  assert.match(css, /position:\s*fixed/);
-  assert.match(css, /inset:\s*0/);
-  assert.match(css, /opacity:\s*0\.52/);
-  assert.match(css, /prefers-reduced-motion:\s*reduce/);
-  assert.doesNotMatch(css, /#020617|canvas|pets|progress/i);
-  assert.doesNotMatch(
-    preview,
-    /loading-spinner|status-mark|status-progress|canvas|cookie|random/i,
-  );
+  const sitemap = await request("/sitemap.xml");
+  assert.equal(sitemap.status, 200);
+  assert.match(sitemap.headers.get("content-type") ?? "", /^application\/xml/);
+  const xml = await sitemap.text();
+  assert.equal((xml.match(/<loc>/g) ?? []).length, 12);
+  assert.doesNotMatch(xml, /www\.khodeer\.com|localhost|404/);
 
-  assert.match(page, /export const metadata:\s*Metadata/);
-  assert.match(page, /"codex-preview": "development"/);
-  assert.match(page, /<SkeletonPreview \/>/);
-  assert.match(layout, /title:\s*"Starter Project"/);
-  assert.doesNotMatch(layout, /codex-preview|_sites-preview|themeColor|\bViewport\b/);
-  assert.doesNotMatch(css, /(^|\s)(html|body)\s*\{/m);
+  const home = await (await request("/")).text();
+  assert.match(home, /"@type":"Organization"/);
+  const product = await (await request("/products/wood-timber")).text();
+  assert.match(product, /"@type":"BreadcrumbList"/);
 
-  await assert.rejects(
-    access(new URL("public/_sites-preview", templateRoot)),
-  );
+  const redirect = await request("/products?source=test", "www.khodeer.com");
+  assert.equal(redirect.status, 308);
+  assert.equal(redirect.headers.get("location"), "https://khodeer.com/products?source=test");
 });
